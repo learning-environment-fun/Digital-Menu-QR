@@ -1,107 +1,60 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+p "Felele is cleaning the database."
+Restaurant.delete_all
+Item.delete_all
+Order.delete_all
+
+p "Welcome the seed"
 
 
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended that you check this file into your version control system.
+luigi = Restaurant.create!(
+  name: "Risotrante Luigi eeehhhhh👌"
+  address: "Calle Italia, 69, Germany"
+  )
 
-pasta = Item.create(
-	name: "Carbonara",
+pasta = Item.create!(
+	name: "Appetizer Carbonara",
 	description: "Carbonara is an Italian pasta dish from Rome made with egg, hard cheese, guanciale, and black pepper. The dish arrived at its modern form, with its current name, in the middle of the 20th century. The cheese is usually Pecorino Romano, Parmigiano-Reggiano, or a combination of the two. Spaghetti is the most common pasta, but fettuccine, rigatoni, linguine, or bucatini are also used.",
 	price: 14,
-	type: "food_main",
-	image: 
+	type: "food_app",
+	image: XXXXXXXXXXXXXXXX,
+  restaurant_id: Restaurant.last
 	)
 
+tiramisu = Item.create!(
+  name: "Tiramisu",
+  description: "An Italian dessert consisting of layers of sponge cake soaked in coffee and brandy or liqueur with powdered chocolate and mascarpone cheese.",
+  price: 8,
+  type: "food_dessert",
+  image: XXXXXXXXXXXXXXXX,
+  restaurant_id: Restaurant.last
+  )
 
+risotto = Item.create!(
+  name: "Risotto",
+  description: "Risotto is a northern Italian rice dish cooked with broth until it reaches a creamy consistency. The broth can be derived from meat, fish, or vegetables. Many types of risotto contain butter, onion, white wine, and parmesan cheese.",
+  price: 17,
+  type: "food_main",
+  image: XXXXXXXXXXXXXXXX
+  restaurant_id: Restaurant.last
+  )
 
-ActiveRecord::Schema.define(version: 2019_07_23_091706) do
+gelato = Item.create!(
+  name: "Gelato",
+  description: "Gelato is a popular frozen dessert of Italian origin. It is generally made with a base of 3.25percent milk and sugar. It is generally lower in fat than other styles of frozen desserts. Gelato typically contains 70percent less air and more flavoring than other kinds of frozen desserts, giving it a density and richness that distinguishes it from other ice creams.",
+  price: 8,
+  type: "food_dessert",
+  image: XXXXXXXXXXXXXXXX
+  restaurant_id: Restaurant.last
+  )
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+wine = Item.create!(
+  name: "Wine",
+  description: "Grape Juice for adults. Its wine. Red. Maybe White. Bruuuuv",
+  price: 9,
+  type: "drink",
+  image: XXXXXXXXXXXXXXXX
+  restaurant_id: Restaurant.last
+  )
 
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "price"
-    t.string "type"
-    t.string "image"
-    t.bigint "restaurant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_items_on_restaurant_id"
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "order_id"
-    t.integer "quantity"
-    t.integer "item_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_order_items_on_item_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "kitchen_status"
-    t.integer "transaction_price"
-    t.string "transaction_status"
-    t.string "transaction_type"
-    t.bigint "table_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["table_id"], name: "index_orders_on_table_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tables", force: :cascade do |t|
-    t.bigint "restaurant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "photo"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  add_foreign_key "items", "restaurants"
-  add_foreign_key "order_items", "items"
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "orders", "tables"
-  add_foreign_key "orders", "users"
-  add_foreign_key "tables", "restaurants"
-end
+p "Busted my seed.... Complete"
