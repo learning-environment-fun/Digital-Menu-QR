@@ -1,23 +1,24 @@
-
-
 .item-image {
     height: 30vh;
     width: 100%;
     position: relative;
     // background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
-
-    i {
+}
+    .item-backicon {
+        width: 45px;
+        height: 45px;
         padding: 30px;
-        color: white;
+        background: #D4D4D4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
         font-size: 20px;
-
-        &:hover {
-            opacity: 0.7;
-        }
     }
 
-}
+
+
 
 
 .item-details {
@@ -33,11 +34,15 @@
     width: 45px;
     height: 45px;
     color: black;
-    font-size: 25px;
+    font-size: 15px;
     background: #F4F4F4;
     border: 1px solid #D4D4D4;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
 
 //  three buttons with the amount:
 
@@ -52,9 +57,9 @@
 }
 
 .item-amount {
-  display: flex;
-  justify-content: space-between;
-  width: 40%;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
 }
 
 
@@ -66,13 +71,18 @@
     color: black;
     font-size: 25px;
     background: #D4D4D4;
-    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item-amount-display {
 
+
     color: black;
     font-size: 25px;
+
 }
 
 .item-amount-greater {
@@ -82,7 +92,9 @@
     color: black;
     font-size: 25px;
     background: #C4C4C4;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         background: #D4D4D4;
@@ -96,4 +108,3 @@
     display: flex;
     justify-content: space-around;
 }
-
