@@ -1,0 +1,87 @@
+
+
+.item-image {
+    height: 30vh;
+    width: 100%;
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+
+    i {
+        padding: 30px;
+        color: white;
+        font-size: 20px;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+}
+
+
+.item-details {
+    position: relative;
+    margin: 20px 0px;
+}
+
+.item-shoppingcard {
+    position: absolute;
+    top: -44px;
+    right: 35px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: black;
+    font-size: 25px;
+    background: #F4F4F4;
+    border: 1px solid #D4D4D4;
+    text-align: center;
+}
+
+//  three buttons with the amount:
+
+.item-amount {
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    //align-items: flex-end;
+    height: 5vh;
+    width: 40%;
+}
+
+
+.item-amount-smaller {
+
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: black;
+    font-size: 25px;
+    background: #D4D4D4;
+    text-align: center;
+}
+
+.item-amount-greater {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: black;
+    font-size: 25px;
+    background: #C4C4C4;
+    text-align: center;
+
+    &:hover {
+        background: #D4D4D4;
+    }
+}
+
+.item-hr {}
+
+.item-menu {
+    margin: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.item-buttons-order {}
