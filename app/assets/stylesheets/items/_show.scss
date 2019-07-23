@@ -1,0 +1,110 @@
+.item-image {
+    height: 30vh;
+    width: 100%;
+    position: relative;
+    // background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+}
+    .item-backicon {
+        width: 45px;
+        height: 45px;
+        padding: 30px;
+        background: #D4D4D4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 20px;
+    }
+
+
+
+
+
+.item-details {
+    position: relative;
+    margin: 20px 0px;
+}
+
+.item-shoppingcard {
+    position: absolute;
+    top: -44px;
+    right: 35px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: black;
+    font-size: 15px;
+    background: #F4F4F4;
+    border: 1px solid #D4D4D4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+//  three buttons with the amount:
+
+.item-amount-buttons {
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    //align-items: flex-end;
+    height: 5vh;
+    align-items: center;
+
+}
+
+.item-amount {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+
+.item-amount-smaller {
+
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: black;
+    font-size: 25px;
+    background: #D4D4D4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-amount-display {
+
+
+    color: black;
+    font-size: 25px;
+
+}
+
+.item-amount-greater {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: black;
+    font-size: 25px;
+    background: #C4C4C4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: #D4D4D4;
+    }
+}
+
+.item-hr {}
+
+.item-menu {
+    margin: 20px 0px 30px 0px;
+    display: flex;
+    justify-content: space-around;
+}
