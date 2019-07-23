@@ -1,19 +1,51 @@
 <div class="body">
     <div class="banner">
-        <h1>This is my banner image</h1>
+        <h1>This is my banner</h1>
     </div>
-    <div class="filter">
-        <h1>These are my filters</h1>
+    <div class="tabs">
+        <div class="bar-flex w3-bar w3-black">
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'London')">Appetizer</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Food</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Tokyo')">Drink</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'NewYork')">Specials</button>
+        </div>
+        <div id="London" class="w3-container city" style="display:block">
+            <h1>Text1</h1>
+        </div>
+        <div id="Paris" class="w3-container city" style="display:none">
+            <h1>Text2</h1>
+        </div>
+        <div id="Tokyo" class="w3-container city" style="display:none">
+            <h1>Text3</h1>
+        </div>
+        <div id="NewYork" class="w3-container city" style="display:none">
+          <div class="cards">
+              <div class="card-product">
+                  <div class="card-food-image">
+                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  </div>
+                  <div class="card-food-infos">
+                      <h3>Product name</h3>
+                      <p>Product description with <strong>relevant info</strong> only.</p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <script>
+        function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-border-blue", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.firstElementChild.className += " w3-border-blue";
+        }
+        </script>
     </div>
-    <div class="cards">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-            Breakfast
-        </div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-            Lunch
-        </div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-            Dinner
-        </div>
-    </div>
+</div>
 </div>
