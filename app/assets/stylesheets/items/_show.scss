@@ -4,7 +4,7 @@
     height: 30vh;
     width: 100%;
     position: relative;
-    background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    // background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
 
     i {
@@ -41,13 +41,20 @@
 
 //  three buttons with the amount:
 
-.item-amount {
+.item-amount-buttons {
     margin: 30px 0px;
     display: flex;
     justify-content: space-between;
     //align-items: flex-end;
     height: 5vh;
-    width: 40%;
+    align-items: center;
+
+}
+
+.item-amount {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
 }
 
 
@@ -60,6 +67,12 @@
     font-size: 25px;
     background: #D4D4D4;
     text-align: center;
+}
+
+.item-amount-display {
+
+    color: black;
+    font-size: 25px;
 }
 
 .item-amount-greater {
@@ -79,9 +92,8 @@
 .item-hr {}
 
 .item-menu {
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 30px 0px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-.item-buttons-order {}

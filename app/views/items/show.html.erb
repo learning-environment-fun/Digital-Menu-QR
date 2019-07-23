@@ -1,5 +1,5 @@
 <!-- Image of the meal -->
-<div class="item-image">
+<div class="item-image" style="background-image: url('<%= cl_image_path @item.image %>')">
     <i class="fas fa-long-arrow-alt-left"></i>
 </div>
 <!-- Description of the meal -->
@@ -9,12 +9,13 @@
             <!-- <p>1</p> -->
             <i class="fas fa-shopping-cart"></i>
         </div>
-      <h1> <%= Item.find[:id].name%> </h1>
+      <h1> <%= @item.name%> </h1>
        <p> <%= @item.description %> </p>
 
     </div>
     <!-- Amount of the meal -->
-    <div class="item-amount">
+    <div class="item-amount-buttons">
+      <div class="item-amount">
         <div class="item-amount-smaller">
             <%= link_to '-', restaurant_item_path %>
         </div>
@@ -24,16 +25,20 @@
         <div class="item-amount-greater">
             <%= link_to '+', restaurant_item_path %>
         </div>
-        <div class="item-price">
-        <h2> <%=@item.price %> </h2>
-        </div>
     </div>
+    <div class="item-price">
+        <h2> <%=@item.price %> € </h2>
+        </div>
+  </div>
+
+
+
     <!-- order menu -->
     <hr class="item-hr mt-20">
     <div class="item-menu">
-        <div class="item-buttons-order">
+
             <%= link_to 'Add to Basket', restaurant_item_path, class:"btn btn-primary"%>
             <%= link_to 'Place Order', restaurant_item_path, class:"btn btn-primary"%>
-        </div>
+
     </div>
 </div>
