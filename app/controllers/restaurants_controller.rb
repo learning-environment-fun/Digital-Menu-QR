@@ -1,9 +1,8 @@
 class RestaurantsController < ApplicationController
 
   def show
-    @restaurants = Restaurant.all
+    @restaurant = Restaurant.find(params[:id])
     @items = Item.all
-
 
     @menu = @items.where(restaurant_id: params[:id])
     @appetizer = @menu.where(food_type: "food_app")

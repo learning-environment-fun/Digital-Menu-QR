@@ -1,5 +1,9 @@
 <div class="body">
-    <div class="banner">
+  <% if @restaurant.image.present? %>
+    <div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');">
+  <% else %>
+    <div class="no_header-image">
+  <% end %>
     </div>
     <div>
         <div class="bar-flex w3-bar w3-black">
@@ -11,7 +15,9 @@
         </div>
         <div id="London" class="w3-container city" style="display:block">
             <% @appetizer.each do |item| %>
+            <%= link_to restaurant_item_path(item) do %>
             <div class="card-product">
+
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
               </div>
@@ -26,6 +32,7 @@
                 <%#= @restaurants %>
               </div>
             </div>
+            <% end %>
             <% end %>
         </div>
         <div id="Paris" class="w3-container city" style="display:none">
