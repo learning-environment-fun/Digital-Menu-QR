@@ -13,4 +13,7 @@ class RestaurantsController < ApplicationController
     # @special = @menu.where(food_type: "")
   end
 
+  def menu
+  	@items = Item.where(id_restaurant: params[:id])
+  end
 end

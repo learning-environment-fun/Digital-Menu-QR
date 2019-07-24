@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 # restaurants/1
 resources :restaurants, only: [:show] do
 
+   member do                             # member => restaurant id in URL
+      get 'menu'                          # RestaurantsController#chef
+    end
+
   #display a specific item
   # restaurants/1/items/:id
   resources :items, only: [:show]
