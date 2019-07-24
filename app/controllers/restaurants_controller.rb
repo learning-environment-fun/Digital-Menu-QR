@@ -4,4 +4,7 @@ class RestaurantsController < ApplicationController
     @menu = Item.where(id_restaurant: params[:id])
   end
 
+  def menu
+  	@items = Item.where(id_restaurant: params[:id])
+  end
 end

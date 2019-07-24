@@ -8,7 +8,8 @@ p "We are now going to seed"
 
 Restaurant.create!(
   name: "Luigi",
-  address: "Calle Italia, 69, Germany"
+  address: "Calle Italia, 69, Germany",
+  remote_restaurant_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/b068ce0e08159aece78342fc895919dc_jr6mrn.jpg"
   )
 
 pasta = Item.create!(
