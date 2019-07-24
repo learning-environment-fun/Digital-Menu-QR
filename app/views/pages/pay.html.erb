@@ -6,39 +6,8 @@
 
     <div class="container">
 
-        <form class="payment-method-form">
-            <div class="radio">
-                <label>
-                    <input class="align-text-bottom" type="radio" name="optionsRadios" id="optionsRadiosApplePay" value="Apple Pay" checked>
-                    Apple Pay
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadiosCreditCard" value="Credit Card">
-                    Credit Card
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadiosPayPal" value="PayPal">
-                    PayPal
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadiosCash" value="Cash">
-                    Cash
-                </label>
-            </div>
-
-        </form>
-        <div>
-            <button type="button" class="btn btn-raised btn-secondary">Split the Bill</button>
-        </div>
-
-        <h3>Leave an optional gratuity</h3>
-        <div class="gratuity-form">
+        <h4>Leave an optional gratuity</h4>
+        <div class="gratuity-form mb-4">
             <span class="gratuity-buttons">
                 <button type="button" class="btn btn-secondary bmd-btn-fab">
                     <i class="material-icons">remove</i>
@@ -49,6 +18,53 @@
                 </button>
             </span>
             <h3 class="gratuity-total">$<%= @cart_props[:gratuity] %></h3>
+        </div>
+
+        <h4>Pick a payment method</h4>
+
+        <form class="payment-method-form">
+            <label class="rad">
+                <input type="radio" name="rad1" value="apple_pay">
+                <i class="fab fa-cc-apple-pay"></i>
+            </label>
+            <label class="rad">
+                <input type="radio" name="rad1" value="paypal">
+                <i class="fab fa-cc-paypal"></i>
+            </label>
+            <label class="rad">
+                <input type="radio" name="rad1" value="credit_card">
+                <i class="fas fa-credit-card"></i>
+            </label>
+            <label class="rad">
+                <input type="radio" name="rad1" value="cash">
+                <i class="fas fa-money-bill-wave"></i>
+            </label>
+        </form>
+
+
+        <form class="bmd-form-group">
+            <!-- bmd-collapse-inline pull-xs-right"> -->
+            <div class="switch">
+                <label>
+                    <input type="checkbox" for="search" data-toggle="collapse" data-target="#collapse-search"
+                        aria-expanded="false" aria-controls="collapse-search">
+                    Split the bill?
+                </label>
+            </div>
+            <span id="collapse-search" class="collapse">
+                <input class="form-control" type="text" id="search" placeholder="Copayer's email">
+            </span>
+        </form>
+        <div class="payment-split-settings pl-3">
+
+            <form>
+                <div class="switch">
+                    <label>
+                        <input type="checkbox">
+                        Split the bill?
+                    </label>
+                </div>
+            </form>
         </div>
 
     </div>
@@ -89,6 +105,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', (_event) => {
-
+        
     });
 </script>

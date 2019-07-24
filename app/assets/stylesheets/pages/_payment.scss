@@ -19,8 +19,11 @@
 }
 
 .payment-page .payment-method-form {
+    display: flex;
+    justify-content: center;
+
     label {
         line-height: 1; // correctly aligns radio buttons
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem 1rem;
     }
 }

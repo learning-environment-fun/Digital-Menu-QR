@@ -58,4 +58,15 @@
             }
         }
     }
+
+    .bmd-form-group {
+        /*.collapse.show {
+            visibility: visible;
+        }*/
+    }
+}
+
+.side-by-side-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }

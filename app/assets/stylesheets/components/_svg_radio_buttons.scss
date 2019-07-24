@@ -1,0 +1,72 @@
+/* CUSTOM RADIO & CHECKBOXES
+   http://stackoverflow.com/a/17541916/383904 */
+.rad,
+.ckb {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    font-size: 3rem;
+}
+
+.rad>input,
+.ckb>input {
+    /* HIDE ORG RADIO & CHECKBOX */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* RADIO & CHECKBOX STYLES */
+/* DEFAULT <i> STYLE */
+.rad>i,
+.ckb>i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4rem;
+    height: 4rem;
+    //border-radius: 50%;
+    transition: 0.2s;
+    //box-shadow: inset 0 0 0 8px #fff;
+    //border: 1px solid gray;
+    //background: gray;
+    color: $material-bootstrap-secondary;
+}
+
+/* CHECKBOX OVERWRITE STYLES */
+.ckb>i {
+    width: 25px;
+    border-radius: 3px;
+}
+
+.rad:hover>i {
+    /* HOVER <i> STYLE */
+    //box-shadow: inset 0 0 0 3px #fff;
+    // background: gray;
+}
+
+.rad>input:checked+i {
+    /* (RADIO CHECKED) <i> STYLE */
+    // box-shadow: inset 0 0 0 3px #fff;
+    // background: orange;
+    color: $material-bootstrap-primary;
+}
+
+/* CHECKBOX */
+.ckb>input+i:after {
+    content: "";
+    display: block;
+    height: 12px;
+    width: 12px;
+    margin: 2px;
+    border-radius: inherit;
+    transition: inherit;
+    background: gray;
+}
+
+.ckb>input:checked+i:after {
+    /* (RADIO CHECKED) <i> STYLE */
+    margin-left: 11px;
+    background: orange;
+}
