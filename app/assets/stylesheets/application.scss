@@ -4,7 +4,8 @@
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap/scss/bootstrap";
+// @import "bootstrap/scss/functions";
+@import "bootstrap-material-design/scss/bootstrap-material-design";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -19,4 +20,3 @@
 
 // Restaurant CSS partials
 @import "restaurants/index";
-
