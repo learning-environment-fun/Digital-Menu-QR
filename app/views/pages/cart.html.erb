@@ -1,0 +1,7 @@
+<% @cart_props[:items].each do |item| %>
+    <li><%= "#{item.title}, $#{item.dollars}" %>
+<% end %>
+
+<h2>
+$<%= @cart_props[:total] %>
+</h2>
