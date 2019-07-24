@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
   has_many :tables
+  has_many :items
 
   # Presence
   validates :name, presence: true
