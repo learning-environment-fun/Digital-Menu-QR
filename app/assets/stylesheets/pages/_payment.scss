@@ -17,3 +17,10 @@
         display: flex;
     }
 }
+
+.payment-page .payment-method-form {
+    label {
+        line-height: 1; // correctly aligns radio buttons
+        margin-bottom: 0.5rem;
+    }
+}

@@ -6,23 +6,39 @@
 
     <div class="container">
 
-        <div class="btn-group payment-method-buttons">
-            <button class="btn dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Dropdown
-            </button>
-            <div class="dropdown-menu" aria-labelledby="buttonMenu1">
-                <a class="dropdown-item" href="#">Apple Pay</a>
-                <a class="dropdown-item" href="#">Credit Card</a>
-                <a class="dropdown-item" href="#">PayPal</a>
-                <a class="dropdown-item" href="#">Cash</a>
+        <form class="payment-method-form">
+            <div class="radio">
+                <label>
+                    <input class="align-text-bottom" type="radio" name="optionsRadios" id="optionsRadiosApplePay" value="Apple Pay" checked>
+                    Apple Pay
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadiosCreditCard" value="Credit Card">
+                    Credit Card
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadiosPayPal" value="PayPal">
+                    PayPal
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadiosCash" value="Cash">
+                    Cash
+                </label>
             </div>
 
+        </form>
+        <div>
             <button type="button" class="btn btn-raised btn-secondary">Split the Bill</button>
         </div>
 
         <h3>Leave an optional gratuity</h3>
-        <div class="gratuity-form">    
+        <div class="gratuity-form">
             <span class="gratuity-buttons">
                 <button type="button" class="btn btn-secondary bmd-btn-fab">
                     <i class="material-icons">remove</i>
