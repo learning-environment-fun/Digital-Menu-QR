@@ -7,40 +7,85 @@
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'London')">Appetizer</button>
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Food</button>
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Tokyo')">Drink</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'NewYork')">Dessert</button>
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'NewYork')">Specials</button>
         </div>
         <div id="London" class="w3-container city" style="display:block">
+            <% @appetizer.each do |item| %>
             <div class="card-product">
-                <div class="card-food-image">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-food-image">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              </div>
+              <div class="card-food-infos">
+                <div>
+                  <p> <%= item.name %> </p>
                 </div>
-                <div class="card-food-infos">
-                    <h3>Appetizer name</h3>
-                    <p>Product description with <strong>relevant info</strong> only.</p>
+                <div class="price-flex">
+                   <p>$<%= item.price %> </p>
                 </div>
+                <%#= @menu %>
+                <%#= @restaurants %>
+              </div>
             </div>
+            <% end %>
         </div>
         <div id="Paris" class="w3-container city" style="display:none">
+             <% @food.each do |item| %>
             <div class="card-product">
-                <div class="card-food-image">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-food-image">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              </div>
+              <div class="card-food-infos">
+                <div>
+                  <p> <%= item.name %> </p>
                 </div>
-                <div class="card-food-infos">
-                    <h3>Food name</h3>
-                    <p>Product description with <strong>relevant info</strong> only.</p>
+                <div class="price-flex">
+                   <p>$<%= item.price %> </p>
                 </div>
+                <%#= @menu %>
+                <%#= @restaurants %>
+              </div>
             </div>
+            <% end %>
         </div>
         <div id="Tokyo" class="w3-container city" style="display:none">
+              <% @drink.each do |item| %>
             <div class="card-product">
-                <div class="card-food-image">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-food-image">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              </div>
+              <div class="card-food-infos">
+                <div>
+                  <p> <%= item.name %> </p>
                 </div>
-                <div class="card-food-infos">
-                    <h3>Drink name</h3>
-                    <p>Product description with <strong>relevant info</strong> only.</p>
+                <div class="price-flex">
+                   <p>$<%= item.price %> </p>
                 </div>
+                <%#= @menu %>
+                <%#= @restaurants %>
+              </div>
             </div>
+            <% end %>
+        </div>
+        <div id="NewYork" class="w3-container city" style="display:none">
+            <% @dessert.each do |item| %>
+
+            <div class="card-product">
+              <div class="card-food-image">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              </div>
+              <div class="card-food-infos">
+                <div>
+                  <p> <%= item.name %> </p>
+                </div>
+                <div class="price-flex">
+                   <p>$<%= item.price %> </p>
+                </div>
+                <%#= @menu %>
+                <%#= @restaurants %>
+              </div>
+            </div>
+            <% end %>
         </div>
         <div id="NewYork" class="w3-container city" style="display:none">
             <div class="card-product">
