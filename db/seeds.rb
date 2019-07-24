@@ -12,13 +12,13 @@ Restaurant.create!(
   )
 
 pasta = Item.create!(
-	name: "Appetizer Carbonara",
-	description: "Carbonara is an Italian pasta dish from Rome made with egg, hard cheese, guanciale, and black pepper. The dish arrived at its modern form, with its current name, in the middle of the 20th century. The cheese is usually Pecorino Romano, Parmigiano-Reggiano, or a combination of the two. Spaghetti is the most common pasta, but fettuccine, rigatoni, linguine, or bucatini are also used.",
-	price: 14,
+  name: "Appetizer Carbonara",
+  description: "Carbonara is an Italian pasta dish from Rome made with egg, hard cheese, guanciale, and black pepper. The dish arrived at its modern form, with its current name, in the middle of the 20th century. The cheese is usually Pecorino Romano, Parmigiano-Reggiano, or a combination of the two. Spaghetti is the most common pasta, but fettuccine, rigatoni, linguine, or bucatini are also used.",
+  price: 14,
   food_type: "food_app",
-	remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/pasta-carbonara-horiz-a-1200_xophqp.jpg",
+  remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/pasta-carbonara-horiz-a-1200_xophqp.jpg",
   restaurant_id: Restaurant.last.id
-	)
+  )
 
 tiramisu = Item.create!(
   name: "Tiramisu",

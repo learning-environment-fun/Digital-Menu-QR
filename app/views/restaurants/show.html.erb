@@ -1,24 +1,23 @@
 <div class="body">
     <div class="banner">
-        <h1>This is my banner</h1>
     </div>
-    <div class="tabs">
+    <div>
         <div class="bar-flex w3-bar w3-black">
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'London')">Appetizer</button>
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Food</button>
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Tokyo')">Drink</button>
             <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'NewYork')">Dessert</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'NewYork')">Specials</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Sydney')">Specials</button>
         </div>
         <div id="London" class="w3-container city" style="display:block">
             <% @appetizer.each do |item| %>
             <div class="card-product">
               <div class="card-food-image">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <img src="<%= item.image %>" />
               </div>
               <div class="card-food-infos">
                 <div>
-                  <p> <%= item.name %> </p>
+                  <h5> <%= item.name %> </h5>
                 </div>
                 <div class="price-flex">
                    <p>$<%= item.price %> </p>
@@ -33,11 +32,11 @@
              <% @food.each do |item| %>
             <div class="card-product">
               <div class="card-food-image">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <img src="<%= item.image %>" />
               </div>
               <div class="card-food-infos">
                 <div>
-                  <p> <%= item.name %> </p>
+                  <h5> <%= item.name %> </h5>
                 </div>
                 <div class="price-flex">
                    <p>$<%= item.price %> </p>
@@ -52,11 +51,11 @@
               <% @drink.each do |item| %>
             <div class="card-product">
               <div class="card-food-image">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <img src="<%= item.image %>" />
               </div>
               <div class="card-food-infos">
                 <div>
-                  <p> <%= item.name %> </p>
+                  <h5> <%= item.name %> </h5>
                 </div>
                 <div class="price-flex">
                    <p>$<%= item.price %> </p>
@@ -72,11 +71,11 @@
 
             <div class="card-product">
               <div class="card-food-image">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <img src="<%= item.image %>" />
               </div>
               <div class="card-food-infos">
                 <div>
-                  <p> <%= item.name %> </p>
+                  <h5> <%= item.name %> </h5>
                 </div>
                 <div class="price-flex">
                    <p>$<%= item.price %> </p>
@@ -87,13 +86,13 @@
             </div>
             <% end %>
         </div>
-        <div id="NewYork" class="w3-container city" style="display:none">
+        <div id="Sydney" class="w3-container city" style="display:none">
             <div class="card-product">
                 <div class="card-food-image">
                     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                 </div>
                 <div class="card-food-infos">
-                    <h3>Special name</h3>
+                    <h5>Special name</h5>
                     <p>Product description with <strong>relevant info</strong> only.</p>
                 </div>
             </div>
