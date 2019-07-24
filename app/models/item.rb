@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   belongs_to :restaurant
   belongs_to :order_item
 
+
+
   # Presence of Attributes
   validates :name, presence: true
   validates :description, presence: true
