@@ -37,6 +37,7 @@
         </div>
         <div id="Paris" class="w3-container city" style="display:none">
              <% @food.each do |item| %>
+             <%= link_to restaurant_item_path(item) do %>
             <div class="card-product">
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
@@ -52,10 +53,12 @@
                 <%#= @restaurants %>
               </div>
             </div>
+            <% end %>
             <% end %>
         </div>
         <div id="Tokyo" class="w3-container city" style="display:none">
               <% @drink.each do |item| %>
+              <%= link_to restaurant_item_path(item) do %>
             <div class="card-product">
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
@@ -72,10 +75,11 @@
               </div>
             </div>
             <% end %>
+            <% end %>
         </div>
         <div id="NewYork" class="w3-container city" style="display:none">
             <% @dessert.each do |item| %>
-
+            <%= link_to restaurant_item_path(item) do %>
             <div class="card-product">
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
@@ -91,6 +95,7 @@
                 <%#= @restaurants %>
               </div>
             </div>
+            <% end %>
             <% end %>
         </div>
         <div id="Sydney" class="w3-container city" style="display:none">
