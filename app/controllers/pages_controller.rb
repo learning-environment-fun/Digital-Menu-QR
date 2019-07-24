@@ -19,6 +19,9 @@ class PagesController < ApplicationController
   private 
 
   class DummyItem
+    def dollars 
+      @price.to_f / 100
+    end
     
     def initialize(title = "title", price = 230)
       @title = title
