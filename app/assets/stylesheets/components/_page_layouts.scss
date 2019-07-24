@@ -1,0 +1,61 @@
+.app-page {
+
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+
+    .page-header {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), #d87e7e);
+
+        h1,
+        h2,
+        h3 {
+            margin-left: 1rem;
+        }
+    }
+
+    .page-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding-bottom: 2rem;
+
+        .footer-divider {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+            .order-total-text {
+                color: transparentize($gray, 0.6);
+                font-weight: normal;
+            }
+
+            .order-total-amount {
+                font-weight: bold;
+                text-decoration: underline dotted;
+            }
+        }
+
+        .order-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            :first-child {
+                margin-right: 1rem;
+
+                i {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

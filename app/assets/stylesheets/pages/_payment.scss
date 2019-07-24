@@ -1,0 +1,19 @@
+.payment-page .gratuity-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .gratuity-percentage {
+        line-height: 2;
+        margin: 0 1rem;
+    }
+
+    .gratuity-total {
+        text-decoration: underline dotted;
+        font-weight: bold;
+    }
+
+    .gratuity-buttons {
+        display: flex;
+    }
+}

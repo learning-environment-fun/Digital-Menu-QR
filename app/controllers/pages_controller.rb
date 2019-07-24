@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   #skip_before_action :authenticate_user!, only: [:home]
   class << self
-    attr_reader :dummy_items, :cart_props
+    attr_accessor :dummy_items, :cart_props
   end
 
   class DummyItem
@@ -28,9 +28,18 @@ class PagesController < ApplicationController
     return items
   end
 
+  def self.construct_cart_props(items)
+    total = (items.map { |i| i.price * i.quantity }.reduce(:+).to_f / 100.to_f).round(2) 
+    gratuity = (total * 0.1).round(2)
+    
+    return { items: items, total: total, gratuity: gratuity }  
+  end
+
   @dummy_items = PagesController.seed_items(3 + Random.rand(7))
 
-  @cart_props = { items: @dummy_items, total: @dummy_items.map { |i| i.price * i.quantity }.reduce(:+).to_f / 100.to_f }
+  @cart_props = PagesController.construct_cart_props(@dummy_items)
+
+  
 
   def home
   end
@@ -41,17 +50,17 @@ class PagesController < ApplicationController
     if params[:num].nil? 
       @cart_props = self.class.cart_props
     else
-      new_items = PagesController.seed_items(params[:num].to_i)
-      @cart_props = { items: new_items, total: new_items.map { |i| i.price * i.quantity }.reduce(:+).to_f / 100.to_f }
+      self.class.dummy_items = PagesController.seed_items(params[:num].to_i)
+      @cart_props = PagesController.construct_cart_props(self.class.dummy_items)
     end
   end
 
   def pay
-    @items = PagesController.seed_items(3 + Random.rand(7))
+    @cart_props = self.class.cart_props
   end
 
   def feedback
-    @items = PagesController.seed_items(3 + Random.rand(7))
+    @cart_props = self.class.cart_props
   end
    
 end
