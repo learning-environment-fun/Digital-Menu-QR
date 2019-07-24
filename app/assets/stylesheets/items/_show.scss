@@ -2,20 +2,20 @@
     height: 30vh;
     width: 100%;
     position: relative;
-    // background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
 }
-    .item-backicon {
-        width: 45px;
-        height: 45px;
-        padding: 30px;
-        background: #D4D4D4;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: black;
-        font-size: 20px;
-    }
+
+.item-backicon {
+    width: 45px;
+    height: 45px;
+    padding: 30px;
+    background: #D4D4D4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+}
 
 
 
@@ -24,15 +24,21 @@
 .item-details {
     position: relative;
     margin: 20px 0px;
+
+    p {
+        min-height: 20vh;
+        max-height: 28vh;
+        overflow: auto;
+    }
 }
 
 .item-shoppingcard {
     position: absolute;
-    top: -44px;
-    right: 35px;
+    top: -50px;
+    right: -10px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     color: black;
     font-size: 15px;
     background: #F4F4F4;
@@ -40,6 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 
