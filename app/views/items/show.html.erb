@@ -20,6 +20,14 @@
         </p>
     </div>
     <!-- Amount of the meal -->
+
+    <%= simple_form_for @user do |f| %>
+  <%= f.button :username %>
+  <%= f.button :password %>
+  <%= f.button :submit %>
+
+<% end %>
+
     <div class="item-amount-buttons">
         <div class="item-amount">
             <div class="item-amount-smaller">

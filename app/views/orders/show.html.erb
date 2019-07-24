@@ -1,0 +1,144 @@
+<div class="body">
+    <% if @restaurant.image.present? %>
+    <div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');">
+        <% else %>
+        <div class="no_header-image">
+            <% end %>
+        </div>
+        <div>
+            <div class="bar-flex w3-bar w3-black">
+                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'London')">Appetizer</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Food</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Tokyo')">Drink</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'NewYork')">Dessert</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Sydney')">Specials</button>
+            </div>
+            <div id="London" class="w3-container city" style="display:block">
+                <% @appetizer.each do |item| %>
+                <%= link_to order_item_path(@order, item) do %>
+                <div class="card-product">
+                    <div class="card-food-image">
+                        <img src="<%= item.image %>" />
+                    </div>
+                    <div class="card-food-infos">
+                        <div>
+                            <h5>
+                                <%= item.name %>
+                            </h5>
+                        </div>
+                        <div class="price-flex">
+                            <p>$
+                                <%= item.price %>
+                            </p>
+                        </div>
+                        <%#= @menu %>
+                        <%#= @restaurants %>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+            <div id="Paris" class="w3-container city" style="display:none">
+                <% @food.each do |item| %>
+                <%= link_to order_item_path(74, 74) do %>
+                <div class="card-product">
+                    <div class="card-food-image">
+                        <img src="<%= item.image %>" />
+                    </div>
+                    <div class="card-food-infos">
+                        <div>
+                            <h5>
+                                <%= item.name %>
+                            </h5>
+                        </div>
+                        <div class="price-flex">
+                            <p>$
+                                <%= item.price %>
+                            </p>
+                        </div>
+                        <%#= @menu %>
+                        <%#= @restaurants %>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+            <div id="Tokyo" class="w3-container city" style="display:none">
+                <% @drink.each do |item| %>
+                <%= link_to order_item_path(74, 74)  do %>
+                <div class="card-product">
+                    <div class="card-food-image">
+                        <img src="<%= item.image %>" />
+                    </div>
+                    <div class="card-food-infos">
+                        <div>
+                            <h5>
+                                <%= item.name %>
+                            </h5>
+                        </div>
+                        <div class="price-flex">
+                            <p>$
+                                <%= item.price %>
+                            </p>
+                        </div>
+                        <%#= @menu %>
+                        <%#= @restaurants %>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+            <div id="NewYork" class="w3-container city" style="display:none">
+                <% @dessert.each do |item| %>
+                <%= link_to order_item_path(74, 74) do %>
+                <div class="card-product">
+                    <div class="card-food-image">
+                        <img src="<%= item.image %>" />
+                    </div>
+                    <div class="card-food-infos">
+                        <div>
+                            <h5>
+                                <%= item.name %>
+                            </h5>
+                        </div>
+                        <div class="price-flex">
+                            <p>$
+                                <%= item.price %>
+                            </p>
+                        </div>
+                        <%#= @menu %>
+                        <%#= @restaurants %>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+            <div id="Sydney" class="w3-container city" style="display:none">
+                <div class="card-product">
+                    <div class="card-food-image">
+                        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    </div>
+                    <div class="card-food-infos">
+                        <h5>Special name</h5>
+                        <p>Product description with <strong>relevant info</strong> only.</p>
+                    </div>
+                </div>
+            </div>
+            <script>
+            function openCity(evt, cityName) {
+                var i, x, tablinks;
+                x = document.getElementsByClassName("city");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < x.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" w3-border-blue", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.firstElementChild.className += " w3-border-blue";
+            }
+            </script>
+        </div>
+    </div>
+</div>
