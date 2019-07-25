@@ -173,5 +173,6 @@ cocktail = Item.create!(
   restaurant_id: luigi.id
   )
 
+table = Table.create!(restaurant: Restaurant.last, table_number: "1")
 
 p "Busted my seed...."
