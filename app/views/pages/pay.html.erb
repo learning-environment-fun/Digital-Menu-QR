@@ -23,19 +23,19 @@
         <h4>Pick a payment method</h4>
 
         <form class="payment-method-form">
-            <label class="rad">
+            <label class="rad" data-payment-method="apple_pay">
                 <input type="radio" name="rad1" value="apple_pay">
                 <i class="fab fa-cc-apple-pay"></i>
             </label>
-            <label class="rad">
+            <label class="rad" data-payment-method="paypal">
                 <input type="radio" name="rad1" value="paypal">
                 <i class="fab fa-cc-paypal"></i>
             </label>
-            <label class="rad">
+            <label class="rad" data-payment-method="credit_card">
                 <input type="radio" name="rad1" value="credit_card">
                 <i class="fas fa-credit-card"></i>
             </label>
-            <label class="rad">
+            <label class="rad" data-payment-method="cash">
                 <input type="radio" name="rad1" value="cash">
                 <i class="fas fa-money-bill-wave"></i>
             </label>
@@ -44,9 +44,9 @@
 
         <form class="bmd-form-group payment-split-settings">
             <!-- bmd-collapse-inline pull-xs-right"> -->
-            <div class="switch">
+            <div id="split-bill-form" class="switch">
                 <label>
-                    <input type="checkbox" for="search" data-toggle="collapse" data-target="#collapse-search"
+                    <input id="split-bill-checkbox" type="checkbox" for="search" data-toggle="collapse" data-target="#collapse-search"
                         aria-expanded="false" aria-controls="collapse-search">
                     Split the bill?
                 </label>

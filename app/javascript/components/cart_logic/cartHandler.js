@@ -55,17 +55,41 @@ function handlePaymentPage() {
     });
 
     // need to add listener to payment method buttons 
+    paymentMethodForm = document.querySelector('.payment-method-form');
+    paymentMethodForm.querySelectorAll('.rad').forEach((button) => {
+      button.addEventListener('click', (_event) => {
+        let method = ShoppingCart.PAYMENT_METHODS.applePay;
+        switch (button.dataset.paymentMethod) {
+          case 'apple_pay':
+            method = ShoppingCart.PAYMENT_METHODS.applePay;
+            break;
+          case 'paypal':
+            method = ShoppingCart.PAYMENT_METHODS.payPal;
+            break;
+          case 'credit_card':
+            method = ShoppingCart.PAYMENT_METHODS.creditCard;
+            break;
+          case 'cash':
+            method = ShoppingCart.PAYMENT_METHODS.cash;
+            break;
+          default:
+            console.log("invalid payment method button present");
+            break;
+        }
+        this.cart.paymentMethod = method;
+      });
+    });
+
 
     // split the bill listener
+    splitTheBillForm = document.querySelector('#split-bill-form');
+    splitTheBillCheckBox = document.querySelector('#split-bill-checkbox');
+
+    splitTheBillForm.addEventListener('click', () => {
+      this.cart.isSplittingBill = splitTheBillCheckBox.checked;
+    });
+
   });
-
-
-
-
-
-  this.gratuityPercentage = 10;
-  this.paymentMethod = PAYMENT_METHODS.creditCard;
-  this.isSplittingBill = false;
 }
 
 function handleFeedbackPage() {
