@@ -4,11 +4,13 @@
   "dependencies": {
     "@rails/webpacker": "^4.0.7",
     "bootstrap": "4.2.1",
-    "bootstrap-material-design": "4.1.1",
+    "dart-sass": "^1.22.7",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
+    "sass": "*",
+    "sass-loader": "^7.1.0",
     "webpack-dev-server": "^3.7.2"
   }
 }
