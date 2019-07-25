@@ -1,15 +1,70 @@
+.feedback-page.app-page {
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+    padding-bottom: 30vh;
+    width: 100vw;
+}
+
 .feedback-page {
 
+    .stars-flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .feedback-textarea {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: lighten($light-gray, 20%);
+    }
+
+    .order-paid-badge {
+        // position: absolute;
+        // bottom: -1.25rem;
+        // right: -2.6rem;
+        border-radius: 50%;
+        background-color: $material-bootstrap-primary;
+        color: white;
+        font-weight: bold;
+        width: 3rem;
+        height: 3rem;
+        filter: drop-shadow(0 0.25mm 0.25mm rgba(0, 0, 0, 0.6));
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+
+    }
+
     .order-total-gratuity {
-        display: grid;
-        grid-template-columns: [start] 2fr [left] 1fr [icon] 1fr [end];
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 0 1rem 2rem 1rem;
+
+        p {
+            margin: 0;
+        }
+
+        .arrow-icon {
+            font-size: 2.5rem;
+        }
 
         .left-cell {
-            grid-column: start / left;
+            text-align: right;
+            margin-right: 0.75rem;
         }
 
         .right-cell {
-            grid-column: icon / end;
+            text-decoration: underline dotted;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-right: 0.3rem;
         }
     }
 
@@ -29,25 +84,6 @@
 
         &.has-overflow {
             display: block;
-        }
-
-        .order-paid-badge {
-            position: absolute;
-            bottom: -1.25rem;
-            right: -2.6rem;
-            border-radius: 50%;
-            background-color: $material-bootstrap-primary;
-            color: white;
-            font-weight: bold;
-            width: 3rem;
-            height: 3rem;
-            filter: drop-shadow(0 0.25mm 0.25mm rgba(0, 0, 0, 0.6));
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2;
-
         }
 
         .order-grid {

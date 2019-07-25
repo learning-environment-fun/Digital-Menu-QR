@@ -5,6 +5,7 @@
     width: 100vw;
 
     // overflow: hidden; # is being ignored
+    overflow-x: hidden;
 
     .page-header {
         padding-top: 3rem;
