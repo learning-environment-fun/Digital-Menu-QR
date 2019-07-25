@@ -4,7 +4,8 @@
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap/scss/bootstrap";
+// @import "bootstrap/scss/functions";
+@import "bootstrap-material-design/scss/bootstrap-material-design";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -12,11 +13,15 @@
 @import "components/index";
 @import "components/container-wrapper";
 @import "components/header_image";
+@import "components/page_layouts";
+@import "components/svg_radio_buttons";
+@import "pages/order_summary";
 @import "pages/index";
+@import "pages/payment";
+@import "pages/feedback";
 
 @import "items/show";
 
 
 // Restaurant CSS partials
 @import "restaurants/index";
-

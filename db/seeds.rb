@@ -6,7 +6,7 @@ Restaurant.delete_all
 
 p "We are now going to seed"
 
-Restaurant.create!(
+luigi = Restaurant.create!(
   name: "Luigi",
   address: "Calle Italia, 69, Germany",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/b068ce0e08159aece78342fc895919dc_jr6mrn.jpg"
@@ -20,7 +20,7 @@ bruschetta = Item.create!(
   price: 7,
   food_type: "food_app",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563976839/Food%20Items/bruschetta-tomato-basil-horiz-a-1600_lmduln.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 squid = Item.create!(
@@ -29,7 +29,7 @@ squid = Item.create!(
   price: 8,
   food_type: "food_app",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563977208/Food%20Items/Grilled_Squid_rxrubo.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 meatballs = Item.create!(
@@ -38,7 +38,7 @@ meatballs = Item.create!(
   price: 7,
   food_type: "food_app",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563978046/Food%20Items/exps66110_SCM163827D01_26_2b_m7kwzu.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 bean_salad = Item.create!(
@@ -47,7 +47,7 @@ bean_salad = Item.create!(
   price: 5,
   food_type: "food_app",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563978167/Food%20Items/exps45720_CX2376979A09_14_5b_WEB-3_fishye.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 pesto = Item.create!(
@@ -56,7 +56,7 @@ pesto = Item.create!(
   price: 6,
   food_type: "food_app",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563978405/Food%20Items/Pesto-Pull-Apart-Bread_EXPS_THD17_194709_D08_15_3b_dzrnlz.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 ## MAIN DISHES
@@ -67,7 +67,7 @@ pasta = Item.create!(
   price: 14,
   food_type: "food_main",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/pasta-carbonara-horiz-a-1200_xophqp.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 risotto = Item.create!(
@@ -76,7 +76,7 @@ risotto = Item.create!(
   price: 17,
   food_type: "food_main",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/mushroom-risotto-horiz-b-1800_ay0tsu.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 pasta2 = Item.create!(
@@ -85,7 +85,7 @@ pasta2 = Item.create!(
   price: 14,
   food_type: "food_main",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563977666/Food%20Items/Shaved_Black_Truffle_and_Shitake_Mushroom_Pasta_ruflso.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 pasta3 = Item.create!(
@@ -94,7 +94,7 @@ pasta3 = Item.create!(
   price: 12,
   food_type: "food_main",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563977666/Food%20Items/021submitmed1_yfwfei.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 fish = Item.create!(
@@ -103,7 +103,7 @@ fish = Item.create!(
   price: 17,
   food_type: "food_main",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563977814/Food%20Items/WHOM-09-161-02-rt_pv6kcq.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 pizza = Item.create!(
@@ -112,7 +112,7 @@ pizza = Item.create!(
   price: 10,
   food_type: "food_main",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563979161/Food%20Items/Screenshot_2019-07-24_at_16.39.05_zmdonl.png",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 ## DESSERT
@@ -123,7 +123,7 @@ gelato = Item.create!(
   price: 8,
   food_type: "food_dessert",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563979220/Food%20Items/Screenshot_2019-07-24_at_16.40.14_blweh1.png",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 tiramisu = Item.create!(
@@ -132,7 +132,7 @@ tiramisu = Item.create!(
   price: 8,
   food_type: "food_dessert",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888557/Food%20Items/t13_esbwu0.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 ## DRINKS
@@ -143,7 +143,7 @@ wine = Item.create!(
   price: 9,
   food_type: "drink",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563978284/Food%20Items/enso-winery-1t_rgt8lq.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 wwine = Item.create!(
@@ -152,7 +152,7 @@ wwine = Item.create!(
   price: 7,
   food_type: "drink",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563978400/Food%20Items/bwc-blog_13-2477_white-wine-edit-705x495_ip6f6n.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 beer = Item.create!(
@@ -161,7 +161,7 @@ beer = Item.create!(
   price: 4,
   food_type: "drink",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563979866/Food%20Items/o-BEER-DAY-facebook_rtrtua.jpg",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 cocktail = Item.create!(
@@ -170,9 +170,9 @@ cocktail = Item.create!(
   price: 7,
   food_type: "drink",
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563979826/Food%20Items/Screenshot_2019-07-24_at_16.50.14_d1jkpp.png",
-  restaurant_id: Restaurant.last.id
+  restaurant_id: luigi.id
   )
 
 table = Table.create!(restaurant: Restaurant.last, table_number: "1")
 
-p "Busted my seed.... Keep the change"
+p "Busted my seed...."

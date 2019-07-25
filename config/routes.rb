@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   root to: 'orders#show'
+
+  # test routes for getting to specific views
+  get "/cart", to: 'pages#cart', as: 'cart'
+  get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity'
+  get "/pay", to: 'pages#pay', as: 'pay'
+  get "/feedback", to: 'pages#feedback', as: 'feedback'
+
 
   #1 after scanning a new order will be created, than redicrection to 'show restaurants items'
 
@@ -37,5 +45,3 @@ resources :orders, only: [:show, :update, :destroy] do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
-
