@@ -1,0 +1,96 @@
+.feedback-page {
+
+    .order-total-gratuity {
+        display: grid;
+        grid-template-columns: [start] 2fr [left] 1fr [icon] 1fr [end];
+
+        .left-cell {
+            grid-column: start / left;
+        }
+
+        .right-cell {
+            grid-column: icon / end;
+        }
+    }
+
+    .order-summary-list {
+
+        padding-top: 1rem;
+
+        position: relative;
+
+        max-height: 20vh;
+
+        margin: 0 4rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        &.has-overflow {
+            display: block;
+        }
+
+        .order-paid-badge {
+            position: absolute;
+            bottom: -1.25rem;
+            right: -2.6rem;
+            border-radius: 50%;
+            background-color: $material-bootstrap-primary;
+            color: white;
+            font-weight: bold;
+            width: 3rem;
+            height: 3rem;
+            filter: drop-shadow(0 0.25mm 0.25mm rgba(0, 0, 0, 0.6));
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+
+        }
+
+        .order-grid {
+            overflow: scroll;
+            display: grid;
+            grid-template-columns: [item] 4fr [price] 1fr [end];
+            column-gap: 1.5rem;
+            row-gap: 0.8rem;
+            grid-auto-rows: 3rem;
+
+            .order-item,
+            .order-price {
+                align-self: center;
+            }
+
+            .order-item {
+                grid-column: item / price;
+            }
+
+            .order-price {
+                grid-column: price / end;
+
+                i {
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .scroll-indicator {
+        position: relative;
+        top: -3rem;
+        height: 3rem;
+        // width: 100%;
+        display: none;
+        margin: 0 4rem -2rem 4rem; // pull up what was beneath
+
+        &.is-visible {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // background-color: transparentize($light-gray, 0.4);
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), transparentize(#d0d0d0, 0.6));
+        }
+    }
+}
