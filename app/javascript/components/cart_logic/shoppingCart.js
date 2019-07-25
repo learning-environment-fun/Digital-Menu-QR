@@ -35,9 +35,16 @@ export default class ShoppingCart {
     }
   }
 
-  // delete item from cart, regardless of quantity 
+  // delete item from cart, regardless of quantity; 
+  // can pass either an item instance or item id 
   deleteItem(item) {
-    this.items = this.items.filter((value, _index, _arr) => value.id === item.id);
+    let filterFunction = (value, _index, _arr) => value.id === item.id;
+
+    if (typeof (item) === 'number') {
+      filterFunction = (value, _index, _arr) => value.id === item;
+    }
+
+    this.items = this.items.filter(filterFunction);
   }
 
   // getters 

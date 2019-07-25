@@ -6,7 +6,9 @@ class PagesController < ApplicationController
 
   class DummyItem
     
-    attr_reader :title, :price, :quantity
+    @id_counter = 0
+
+    attr_reader :title, :price, :quantity, :id
     
     def dollars 
       (@price.to_f / 100.to_f * @quantity.to_f).round(2)
@@ -16,6 +18,8 @@ class PagesController < ApplicationController
       @title = title
       @price = price
       @quantity = quantity
+      @id = @id_counter
+      self.class.id_counter += 1
     end
   end
 
