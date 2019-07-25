@@ -1,6 +1,9 @@
 <!-- Image of the meal -->
 <div class="item-image" style="background-image: url('<%= cl_image_path @item.image %>')">
-    <div class="item-backicon"><i class="fas fa-long-arrow-alt-left"></i></div>
+    <div class="item-backicon">
+      <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, root_path %>
+
+    </div>
 </div>
 <!-- Description of the meal -->
 <div class="container-wrapper">
@@ -18,21 +21,29 @@
         </p>
     </div>
     <!-- Amount of the meal -->
+
+    <%= simple_form_for @user do |f| %>
+  <%= f.button :username %>
+  <%= f.button :password %>
+  <%= f.button :submit %>
+
+<% end %>
+
     <div class="item-amount-buttons">
         <div class="item-amount">
             <div class="item-amount-smaller">
-                <%= link_to '-', restaurant_item_path %>
+                <p>-</p>
             </div>
             <div class="item-amount-display">
                 <p>1</p>
             </div>
             <div class="item-amount-greater">
-                <%= link_to '+', restaurant_item_path %>
+               <p>+</p>
             </div>
         </div>
         <div class="item-price">
             <h2>
-                <%=@item.price %> € </h2>
+                <span id="price"><%=@item.price %></span> €</h2>
         </div>
     </div>
     <!-- order menu -->
