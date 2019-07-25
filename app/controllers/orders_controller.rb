@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.last
     @restaurant = @order.table.restaurant
     @items = @restaurant.items
     @table = @order.table
-
 
     @menu = @items.where(restaurant_id: @restaurant.id)
     @appetizer = @menu.where(food_type: "food_app")
@@ -23,4 +22,6 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
   end
+
+
 end

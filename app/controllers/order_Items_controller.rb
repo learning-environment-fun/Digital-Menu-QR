@@ -3,14 +3,17 @@ class OrderItemsController < ApplicationController
 
 
   def create
-  @orderItem = OrderItem.new(quantity: params[:quantity], item: params[:id])
+
+  @orderItem = OrderItem.new(quantity: params[:quantity], order_id: params[:order], item_id: params[:item])
   @orderItem.save
 
+  @order = Order.find(params[:order_id])
+
     if params[:add_to_cart]
-      redirect_to root_path
+      redirect_to root_path(@order)
 
     elsif params[:order_now]
-      redirect_to root_path
+      redirect_to cart_path(@order)
 
     end
 

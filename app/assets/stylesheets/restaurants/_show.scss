@@ -2,7 +2,12 @@
 .bar-flex, .card-product { display: flex; justify-content: flex-start; align-items: center; }
 .card-food-image img {width: 100px; height: 100px; background-size: cover; background-position: center; background-repeat: no-repeat}
 .card-food-infos { flex-grow: 1; padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 5px;}
-.card-product { background-color: white; border-style: solid; border-width: 0.7px; margin-top: 10px; }
+.card-product {
+  background-color: white;
+  margin-top: 10px;
+ //box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 .price-flex {display: flex; justify-content: flex-end}
 
 /* W3.CSS 4.13 June 2019 by Jan Egil and Borge Refsnes */

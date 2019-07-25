@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_132640) do
     t.index ["restaurant_id"], name: "index_items_on_restaurant_id"
   end
 
-  create_table "jwt_blacklist", id: :serial, force: :cascade do |t|
-    t.string "jti", null: false
-    t.index ["jti"], name: "index_jwt_blacklist_on_jti"
-  end
-
   create_table "order_items", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "order_id"

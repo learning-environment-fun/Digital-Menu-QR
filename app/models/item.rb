@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :restaurant
-  belongs_to :order_item
+  has_many :order_item
 
 
 

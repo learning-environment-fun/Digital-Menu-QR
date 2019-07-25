@@ -2,6 +2,7 @@
 p "Cleaning the database."
 Item.delete_all
 Order.delete_all
+Table.delete_all
 Restaurant.delete_all
 
 p "We are now going to seed"
@@ -9,7 +10,7 @@ p "We are now going to seed"
 luigi = Restaurant.create!(
   name: "Luigi",
   address: "Calle Italia, 69, Germany",
-  remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563888555/Food%20Items/b068ce0e08159aece78342fc895919dc_jr6mrn.jpg"
+  remote_image_url: "https://images.unsplash.com/photo-1526234362653-3b75a0c07438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80"
   )
 
 ## APPETIZERS
@@ -172,7 +173,9 @@ cocktail = Item.create!(
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563979826/Food%20Items/Screenshot_2019-07-24_at_16.50.14_d1jkpp.png",
   restaurant_id: luigi.id
   )
-
 table = Table.create!(restaurant: Restaurant.last, table_number: "1")
+Order.create(table: Table.last)
+User.create
+
 
 p "Busted my seed...."

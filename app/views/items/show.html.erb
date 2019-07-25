@@ -6,11 +6,10 @@
 </div>
 <!-- Description of the meal -->
 <div class="container-wrapper">
-    <%= button_to 'sign me out', destroy_user_session_path, method: :delete %>
     <div class="item-details">
         <div class="item-shoppingcard">
             <!-- <p>1</p> -->
-            <i class="fas fa-shopping-cart"></i>
+            <%= link_to ' <i class="fas fa-shopping-cart"></i> '.html_safe, cart_path %>
         </div>
         <h3>
             <%= @item.name %>
@@ -44,7 +43,8 @@
         <%= simple_form_for @order_item, url: order_order_items_path do |f| %>
         <%= f.input :quantity, :as => :hidden, :input_html => { id: :input, :value => "1" } %>
         <%= f.input :price, :as => :hidden, :input_html => { :value => @item.price } %>
-        <%= f.input :id, :as => :hidden, :input_html => { :value => @item.id } %>
+        <%= f.input :item, :as => :hidden, :input_html => { :value => @item.id } %>
+        <%= f.input :order, :as => :hidden, :input_html => { :value => @order.id } %>
         <%= f.button :submit, 'Add to cart',name: "add_to_cart", class: "btn btn-primary"  %>
         <%= f.button :submit, 'Order now', name: 'order_now', class: "btn btn-primary" %>
 

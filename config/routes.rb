@@ -5,10 +5,9 @@ Rails.application.routes.draw do
   root to: 'orders#show'
 
   # test routes for getting to specific views
-  get "/cart", to: 'pages#cart', as: 'cart'
-  get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity'
-  get "/pay", to: 'pages#pay', as: 'pay'
-  get "/feedback", to: 'pages#feedback', as: 'feedback'
+  get "/cart/:id", to: 'pages#cart', as: 'cart'
+  get "/pay/:id", to: 'pages#pay', as: 'pay'
+  get "/feedback/:id", to: 'pages#feedback', as: 'feedback'
 
 
   #1 after scanning a new order will be created, than redicrection to 'show restaurants items'
