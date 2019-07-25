@@ -25,13 +25,14 @@
     display: inline-block;
     vertical-align: middle;
     width: 4rem;
-    height: 4rem;
+    height: 3rem;
     //border-radius: 50%;
     transition: 0.2s;
     //box-shadow: inset 0 0 0 8px #fff;
     //border: 1px solid gray;
     //background: gray;
     color: $material-bootstrap-secondary;
+    filter: drop-shadow(0 0.25mm 0.25mm rgba(0, 0, 0, 0.6));
 }
 
 /* CHECKBOX OVERWRITE STYLES */
@@ -51,6 +52,7 @@
     // box-shadow: inset 0 0 0 3px #fff;
     // background: orange;
     color: $material-bootstrap-primary;
+    filter: drop-shadow(0 0.4mm 0.4mm rgba(0, 0, 0, 0.6));
 }
 
 /* CHECKBOX */
