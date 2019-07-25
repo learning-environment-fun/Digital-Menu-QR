@@ -1,8 +1,7 @@
 <!-- Image of the meal -->
 <div class="item-image" style="background-image: url('<%= cl_image_path @item.image %>')">
     <div class="item-backicon">
-      <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, root_path %>
-
+        <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, order_path(@order) %>
     </div>
 </div>
 <!-- Description of the meal -->
@@ -12,22 +11,14 @@
             <!-- <p>1</p> -->
             <i class="fas fa-shopping-cart"></i>
         </div>
-        <h1>
+        <h3>
             <%= @item.name %>
-        </h1>
+        </h3>
         <p>
             <%= @item.description %>
         </p>
     </div>
     <!-- Amount of the meal -->
-
-    <%= simple_form_for @user do |f| %>
-  <%= f.button :username %>
-  <%= f.button :password %>
-  <%= f.button :submit %>
-
-<% end %>
-
     <div class="item-amount-buttons">
         <div class="item-amount">
             <div class="item-amount-smaller">
@@ -37,18 +28,28 @@
                 <p>1</p>
             </div>
             <div class="item-amount-greater">
-               <p>+</p>
+                <p>+</p>
             </div>
         </div>
         <div class="item-price">
             <h2>
-                <span id="price"><%=@item.price %></span> €</h2>
+                <span id="price">
+                    <%=@item.price %></span> €</h2>
         </div>
     </div>
     <!-- order menu -->
     <hr class="item-hr mt-20">
     <div class="item-menu">
-        <%= link_to 'Add to Basket', restaurant_item_path, class:"btn btn-primary"%>
-        <%= link_to 'Place Order', restaurant_item_path, class:"btn btn-primary"%>
+        <%= simple_form_for @order_item, url: order_order_items_path do |f| %>
+        <%= f.input :quantity, :as => :hidden, :input_html => { id: :input, :value => "1" } %>
+        <%= f.input :price, :as => :hidden, :input_html => { :value => @item.price } %>
+        <%= f.input :id, :as => :hidden, :input_html => { :value => @item.id } %>
+        <%= f.button :submit, 'Add to cart',name: "add_to_cart", class: "btn btn-primary"  %>
+        <%= f.button :submit, 'Order now', name: 'order_now', class: "btn btn-primary" %>
+
+        <% end %>
+        <!-- simple form for -->
+        <!-- hide field either with class of display: none -->
+        <!-- f.hidden_field pass in the item id from @item.price -->
     </div>
 </div>

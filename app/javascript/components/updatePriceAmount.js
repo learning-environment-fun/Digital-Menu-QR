@@ -4,6 +4,7 @@ const updateAmountItem = () => {
 // save the Plus Button in a var
 const clickPlus = document.querySelector(".item-amount-greater");
 const clickMinus = document.querySelector(".item-amount-smaller");
+var input = document.getElementById("input");
 
 // -------------- INCREASE BUTTON ---------------------------------
 
@@ -12,6 +13,8 @@ const clickMinus = document.querySelector(".item-amount-smaller");
 const price = document.querySelector("#price").innerHTML;
 let priceInteger = parseInt(price, 10);
 var stoppPrice = price * 5;
+
+
 
 // ----------- Increase Function --------------------------------
 // increase Amount +1, double the Value when button + is clicked
@@ -33,6 +36,8 @@ document.querySelector("#price").innerHTML =stoppPrice;
   amountInteger += 1;
   document.querySelector("#price").innerHTML = totalprice;
   document.querySelector(".item-amount-display p").innerHTML = amountInteger;
+  // Change the value of the input form with the amount
+  document.getElementById("input").value = amountInteger;
 }
 
 } ); // end of event Listener for clickPlusbutton
@@ -47,7 +52,6 @@ var price = document.querySelector("#price").innerHTML;
 let priceInteger = parseInt(price, 10);
 // save the amount into a var and convert to integer
 var amount = document.querySelector(".item-amount-display p").innerHTML;
-//console.log(amount);
 let amountInteger = parseInt(amount, 10);
 
 event.preventDefault();
@@ -60,6 +64,8 @@ document.querySelector("#price").innerHTML = price;
   amountInteger -= 1;
   document.querySelector("#price").innerHTML = totalprice;
   document.querySelector(".item-amount-display p").innerHTML = amountInteger;
+    // Change the value of the input form with the amount
+  document.getElementById("input").value = amountInteger;
 }
 
 } ); // end of event Listener for clickPlusbutton

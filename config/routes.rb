@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'restaurants#show'
+  root to: 'orders#show'
 
   #1 after scanning a new order will be created, than redicrection to 'show restaurants items'
 
@@ -23,9 +23,15 @@ resources :orders, only: [:show, :update, :destroy] do
   resources :items, only: [:show]
   #possibility to update/update/destroy
   # restaurants/1/items/:id/show
-  resources :order_items, only: [:create]
+  resources :order_items, only: [:create] do
+
+    member do
+      get "makeObject"
+    end
+  end
 
  end
+#
 
 
 

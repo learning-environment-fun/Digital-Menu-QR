@@ -15,7 +15,7 @@
             </div>
             <div id="London" class="w3-container city" style="display:block">
                 <% @appetizer.each do |item| %>
-                <%= link_to order_item_path(@order, item) do %>
+                <%= link_to order_item_path(@order, item ) do %>
                 <div class="card-product">
                     <div class="card-food-image">
                         <img src="<%= item.image %>" />
