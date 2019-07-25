@@ -2,10 +2,13 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 # Gems required for Felix's mega app, which Chalres will hopefully not ruin
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test] --> already listed at bottom of file
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'faker', require: true
 
+# for displaying vector graphics
+gem 'inline_svg'
 
 gem 'bootsnap', require: false
 gem 'devise'
