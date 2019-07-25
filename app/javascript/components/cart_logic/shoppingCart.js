@@ -13,6 +13,34 @@ export default class ShoppingCart {
     this.isSplittingBill = false;
   }
 
+  // increase quantity of item in cart by 1
+  incrementItem(newItem) {
+    existingItem = this.items.find((item) => item.id === newItem.id);
+    if (existingItem !== null) {
+      existingItem.quantity += 1;
+    } else {
+      this.items.push(newItem);
+    }
+  }
+
+  // reduce quantity of item in cart by 1
+  decrementItem(oldItem) {
+    existingItem = this.items.find((item) => item.id === oldItem.id);
+    if (existingItem !== null) {
+      existingItem.quantity -= 1;
+
+      if (existingItem.quantity <= 0) {
+        this.items = this.items.filter((value, _index, _arr) => value.id === existingItem.id);
+      }
+    }
+  }
+
+  // delete item from cart, regardless of quantity 
+  deleteItem(item) {
+    this.items = this.items.filter((value, _index, _arr) => value.id === item.id);
+  }
+
+  // getters 
   get costNoGratuity() {
     return this.items.reduce((total, num) => { total + num; });
   }
@@ -26,18 +54,19 @@ export default class ShoppingCart {
   }
 
   get gratuityFormatted() {
-    return this.formatAmount(this.costGratuity);
+    return formatAmount(this.costGratuity);
   }
 
   get noGratuityFormatted() {
-    return this.formatAmount(this.costNoGratuity);
+    return formatAmount(this.costNoGratuity);
   }
 
   get totalFormatted() {
-    return this.formatAmount(this.costTotal);
+    return formatAmount(this.costTotal);
   }
 
-  formatAmount(amount) {
+  // helpers
+  static formatAmount(amount) {
     return (amount / 100).toFixed(2).toString;
   }
 }
