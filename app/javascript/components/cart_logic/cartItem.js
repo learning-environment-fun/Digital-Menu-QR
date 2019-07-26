@@ -1,9 +1,9 @@
 export default class CartItem {
-  constructor(args = {}) {
+  constructor(args) {
     this.name = args.name;
-    this.id = args.id;
-    this.quantity = args.quantity;
-    this.unitPrice = args.unitPrice;
+    this.id = parseInt(args.id);
+    this.quantity = typeof (args.quantity) === 'undefined' || args.quantity === null ? 1 : parseInt(args.quantity);
+    this.unitPrice = parseInt(args.unitPrice);
   }
 
   get totalPrice() {
@@ -11,10 +11,10 @@ export default class CartItem {
   }
 
   get priceFormatted() {
-    return (this.unitPrice / 100).toFixed(2).toString;
+    return (this.unitPrice / 100).toFixed(2);
   }
 
   get totalPriceFormatted() {
-    return (this.totalPrice() / 100).toFixed(2).toString;
+    return (this.totalPrice / 100).toFixed(2);
   }
 }

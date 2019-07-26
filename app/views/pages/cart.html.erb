@@ -6,15 +6,7 @@
 
     <div class="order-summary-list order-container">
         <div class="order-grid">
-            <% @cart_props[:items].each do |item| %>
-            <!--<span class="order-row">-->
-            <span class="order-item"><%= "#{item.title} x#{item.quantity}" %></span>
-            <span class="order-price"><%= "$#{item.dollars}" %></span>
-            <button type="button" data-item-id="<%= item.id %>" class="order-action btn btn-danger bmd-btn-icon">
-                <i class="material-icons">delete_outline</i>
-            </button>
-            <!--</span>-->
-            <% end %>
+            <!-- populated by JS -->
         </div>      
     </div>
 
@@ -27,11 +19,11 @@
 
         <span class="order-total">
             <h2 class="order-total-text">Total</h2>
-            <h2 class="order-total-amount">$<%= @cart_props[:total] %></h2>
+            <h2 class="order-total-amount"><!--pop by JS--></h2>
         </span>
 
         <span class="order-buttons btn-group-lg">
-            <button type="button" class="btn btn-raised btn-secondary">Back</button>
+            <%= link_to 'Back', homepage_path, class: "btn btn-raised btn-secondary" %>
             <!--<button type="button" class="btn btn-raised btn-success">Confirm Order</button>-->
             <%= link_to 'Confirm Order', pay_path, class: "btn btn-raised btn-success" %>
         </span>

@@ -2,7 +2,9 @@ import ShoppingCart from '../cart_logic/shoppingCart.js';
 import CartStorage from '../cart_logic/cartStorage.js';
 import CartItem from '../cart_logic/cartItem.js';
 
-let RailsUJS = this.Rails;
+const RailsUJS = require('rails-ujs');
+// RailsUJS.start();
+let cart = null;
 
 export function cartPageSetup() {
   // which page are we on? 
@@ -17,6 +19,9 @@ export function cartPageSetup() {
     case 'order-summary-page':
       handleOrderSummaryPage();
       break;
+    case 'restaurant-show-page':
+      handleRestaurantShowPage();
+      break;
     default:
       console.log("not on a valid page for cart setup");
       break;
@@ -24,11 +29,11 @@ export function cartPageSetup() {
 }
 
 function cartLoad() {
-  this.cart = Object.assign(new ShoppingCart, CartStorage.readCart());
-  if (this.cart === null || this.cart === {}) {
-    this.cart = new ShoppingCart();
+  cart = Object.assign(new ShoppingCart, CartStorage.readCart());
+  if (cart === null || cart === {}) {
+    cart = new ShoppingCart();
   } else {
-    this.cart.items.forEach((item) => item = Object.assign(new CartItem, item));
+    cart.items = cart.items.map((item) => new CartItem({ name: item.name, id: item.id, unitPrice: item.unitPrice, quantity: item.quantity }));
   }
 }
 
@@ -45,45 +50,52 @@ function handlePaymentPage() {
     const gratuityIncrement = document.querySelector('#gratuity-increment');
     const gratuityPercentage = document.querySelector('.gratuity-percentage');
     const gratuityTotal = document.querySelector('.gratuity-total');
+    const orderTotalAmount = document.querySelector('.order-total-amount');
 
     const updateGratuityFields = () => {
-      gratuityPercentage.innerHTML = `${this.cart.gratuityPercentage}%`;
-      gratuityTotal.innerHTML = `$${this.cart.costGratuity}`;
+      gratuityPercentage.innerHTML = `${cart.gratuityPercentage}%`;
+      gratuityTotal.innerHTML = `$${cart.costGratuity}`;
+      orderTotalAmount.innerHTML = `$${cart.costTotal}`;
     };
 
+    updateGratuityFields();
+
     gratuityDecrement.addEventListener('click', () => {
-      this.cart.gratuityPercentage = Math.max(0, this.cart.gratuityPercentage - 5);
+      cart.gratuityPercentage = Math.max(0, cart.gratuityPercentage - 5);
       updateGratuityFields();
+      CartStorage.writeCart(cart);
     });
 
     gratuityIncrement.addEventListener('click', () => {
-      this.cart.gratuityPercentage = Math.min(100, this.cart.gratuityPercentage + 5);
+      cart.gratuityPercentage = Math.min(100, cart.gratuityPercentage + 5);
       updateGratuityFields();
+      CartStorage.writeCart(cart);
     });
 
     // need to add listener to payment method buttons 
     const paymentMethodForm = document.querySelector('.payment-method-form');
     paymentMethodForm.querySelectorAll('.rad').forEach((button) => {
       button.addEventListener('click', () => {
-        let method = ShoppingCart.PAYMENT_METHODS.applePay;
+        let method = cart.PAYMENT_METHODS.applePay;
         switch (button.dataset.paymentMethod) {
           case 'apple_pay':
-            method = ShoppingCart.PAYMENT_METHODS.applePay;
+            method = cart.PAYMENT_METHODS.applePay;
             break;
           case 'paypal':
-            method = ShoppingCart.PAYMENT_METHODS.payPal;
+            method = cart.PAYMENT_METHODS.payPal;
             break;
           case 'credit_card':
-            method = ShoppingCart.PAYMENT_METHODS.creditCard;
+            method = cart.PAYMENT_METHODS.creditCard;
             break;
           case 'cash':
-            method = ShoppingCart.PAYMENT_METHODS.cash;
+            method = cart.PAYMENT_METHODS.cash;
             break;
           default:
             console.log("invalid payment method button present");
             break;
         }
-        this.cart.paymentMethod = method;
+        cart.paymentMethod = method;
+        CartStorage.writeCart(cart);
       });
     });
 
@@ -93,7 +105,8 @@ function handlePaymentPage() {
     const splitTheBillCheckBox = document.querySelector('#split-bill-checkbox');
 
     splitTheBillForm.addEventListener('click', () => {
-      this.cart.isSplittingBill = splitTheBillCheckBox.checked;
+      cart.isSplittingBill = splitTheBillCheckBox.checked;
+      CartStorage.writeCart(cart);
     });
 
     const paymentConfirmButton = document.querySelector('.payment-confirm-button');
@@ -102,7 +115,7 @@ function handlePaymentPage() {
       fetch('/orders', {
         method: 'post',
         body: JSON.stringify(
-          this.cart
+          cart
         ),
         headers: {
           'Content-Type': 'application/json',
@@ -119,6 +132,42 @@ function handlePaymentPage() {
   });
 }
 
+function handleRestaurantShowPage() {
+  cartLoad();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.item-decrement-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const parent = button.parentElement;
+        const item = new CartItem({
+          id: parent.dataset.itemId,
+          name: parent.dataset.itemName,
+          unitPrice: parent.dataset.itemPrice
+        });
+        cart.decrementItem(item);
+        console.log(cart);
+      });
+    });
+
+    document.querySelectorAll('.item-increment-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const parent = button.parentElement;
+        const item = new CartItem({
+          id: parent.dataset.itemId,
+          name: parent.dataset.itemName,
+          unitPrice: parent.dataset.itemPrice
+        });
+
+        cart.incrementItem(item);
+
+        //console.log(item);
+        console.log(cart);
+      });
+    });
+  });
+
+}
+
 function handleFeedbackPage() {
   // order was successfully completed, so the local cart can be erased
   cartErase();
@@ -133,7 +182,7 @@ function handleOrderSummaryPage() {
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.order-action').forEach((button) => {
       button.addEventListener('click', () => {
-        this.cart.deleteItem(button.dataset.itemId);
+        cart.deleteItem(button.dataset.itemId);
         // need to delete whole row of content--means button, and two siblings preceding
         const elems = [button,
           button.previousElementSibling,
@@ -143,6 +192,10 @@ function handleOrderSummaryPage() {
         const parent = button.parentElement;
 
         elems.forEach((child) => parent.removeChild(child));
+
+        // update cart total
+        const orderTotal = document.querySelector('.order-total-amount');
+        orderTotal.innerHTML = `$${cart.noGratuityFormatted}`;
 
       });
     });
@@ -154,7 +207,10 @@ function handleOrderSummaryPage() {
 function populateCartSummary() {
   const orderGrid = document.querySelector('.order-grid');
 
-  this.cart.items.forEach((item) => {
+  const orderTotal = document.querySelector('.order-total-amount');
+  orderTotal.innerHTML = `$${cart.noGratuityFormatted}`;
+
+  cart.items.forEach((item) => {
     const orderItem = document.createElement('span');
     const orderPrice = document.createElement('span');
     const orderAction = document.createElement('button');

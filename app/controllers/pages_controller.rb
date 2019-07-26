@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @restaurants = Restaurant.all
   end
 
   def cart
