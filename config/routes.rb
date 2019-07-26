@@ -22,7 +22,10 @@ Rails.application.routes.draw do
 resources :orders, only: [:show, :update, :destroy] do
 
    member do                             # member => restaurant id in URL
-      get 'menu'                          # RestaurantsController#chef
+      get 'menu'
+
+      #/orders/:id/cart
+      get "cart"                         # RestaurantsController#chef
     end
 
   #display a specific item
@@ -31,10 +34,6 @@ resources :orders, only: [:show, :update, :destroy] do
   #possibility to update/update/destroy
   # restaurants/1/items/:id/show
   resources :order_items, only: [:create] do
-
-    member do
-      get "makeObject"
-    end
   end
 
  end

@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
   @order = Order.find(params[:order_id])
   if @order.save
     if params[:add_to_cart]
-      redirect_to root_path(@order)
+      redirect_to order_path(@order)
 
     else params[:order_now]
       redirect_to cart_path(@order, @orderItem)
