@@ -1,6 +1,8 @@
 import "bootstrap";
 require('../bootstrap-material-design.min.js');
-// BootstrapMaterialDesign();
+
+import cartPageSetup from '../components/cart_logic/cartHandler.js';
+cartPageSetup();
 
 $(document).ready(function () {
   $('body').bootstrapMaterialDesign();

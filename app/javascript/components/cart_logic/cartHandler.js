@@ -4,13 +4,16 @@ import CartItem from '../cart_logic/cartItem.js';
 
 export function cartPageSetup() {
   // which page are we on? 
-  pageDiv = document.querySelector('.app-page');
+  const pageDiv = document.querySelector('.app-page');
   switch (pageDiv.id) {
     case 'payment-page':
+      handlePaymentPage();
       break;
     case 'feedback-page':
+      handleFeedbackPage();
       break;
     case 'order-summary-page':
+      handleOrderSummaryPage();
       break;
     default:
       console.log("not on a valid page for cart setup");
@@ -22,6 +25,8 @@ function cartLoad() {
   this.cart = Object.assign(new ShoppingCart, CartStorage.readCart());
   if (this.cart === null || this.cart === {}) {
     this.cart = new ShoppingCart();
+  } else {
+    this.cart.items.forEach((item) => item = Object.assign(new CartItem, item));
   }
 }
 
@@ -34,10 +39,10 @@ function handlePaymentPage() {
 
   document.addEventListener('DOMContentLoaded', () => {
     // need to add listeners to gratuity buttons, display
-    gratuityDecrement = document.querySelector('#gratuity-decrement');
-    gratuityIncrement = document.querySelector('#gratuity-increment');
-    gratuityPercentage = document.querySelector('.gratuity-percentage');
-    gratuityTotal = document.querySelector('.gratuity-total');
+    const gratuityDecrement = document.querySelector('#gratuity-decrement');
+    const gratuityIncrement = document.querySelector('#gratuity-increment');
+    const gratuityPercentage = document.querySelector('.gratuity-percentage');
+    const gratuityTotal = document.querySelector('.gratuity-total');
 
     const updateGratuityFields = () => {
       gratuityPercentage.innerHTML = `${this.cart.gratuityPercentage}%`;
@@ -55,9 +60,9 @@ function handlePaymentPage() {
     });
 
     // need to add listener to payment method buttons 
-    paymentMethodForm = document.querySelector('.payment-method-form');
+    const paymentMethodForm = document.querySelector('.payment-method-form');
     paymentMethodForm.querySelectorAll('.rad').forEach((button) => {
-      button.addEventListener('click', (_event) => {
+      button.addEventListener('click', () => {
         let method = ShoppingCart.PAYMENT_METHODS.applePay;
         switch (button.dataset.paymentMethod) {
           case 'apple_pay':
@@ -82,8 +87,8 @@ function handlePaymentPage() {
 
 
     // split the bill listener
-    splitTheBillForm = document.querySelector('#split-bill-form');
-    splitTheBillCheckBox = document.querySelector('#split-bill-checkbox');
+    const splitTheBillForm = document.querySelector('#split-bill-form');
+    const splitTheBillCheckBox = document.querySelector('#split-bill-checkbox');
 
     splitTheBillForm.addEventListener('click', () => {
       this.cart.isSplittingBill = splitTheBillCheckBox.checked;
@@ -100,22 +105,56 @@ function handleFeedbackPage() {
 function handleOrderSummaryPage() {
   cartLoad();
 
+  populateCartSummary();
+
   // add listeners to trashcan icons
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.order-action').forEach((button) => {
-      button.addEventListener('click', (event) => {
+      button.addEventListener('click', () => {
         this.cart.deleteItem(button.dataset.itemId);
         // need to delete whole row of content--means button, and two siblings preceding
-        elems = [button,
+        const elems = [button,
           button.previousElementSibling,
           button.previousElementSibling.previousElementSibling];
 
-        parent = button.parentElement;
+        const parent = button.parentElement;
 
         elems.forEach((child) => parent.removeChild(child));
 
       });
     });
+
+  });
+}
+
+// shown on order-summary-page
+function populateCartSummary() {
+  const orderGrid = document.querySelector('.order-grid');
+
+  this.cart.items.forEach((item) => {
+    const orderItem = document.createElement('span');
+    const orderPrice = document.createElement('span');
+    const orderAction = document.createElement('button');
+
+    orderItem.classList.add('order-item');
+    orderItem.innerHTML = `${item.name} x${item.quantity}`;
+
+    orderPrice.classList.add('order-price');
+    orderPrice.innerHTML = `$${item.totalPriceFormatted}`;
+
+    orderAction.classList.add('order-action', 'btn', 'btn-danger', 'bmd-btn-icon');
+    orderAction.dataset.itemId = `${item.id}`;
+    orderAction.type = 'button';
+
+    const trashCan = document.createElement('i');
+    trashCan.classList.add('material-icons');
+    trashCan.innerHTML = 'delete_outline';
+
+    orderAction.appendChild(trashCan);
+
+    orderGrid.appendChild(orderItem);
+    orderGrid.appendChild(orderPrice);
+    orderGrid.appendChild(orderAction);
 
   });
 }

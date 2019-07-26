@@ -9,6 +9,7 @@
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
+    "eslint": "^6.1.0",
     "sass": "*",
     "sass-loader": "^7.1.0",
     "webpack-dev-server": "^3.7.2"

@@ -6,15 +6,15 @@ export default class CartItem {
     this.unitPrice = args.unitPrice;
   }
 
-  totalPrice() {
+  get totalPrice() {
     return this.quantity * this.unitPrice;
   }
 
-  priceFormatted() {
+  get priceFormatted() {
     return (this.unitPrice / 100).toFixed(2).toString;
   }
 
-  totalPriceFormatted() {
+  get totalPriceFormatted() {
     return (this.totalPrice() / 100).toFixed(2).toString;
   }
 }

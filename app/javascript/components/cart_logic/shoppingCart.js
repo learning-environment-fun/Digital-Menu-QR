@@ -15,7 +15,7 @@ export default class ShoppingCart {
 
   // increase quantity of item in cart by 1
   incrementItem(newItem) {
-    existingItem = this.items.find((item) => item.id === newItem.id);
+    const existingItem = this.items.find((item) => item.id === newItem.id);
     if (existingItem !== null) {
       existingItem.quantity += 1;
     } else {
@@ -25,12 +25,12 @@ export default class ShoppingCart {
 
   // reduce quantity of item in cart by 1
   decrementItem(oldItem) {
-    existingItem = this.items.find((item) => item.id === oldItem.id);
+    const existingItem = this.items.find((item) => item.id === oldItem.id);
     if (existingItem !== null) {
       existingItem.quantity -= 1;
 
       if (existingItem.quantity <= 0) {
-        this.items = this.items.filter((value, _index, _arr) => value.id === existingItem.id);
+        this.items = this.items.filter((value) => value.id === existingItem.id);
       }
     }
   }
@@ -38,10 +38,10 @@ export default class ShoppingCart {
   // delete item from cart, regardless of quantity; 
   // can pass either an item instance or item id 
   deleteItem(item) {
-    let filterFunction = (value, _index, _arr) => value.id === item.id;
+    let filterFunction = (value) => value.id === item.id;
 
     if (typeof (item) === 'number') {
-      filterFunction = (value, _index, _arr) => value.id === item;
+      filterFunction = (value) => value.id === item;
     }
 
     this.items = this.items.filter(filterFunction);
@@ -61,15 +61,15 @@ export default class ShoppingCart {
   }
 
   get gratuityFormatted() {
-    return formatAmount(this.costGratuity);
+    return this.formatAmount(this.costGratuity);
   }
 
   get noGratuityFormatted() {
-    return formatAmount(this.costNoGratuity);
+    return this.formatAmount(this.costNoGratuity);
   }
 
   get totalFormatted() {
-    return formatAmount(this.costTotal);
+    return this.formatAmount(this.costTotal);
   }
 
   // helpers
