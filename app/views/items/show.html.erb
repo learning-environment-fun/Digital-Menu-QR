@@ -21,28 +21,27 @@
                 </p>
             </div>
             <!-- Amount of the meal -->
+
             <div class="item-amount-buttons">
-                <div class="item-amount">
-                    <div class="item-amount-smaller">
-                        <p>-</p>
-                    </div>
-                    <h1>
-                        <%= @item.name %>
-                    </h1>
-                    <p>
-                        <%= @item.description %>
-                    </p>
-                </div>
-                <div class="item-amount-greater">
-                    <p>+</p>
-                </div>
+        <div class="item-amount">
+            <div class="item-amount-smaller">
+                <p>-</p>
             </div>
-            <div class="item-price">
-                <h2>
-                    <span id="price">
-                        <%=@item.price %></span> €</h2>
+            <div class="item-amount-display">
+                <p>1</p>
+            </div>
+            <div class="item-amount-greater">
+               <p>+</p>
             </div>
         </div>
+        <div class="item-price">
+            <h2>
+                <span id="price"><%=@item.price %></span> €</h2>
+        </div>
+    </div>
+
+
+
         <!-- order menu -->
         <hr class="item-hr mt-20">
         <div class="item-menu">
