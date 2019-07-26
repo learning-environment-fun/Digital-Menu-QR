@@ -1,4 +1,4 @@
-<div class="body">
+<div id="restaurant-menu-page" class="body app-page">
   <% if @restaurant.image.present? %>
     <div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');">
   <% else %>
@@ -15,7 +15,7 @@
         </div>
         <div id="London" class="w3-container city" style="display:block">
             <% @appetizer.each do |item| %>
-            <%= link_to restaurant_item_path(item) do %>
+            <%= link_to item_path(item) do %>
             <div class="card-product">
 
               <div class="card-food-image">
@@ -37,7 +37,7 @@
         </div>
         <div id="Paris" class="w3-container city" style="display:none">
              <% @food.each do |item| %>
-             <%= link_to restaurant_item_path(item) do %>
+             <%= link_to item_path(item) do %>
             <div class="card-product">
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
@@ -58,7 +58,7 @@
         </div>
         <div id="Tokyo" class="w3-container city" style="display:none">
               <% @drink.each do |item| %>
-              <%= link_to restaurant_item_path(item) do %>
+              <%= link_to item_path(item) do %>
             <div class="card-product">
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
@@ -79,7 +79,7 @@
         </div>
         <div id="NewYork" class="w3-container city" style="display:none">
             <% @dessert.each do |item| %>
-            <%= link_to restaurant_item_path(item) do %>
+            <%= link_to item_path(item) do %>
             <div class="card-product">
               <div class="card-food-image">
                   <img src="<%= item.image %>" />
