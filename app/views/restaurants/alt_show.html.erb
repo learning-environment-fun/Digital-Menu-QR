@@ -1,0 +1,57 @@
+<div id="restaurant-show-page" class="app-page">
+
+    <div class="page-header">
+        <h1><%= @restaurant.name %></h1>
+    </div>
+
+    <ul>
+        <% @menu.each do |item| %>
+        <li data-item-id="<%= item.id %>" data-item-name="<%= item.name %>" data-item-price="<%= item.price %>">
+        <button type="button"  class="item-decrement-button btn btn-primary bmd-btn-fab">
+            <i class="material-icons">remove</i>
+        </button>
+        <a href="">
+        <%= "#{item.name}, $#{item.price_formatted}" %>
+        </a>
+        <button type="button" class="item-increment-button btn btn-primary bmd-btn-fab">
+            <i class="material-icons">add</i>
+        </button>
+        </li>
+        <% end %>
+    </ul>
+
+    <div class="page-footer container">
+        <hr>
+
+        <span class="btn-group-lg">
+            <button type="button" class="btn btn-raised btn-secondary">Back</button>
+            <!--<button type="button" class="btn btn-raised btn-success">Confirm Order</button>-->
+            <%= link_to 'Checkout', cart_path, class: "btn btn-raised btn-success" %>
+        </span>
+    </div>
+</div>
+
+<script>
+    // Determines if the passed element is overflowing its bounds,
+    // either vertically or horizontally.
+    // Will temporarily modify the "overflow" style to detect this
+    // if necessary.
+    // https://stackoverflow.com/questions/143815/determine-if-an-html-elements-content-overflows
+    function checkOverflow(el) {
+        var curOverflow = el.style.overflow;
+
+        if (!curOverflow || curOverflow === "visible")
+            el.style.overflow = "hidden";
+
+        var isOverflowing = el.clientWidth < el.scrollWidth ||
+            el.clientHeight < el.scrollHeight;
+
+        el.style.overflow = curOverflow;
+
+        return isOverflowing;
+    }
+
+    document.addEventListener('DOMContentLoaded', (_event) => {
+        
+    });
+</script>

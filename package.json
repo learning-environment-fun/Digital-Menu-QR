@@ -6,9 +6,11 @@
     "bootstrap": "4.2.1",
     "dart-sass": "^1.22.7",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.15.0",
+    "rails-ujs": "^5.2.3"
   },
   "devDependencies": {
+    "eslint": "^6.1.0",
     "sass": "*",
     "sass-loader": "^7.1.0",
     "webpack-dev-server": "^3.7.2"
