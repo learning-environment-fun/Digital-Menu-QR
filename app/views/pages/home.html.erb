@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
+<h1>This is a temporary homepage, to facilitate ease of navigation.</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<h2>All the restaurant menus you can visit:</h2>
+<ul>
+    <% @restaurants.each do |restaurant| %>
+        <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+</ul>

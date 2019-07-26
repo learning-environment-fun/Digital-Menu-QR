@@ -1,7 +1,12 @@
 class Item < ApplicationRecord
   belongs_to :restaurant
+<<<<<<< HEAD
   has_many :order_item
 
+=======
+  has_many :order_items
+  has_many :orders, through: :order_items
+>>>>>>> c4309b6080d79d63d7c27e4b056e905949dc39f3
 
 
   # Presence of Attributes
@@ -16,4 +21,9 @@ class Item < ApplicationRecord
 
   # Picture Upload Gem related
   mount_uploader :image, PhotoUploader
+
+  def price_formatted
+    return (self.price / 100.to_f).round(2)
+  end
+
 end

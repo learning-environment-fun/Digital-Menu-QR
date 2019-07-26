@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  respond_to :json
 
   def show
     @order = Order.last
@@ -23,5 +24,44 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+<<<<<<< HEAD
 
+=======
+  def handle_order_json
+    items = params[:items].map do |item|
+      {
+        item_id: item["id"],
+        quantity: item["quantity"],
+        unit_price: item["unitPrice"]
+      }
+    end
+
+    costWithoutTip = items.map { |i| i[:quantity] * i[:unit_price] }.reduce(:+)
+    costOfTip = costWithoutTip.to_f * params[:gratuityPercentage].to_f / 100.to_f
+    totalCost = (costWithoutTip + costOfTip).to_i
+    
+    kitchen_status = "pending"
+    transaction_status = "paid" 
+    transaction_type = "food order"
+
+    # hack, broken seed fml
+    table = Table.create(restaurant_id: Restaurant.first.id, table_number: "4")
+
+    order_hash = { table_id: table.id, user_id: User.first.id, :kitchen_status => kitchen_status, :transaction_status => transaction_status, 
+    :transaction_price => totalCost, :transaction_type => transaction_type }
+
+    puts order_hash
+
+    
+
+    order = Order.create!(order_hash)
+
+    items.each do |i|
+      OrderItem.create!(item_id: i[:item_id], order_id: order.id, quantity: i[:quantity], item_price: i[:unit_price])
+    end
+    puts "order id " + order.id.to_s
+    render :json => { id: order.id }
+    # redirect_to "/feedback/#{order.id}"
+  end
+>>>>>>> c4309b6080d79d63d7c27e4b056e905949dc39f3
 end

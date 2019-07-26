@@ -7,6 +7,9 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'faker', require: true
 
+# precompiler
+gem 'rails_12factor'
+
 # for displaying vector graphics
 gem 'inline_svg'
 
