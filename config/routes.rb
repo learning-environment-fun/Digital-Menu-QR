@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show]
   resources :items, only: [:show]
-  resources :orders, only: [:create]
+  post '/orders', to: 'orders#handle_order_json'
   
   #1 after scanning a new order will be created, than redicrection to 'show restaurants items'
 

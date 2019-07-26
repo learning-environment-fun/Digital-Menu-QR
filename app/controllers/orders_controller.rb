@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  respond_to :json
 
   def show
     @order = Order.find(params[:id])
@@ -22,5 +23,9 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+  end
+
+  def handle_order_json
+    render :json => params
   end
 end

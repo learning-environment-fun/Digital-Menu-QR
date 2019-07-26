@@ -2,6 +2,8 @@ import ShoppingCart from '../cart_logic/shoppingCart.js';
 import CartStorage from '../cart_logic/cartStorage.js';
 import CartItem from '../cart_logic/cartItem.js';
 
+let RailsUJS = this.Rails;
+
 export function cartPageSetup() {
   // which page are we on? 
   const pageDiv = document.querySelector('.app-page');
@@ -94,6 +96,26 @@ function handlePaymentPage() {
       this.cart.isSplittingBill = splitTheBillCheckBox.checked;
     });
 
+    const paymentConfirmButton = document.querySelector('.payment-confirm-button');
+    paymentConfirmButton.addEventListener('click', () => {
+      // send post request to make new order
+      fetch('/orders', {
+        method: 'post',
+        body: JSON.stringify(
+          this.cart
+        ),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': RailsUJS.csrfToken()
+        },
+        credentials: 'same-origin'
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log(data);
+      });
+    });
+
   });
 }
 
@@ -115,7 +137,8 @@ function handleOrderSummaryPage() {
         // need to delete whole row of content--means button, and two siblings preceding
         const elems = [button,
           button.previousElementSibling,
-          button.previousElementSibling.previousElementSibling];
+          button.previousElementSibling.previousElementSibling
+        ];
 
         const parent = button.parentElement;
 

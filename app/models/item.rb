@@ -16,4 +16,9 @@ class Item < ApplicationRecord
 
   # Picture Upload Gem related
   mount_uploader :image, PhotoUploader
+
+  def price_formatted
+    return (self.price / 100.to_f).round(2)
+  end
+
 end

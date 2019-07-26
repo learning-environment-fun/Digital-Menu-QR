@@ -9,9 +9,9 @@
         <h4>Order Summary</h4>
         <div class="order-summary-list">
             <div class="order-grid">
-                <% @order.items.each do |item| %>
-                <span class="order-item"><%= "#{item.title} x#{item.quantity}" %></span>
-                <span class="order-price"><%= "$#{item.dollars}" %></span>
+                <% @order.order_items.each do |order_item| %>
+                <span class="order-item"><%= "#{order_item.item.title} x#{order_item.quantity}" %></span>
+                <span class="order-price"><%= "$#{order_item.total_cost_formatted}" %></span>
                 <% end %>
             </div>
         </div>
@@ -23,11 +23,11 @@
 
         <div class="order-total-gratuity">
             <div class="left-cell">
-                <p>Order: <strong><%= "$#{@order[:total]}" %></strong></p>
-                <p>Tip: <strong><%= "$#{@order[:gratuity]}" %></strong></p>
+                <p>Order: <strong><%= "$#{@order.total_cost_formatted}" %></strong></p>
+                <p>Tip: <strong><%= "$#{@order.gratuity_formatted}" %></strong></p>
             </div>
             <i class="arrow-icon material-icons">chevron_right</i>
-            <div class="right-cell"><%="$#{@order[:total] + @order[:gratuity]}" %></div>
+            <div class="right-cell"><%="$#{@order.total_cost_with_gratuity_formatted}" %></div>
             <div class="badge-cell order-paid-badge"><span>Paid!<span></div>
         </div>
 
