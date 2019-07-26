@@ -1,6 +1,6 @@
 
     <% if @restaurant.image.present? %>
-    <div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');">
+    <div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');   background-size: cover;">
         <% else %>
         <div class="no_header-image">
             <% end %>
@@ -40,7 +40,7 @@
             </div>
             <div id="Paris" class="w3-container city" style="display:none">
                 <% @food.each do |item| %>
-                <%= link_to order_item_path(74, 74) do %>
+                <%= link_to order_item_path(@order, item) do %>
                 <div class="card-product">
                     <div class="card-food-image">
                         <img src="<%= item.image %>" />
@@ -65,7 +65,7 @@
             </div>
             <div id="Tokyo" class="w3-container city" style="display:none">
                 <% @drink.each do |item| %>
-                <%= link_to order_item_path(74, 74)  do %>
+                <%= link_to order_item_path(@order, item)  do %>
                 <div class="card-product">
                     <div class="card-food-image">
                         <img src="<%= item.image %>" />
@@ -90,7 +90,7 @@
             </div>
             <div id="NewYork" class="w3-container city" style="display:none">
                 <% @dessert.each do |item| %>
-                <%= link_to order_item_path(74, 74) do %>
+                <%= link_to order_item_path(@order, item) do %>
                 <div class="card-product">
                     <div class="card-food-image">
                         <img src="<%= item.image %>" />

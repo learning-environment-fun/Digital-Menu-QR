@@ -5,8 +5,11 @@ class PagesController < ApplicationController
 
   end
 
-  def pay
-    @cart_order = Order.find
+  def cart
+
+    #@cart = Order.find(params[:id])
+
+    @cart = OrderItem.find(params[:id])
   end
 
   # def feedback

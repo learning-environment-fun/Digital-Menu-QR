@@ -42,9 +42,9 @@
     <div class="item-menu">
         <%= simple_form_for @order_item, url: order_order_items_path do |f| %>
         <%= f.input :quantity, :as => :hidden, :input_html => { id: :input, :value => "1" } %>
-        <%= f.input :price, :as => :hidden, :input_html => { :value => @item.price } %>
-        <%= f.input :item, :as => :hidden, :input_html => { :value => @item.id } %>
-        <%= f.input :order, :as => :hidden, :input_html => { :value => @order.id } %>
+        <%= f.input :item_price, :as => :hidden, :input_html => { :value => @item.price } %>
+        <%= f.input :item_id, :as => :hidden, :input_html => { :value => @item.id } %>
+        <%= f.input :order_id, :as => :hidden, :input_html => { :value => @order.id } %>
         <%= f.button :submit, 'Add to cart',name: "add_to_cart", class: "btn btn-primary"  %>
         <%= f.button :submit, 'Order now', name: 'order_now', class: "btn btn-primary" %>
 
