@@ -10,7 +10,7 @@
         <div class="order-summary-list">
             <div class="order-grid">
                 <% @order.order_items.each do |order_item| %>
-                <span class="order-item"><%= "#{order_item.item.title} x#{order_item.quantity}" %></span>
+                <span class="order-item"><%= "#{order_item.item.name} x#{order_item.quantity}" %></span>
                 <span class="order-price"><%= "$#{order_item.total_cost_formatted}" %></span>
                 <% end %>
             </div>
@@ -24,7 +24,7 @@
         <div class="order-total-gratuity">
             <div class="left-cell">
                 <p>Order: <strong><%= "$#{@order.total_cost_formatted}" %></strong></p>
-                <p>Tip: <strong><%= "$#{@order.gratuity_formatted}" %></strong></p>
+                <p>Tip: <strong><%= "$#{@order.gratuity_amount_formatted}" %></strong></p>
             </div>
             <i class="arrow-icon material-icons">chevron_right</i>
             <div class="right-cell"><%="$#{@order.total_cost_with_gratuity_formatted}" %></div>

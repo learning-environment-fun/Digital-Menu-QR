@@ -1,6 +1,6 @@
 class OrderItem < ApplicationRecord
   belongs_to :order
-  has_many :items
+  belongs_to :item
 
   validates :quantity, presence: true
   validates :item_price, presence: true

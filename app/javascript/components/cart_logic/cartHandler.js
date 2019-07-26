@@ -125,7 +125,7 @@ function handlePaymentPage() {
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        console.log(data);
+        window.location.href = `/feedback/${data.id}`;
       });
     });
 
