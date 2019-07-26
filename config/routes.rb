@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'pages#cart'
+  root to: 'pages#home'
 
   # test routes for getting to specific views
   get "/cart", to: 'pages#cart', as: 'cart' 
-  get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity' 
+  # get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity' 
   get "/pay", to: 'pages#pay', as: 'pay'
-  get "/feedback", to: 'pages#feedback', as: 'feedback' 
+  get "/feedback/:id", to: 'pages#feedback', as: 'feedback' 
 
-
+  resources :restaurants, only: [:index, :show]
+  resources :items, only: [:show]
+  resources :orders, only: [:create]
+  
   #1 after scanning a new order will be created, than redicrection to 'show restaurants items'
 
 

@@ -9,7 +9,7 @@
         <h4>Order Summary</h4>
         <div class="order-summary-list">
             <div class="order-grid">
-                <% @cart_props[:items].each do |item| %>
+                <% @order.items.each do |item| %>
                 <span class="order-item"><%= "#{item.title} x#{item.quantity}" %></span>
                 <span class="order-price"><%= "$#{item.dollars}" %></span>
                 <% end %>
@@ -23,11 +23,11 @@
 
         <div class="order-total-gratuity">
             <div class="left-cell">
-                <p>Order: <strong><%= "$#{@cart_props[:total]}" %></strong></p>
-                <p>Tip: <strong><%= "$#{@cart_props[:gratuity]}" %></strong></p>
+                <p>Order: <strong><%= "$#{@order[:total]}" %></strong></p>
+                <p>Tip: <strong><%= "$#{@order[:gratuity]}" %></strong></p>
             </div>
             <i class="arrow-icon material-icons">chevron_right</i>
-            <div class="right-cell"><%="$#{@cart_props[:total] + @cart_props[:gratuity]}" %></div>
+            <div class="right-cell"><%="$#{@order[:total] + @order[:gratuity]}" %></div>
             <div class="badge-cell order-paid-badge"><span>Paid!<span></div>
         </div>
 

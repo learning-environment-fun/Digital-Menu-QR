@@ -1,0 +1,55 @@
+<!-- Image of the meal -->
+<div class="item-image" style="background-image: url('<%= cl_image_path @item.image %>')">
+    <div class="item-backicon">
+      <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, root_path %>
+
+    </div>
+</div>
+<!-- Description of the meal -->
+<div class="container-wrapper">
+    <%= button_to 'sign me out', destroy_user_session_path, method: :delete %>
+    <div class="item-details">
+        <div class="item-shoppingcard">
+            <!-- <p>1</p> -->
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+        <h1>
+            <%= @item.name %>
+        </h1>
+        <p>
+            <%= @item.description %>
+        </p>
+    </div>
+    <!-- Amount of the meal -->
+
+    <%= simple_form_for @user do |f| %>
+  <%= f.button :username %>
+  <%= f.button :password %>
+  <%= f.button :submit %>
+
+<% end %>
+
+    <div class="item-amount-buttons">
+        <div class="item-amount">
+            <div class="item-amount-smaller">
+                <p>-</p>
+            </div>
+            <div class="item-amount-display">
+                <p>1</p>
+            </div>
+            <div class="item-amount-greater">
+               <p>+</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <h2>
+                <span id="price"><%=@item.price %></span> €</h2>
+        </div>
+    </div>
+    <!-- order menu -->
+    <hr class="item-hr mt-20">
+    <div class="item-menu">
+        <%= link_to 'Add to Basket', restaurant_item_path, class:"btn btn-primary"%>
+        <%= link_to 'Place Order', restaurant_item_path, class:"btn btn-primary"%>
+    </div>
+</div>
