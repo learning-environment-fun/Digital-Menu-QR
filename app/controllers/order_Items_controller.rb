@@ -11,7 +11,7 @@ class OrderItemsController < ApplicationController
       redirect_to order_path(@order)
 
     else params[:order_now]
-      redirect_to cart_path(@order, @orderItem)
+      redirect_to cart_order_path(@order, @orderItem)
 
     end
   else

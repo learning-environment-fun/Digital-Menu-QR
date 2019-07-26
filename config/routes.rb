@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # test routes for getting to specific views
   get "/cart", to: 'pages#cart', as: 'cart'
   # get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity'
-  get "/pay", to: 'pages#pay', as: 'pay'
+  get "/pay/:order_id", to: 'pages#pay', as: 'pay'
   get "/feedback/:id", to: 'pages#feedback', as: 'feedback'
 
 
