@@ -10,6 +10,9 @@ export function cartPageSetup() {
   // which page are we on? 
   const pageDiv = document.querySelector('.app-page');
   switch (pageDiv.id) {
+    case 'item-listing-page':
+      handleItemListingPage();
+      break;
     case 'payment-page':
       handlePaymentPage();
       break;
@@ -33,12 +36,47 @@ function cartLoad() {
   if (cart === null || cart === {}) {
     cart = new ShoppingCart();
   } else {
-    cart.items = cart.items.map((item) => new CartItem({ name: item.name, id: item.id, unitPrice: item.unitPrice, quantity: item.quantity }));
+    cart.items = cart.items.map((item) => new CartItem({
+      name: item.name,
+      id: item.id,
+      unitPrice: item.unitPrice,
+      quantity: item.quantity
+    }));
   }
 }
 
 function cartErase() {
   CartStorage.eraseCart();
+}
+
+function handleItemListingPage() {
+  cartLoad();
+
+  let tempQuantity = 1;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.item-amount-smaller').addEventListener('click', () => {
+      tempQuantity = Math.max(0, tempQuantity - 1);
+    });
+
+    document.querySelector('.item-amount-greater').addEventListener('click', () => {
+      tempQuantity = Math.min(100, tempQuantity + 1);
+    });
+
+    document.querySelector('.commit-to-cart-button').addEventListener('click', (event) => {
+      const parent = event.target.parentElement;
+      const item = new CartItem({
+        id: parent.dataset.itemId,
+        name: parent.dataset.itemName,
+        unitPrice: parent.dataset.itemPrice,
+        quantity: tempQuantity
+      });
+
+      cart.incrementItem(item);
+    });
+  });
+
+
 }
 
 function handlePaymentPage() {

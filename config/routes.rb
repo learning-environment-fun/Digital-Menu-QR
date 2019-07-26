@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/pay", to: 'pages#pay', as: 'pay'
   get "/feedback/:id", to: 'pages#feedback', as: 'feedback' 
 
-  resources :restaurants, only: [:index]
+  resources :restaurants, only: [:index, :show]
   resources :items, only: [:show]
   post '/orders', to: 'orders#handle_order_json'
   get '/alt-restaurants/:id', to: 'restaurants#alt_show', as: 'alt_restaurant'
