@@ -1,8 +1,9 @@
 class Order < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to :table
-  has_many :order_items
-  has_many :items, through: :order_items
+  belongs_to :restaurant
+  has_one :table
+  has_many :order_items, :dependent => :destroy
+  has_many :items, :through => :order_items
 
 #   validates :kitchen_status, presence: true
 

@@ -42,10 +42,7 @@ class OrdersController < ApplicationController
     transaction_status = "paid" 
     transaction_type = "food order"
 
-    # hack, broken seed fml
-    table = Table.create(restaurant_id: Restaurant.first.id, table_number: "4")
-
-    order_hash = { table_id: table.id, user_id: User.first.id, :kitchen_status => kitchen_status, :transaction_status => transaction_status, 
+    order_hash = { table_id: Table.last.id, restaurant_id: Restaurant.last.id, user_id: User.first.id, :kitchen_status => kitchen_status, :transaction_status => transaction_status, 
     :transaction_price => totalCost, :transaction_type => transaction_type }
 
     puts order_hash

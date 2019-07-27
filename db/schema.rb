@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_010521) do
+ActiveRecord::Schema.define(version: 2019_07_27_193309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_010521) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_items_on_restaurant_id"
-  end
-
-  create_table "jwt_blacklist", id: :serial, force: :cascade do |t|
-    t.string "jti", null: false
-    t.index ["jti"], name: "index_jwt_blacklist_on_jti"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -49,10 +44,12 @@ ActiveRecord::Schema.define(version: 2019_07_26_010521) do
     t.integer "transaction_price"
     t.string "transaction_status"
     t.string "transaction_type"
-    t.bigint "table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "gratuity_percentage", default: 10
+    t.bigint "restaurant_id"
+    t.bigint "table_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["table_id"], name: "index_orders_on_table_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -69,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_010521) do
     t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "table_number"
+    t.integer "table_number"
     t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
   end
 
@@ -90,6 +87,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_010521) do
   add_foreign_key "items", "restaurants"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "tables"
   add_foreign_key "orders", "users"
   add_foreign_key "tables", "restaurants"

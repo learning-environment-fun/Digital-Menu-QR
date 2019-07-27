@@ -1,8 +1,8 @@
 
 p "Cleaning the database."
-Item.delete_all
-Order.delete_all
-Restaurant.delete_all
+Item.destroy_all
+Order.destroy_all
+Restaurant.destroy_all
 
 p "We are now going to seed"
 
@@ -173,6 +173,6 @@ cocktail = Item.create!(
   restaurant_id: luigi.id
   )
 
-table = Table.create!(restaurant: Restaurant.last, table_number: "1")
+table = Table.create!(restaurant: luigi, table_number: 1)
 
 p "Busted my seed...."
