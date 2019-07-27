@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_27_193309) do
+ActiveRecord::Schema.define(version: 2019_07_27_194554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2019_07_27_193309) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_restaurants_on_owner_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_07_27_193309) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "photo"
+    t.boolean "is_restaurant_owner", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -90,5 +93,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_193309) do
   add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "tables"
   add_foreign_key "orders", "users"
+  add_foreign_key "restaurants", "users", column: "owner_id"
   add_foreign_key "tables", "restaurants"
 end

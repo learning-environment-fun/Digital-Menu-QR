@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :restaurant
-  has_one :table
+  belongs_to :table
   has_many :order_items, :dependent => :destroy
   has_many :items, :through => :order_items
 

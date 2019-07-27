@@ -4,10 +4,14 @@ Item.destroy_all
 Order.destroy_all
 Restaurant.destroy_all
 
+owner = User.create(is_restaurant_owner: true)
+customer = User.create
+
 p "We are now going to seed"
 
 luigi = Restaurant.create!(
   name: "Luigi",
+  owner: owner,
   address: "Calle Italia, 69, Germany",
   remote_image_url: "https://images.unsplash.com/photo-1526234362653-3b75a0c07438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80"
   )
@@ -174,7 +178,6 @@ cocktail = Item.create!(
   )
 
 table = Table.create!(restaurant: luigi, table_number: 1)
-Order.create(table: Table.last)
-User.create
+Order.create(table: table, restaurant: luigi, user: customer)
 
 p "Busted my seed...."
