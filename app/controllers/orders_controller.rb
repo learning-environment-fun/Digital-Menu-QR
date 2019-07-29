@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 
   def create
     @table = Table.find(params[:table_id])
-    @order = Order.create(table: @table)
+    @order = Order.create(table: @table, restaurant: @table.restaurant)
     redirect_to order_path(@order)
   end
 
