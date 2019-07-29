@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  scope 'kitchen' do
+    get 'orders/', to: 'kitchens#kitchen_orders'
+  end
   root to: 'pages#home', as: 'homepage'
 
   # test routes for getting to specific views
