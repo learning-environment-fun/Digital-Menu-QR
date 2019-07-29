@@ -14,6 +14,19 @@ class OrdersController < ApplicationController
     @dessert = @menu.where(food_type: "food_dessert")
   end
 
+def menu
+@order = Order.last
+    @restaurant = @order.table.restaurant
+    @items = @restaurant.items
+    @table = @order.table
+
+    @menu = @items.where(restaurant_id: @restaurant.id)
+    @appetizer = @menu.where(food_type: "food_app")
+    @food = @menu.where(food_type: "food_main")
+    @drink = @menu.where(food_type: "drink")
+    @dessert = @menu.where(food_type: "food_dessert")
+end
+
   def create
     @table = Table.find(params[:table_id])
     @order = Order.create(table: @table)

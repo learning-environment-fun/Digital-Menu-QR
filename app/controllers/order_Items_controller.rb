@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
   @order = Order.find(params[:order_id])
   if @order.save
     if params[:add_to_cart]
-      redirect_to order_path(@order)
+      redirect_to menu_order_path(@order.id, @orderItem)
 
     else params[:order_now]
       redirect_to pay_path(@order.id, @orderItem)
