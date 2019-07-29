@@ -1,33 +1,31 @@
-.payment-page .gratuity-form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    .gratuity-percentage {
-        line-height: 2;
-        margin: 0 1rem;
-    }
-
-    .gratuity-total {
-        text-decoration: underline dotted;
-        font-weight: bold;
-    }
-
-    .gratuity-buttons {
-        display: flex;
-    }
+.texttitle {
+  margin: 20px 0px;
 }
 
-.payment-page .payment-method-form {
-    display: flex;
-    justify-content: center;
+.pay-options {
+display: flex;
+width: 100%;
+justify-content: space-around;
 
-    label {
-        line-height: 1; // correctly aligns radio buttons
-        margin-bottom: 0.25rem 1rem;
-    }
+  .fab {
+    font-size: 30px;
+  }
+
 }
+
 
 .payment-page .payment-split-settings {
     padding-top: 0;
+}
+
+// .payment-container {
+//   position: relative;
+// }
+.totalprice {
+display: flex;
+justify-content: space-around;
+color: white;
+background-color: #009688;
+width: 100%;
 }
