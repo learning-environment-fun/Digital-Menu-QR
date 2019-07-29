@@ -27,7 +27,10 @@ Rails.application.routes.draw do
 # restaurants/1
 resources :orders, only: [:show, :update, :destroy] do
 
-   member do                             # member => restaurant id in URL
+# Stripe stuff
+  resources :payments, only: [:new, :create]
+
+  member do                             # member => restaurant id in URL
       get 'menu'
 
       #/orders/:id/cart
@@ -42,10 +45,10 @@ resources :orders, only: [:show, :update, :destroy] do
   resources :order_items, only: [:create] do
   end
 
- end
-#
 
 
+
+end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
