@@ -4,8 +4,14 @@ class OrdersController < ApplicationController
   def show
     @order = Order.last
     @restaurant = @order.table.restaurant
-    @items = @restaurant.items
     @table = @order.table
+
+    # For Search Functionality
+    if params[:query].present?
+      @items = Item.search_by_name_and_description(params[:query]) 
+    else
+      @items = Item.all
+    end
 
     @menu = @items.where(restaurant_id: @restaurant.id)
     @appetizer = @menu.where(food_type: "food_app")
