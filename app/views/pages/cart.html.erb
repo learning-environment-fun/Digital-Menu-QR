@@ -14,11 +14,9 @@
 <div class="totalprice">
   <p class="order-total-text">Total</p>
 <p class="order-total-amount">$
-    <%= @order.transaction_price %>
+    <%= @order.total_cost %>
 </p>
 </div>
-
-
 
 
 <div id="order-summary-page" class="order-summary app-page">
@@ -31,10 +29,9 @@
                 <%= "#{item.item.name} x#{item.quantity}" %></span>
             <span class="order-price">
                 <%= "$#{item.item_price}" %></span>
-            <button type="button" class="order-action btn btn-danger bmd-btn-icon">
+              <%= button_to order_order_item_path(@order, item), method: :delete, class: "order-action btn btn-danger bmd-btn-icon" do %>
                 <i class="material-icons">delete_outline</i>
-            </button>
-            <!--</span>-->
+              <% end %>
             <% end %>
         </div>
     </div>

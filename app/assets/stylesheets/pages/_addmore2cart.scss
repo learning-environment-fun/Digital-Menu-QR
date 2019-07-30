@@ -1,0 +1,31 @@
+
+
+.fixed-header-add2cart {
+  position: fixed;
+  top: 0em;
+  height: 10vh;
+  width: 100%;
+  background-color: #009688;
+  color: white;
+  display: flex;
+justify-content: flex-start;
+align-items:center;
+z-index: 1;
+padding: 0em 2em;
+ i {
+    color: white;
+    }
+    h3 {
+     padding: 0em 1em;
+    }
+}
+
+.content-add2cart {
+
+margin-top: 10vh;
+
+}
+
+.quantity-add2cart {
+padding: 0em 2em;
+}
