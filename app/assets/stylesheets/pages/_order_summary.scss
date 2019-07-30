@@ -99,8 +99,7 @@
         width: 100%;
         box-sizing: border-box;
         padding-bottom: 1rem;
-
-
+        background-color: $light-gray;
 
         .order-buttons {
             border-top: 1px solid black;
@@ -109,6 +108,7 @@
             justify-content: space-around;
             font-size: 12px;
             padding-top: 1em;
+
 
 
             :first-child {

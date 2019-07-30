@@ -2,7 +2,7 @@
 
 
 <div class="restaurant-header-2">
-    <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, order_path(@order.id)%>
+    <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, cart_order_path(@order.id)%>
 
             <p>Thanks for visiting: <strong>
             <%= Restaurant %></strong></p>
@@ -13,7 +13,7 @@
 <div class="totalprice">
   <p class="order-total-text">Total</p>
 <p class="order-total-amount">$
-    <%= @order.transaction_price %>
+    <%= @order.total_cost %>
 </p>
 </div>
 

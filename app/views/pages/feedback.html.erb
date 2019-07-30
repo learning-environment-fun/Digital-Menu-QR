@@ -1,39 +1,29 @@
-<div id="feedback-page" class="feedback-page app-page">
+<div class="payment-container">
 
-    <div class="page-header">
-        <h1>Thanks for your order!</h1>
-    </div>
+<div class="restaurant-header-2">
 
-    <div class="container mt-4">
+            <p>Thanks for visiting: <strong>
+            <%= Restaurant %></strong></p>
+</div>
 
-        <h4>Order Summary</h4>
+<div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;">
+</div>
+
+
+<div class="container-feedback">
+<h4>Order Summary</h4>
         <div class="order-summary-list">
             <div class="order-grid">
                 <% @order.order_items.each do |order_item| %>
                 <span class="order-item"><%= "#{order_item.item.name} x#{order_item.quantity}" %></span>
-                <span class="order-price"><%= "$#{order_item.total_cost_formatted}" %></span>
                 <% end %>
             </div>
         </div>
 
+</div>
 
-        <span class="scroll-indicator">
-            <i class="material-icons">keyboard_arrow_down</i>
-        </span>
 
-        <div class="order-total-gratuity">
-            <div class="left-cell">
-                <p>Order: <strong><%= "$#{@order.total_cost_formatted}" %></strong></p>
-                <p>Tip: <strong><%= "$#{@order.gratuity_amount_formatted}" %></strong></p>
-            </div>
-            <i class="arrow-icon material-icons">chevron_right</i>
-            <div class="right-cell"><%="$#{@order.total_cost_with_gratuity_formatted}" %></div>
-            <div class="badge-cell order-paid-badge"><span>Paid!<span></div>
-        </div>
-
-        <hr>
-
-        <div class="ratings-section mt-4">
+        <div class="ratings-section mt-5 mb-5">
             <h4>How'd we do?</h4>
 
             <div class="ratings-stars">
@@ -64,18 +54,18 @@
 
         </div>
 
-        <div class="page-footer container">
-            <hr class="footer-divider">
 
-            <div class="text-center mt-2">
+
+            <div class="text-center mb-5">
                 <p>Did you enjoy your ordering experience?</p>
-                <button type="button" class="btn btn-raised btn-success btn-lg">Recommend Us</button>
+
                 <%= link_to 'Place Another Order', homepage_path, class: "text-center btn btn-primary" %>
+                <button type="button" class="btn btn-primary btn-raised">Recommend Us</button>
                 <!--<button type="button" id="new-order-button" class="text-center btn btn-primary">Place Another Order</button>-->
             </div>
         </div>
     </div>
-
+</div>
     <script>
         // Determines if the passed element is overflowing its bounds,
         // either vertically or horizontally.
