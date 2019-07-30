@@ -11,6 +11,13 @@ p {
 }
 //until here
 
+.search-form {
+  input {
+    border: 0px;
+    border-bottom: 2px solid;
+    width: 80%;
+  }
+}
 
 .restaurant-header {
   height: 5vh;
@@ -40,6 +47,7 @@ p {
   padding: 1em 2em 0em 2em;
   background-color: #ededed;
   margin-bottom: 2em;
+  position: relative;
 }
 
 .cart-content {
