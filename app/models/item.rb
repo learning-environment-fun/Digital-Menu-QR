@@ -5,6 +5,7 @@ class Item < ApplicationRecord
 
 
 
+
   # Presence of Attributes
   validates :name, presence: true
   validates :description, presence: true
@@ -22,4 +23,10 @@ class Item < ApplicationRecord
     return (self.price / 100.to_f).round(2)
   end
 
+  include PgSearch
+  pg_search_scope :search_by_name_and_description,
+    against: [:name, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

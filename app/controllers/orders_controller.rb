@@ -4,6 +4,25 @@ class OrdersController < ApplicationController
   def show
     @order = Order.last
     @restaurant = @order.table.restaurant
+    @table = @order.table
+
+    # For Search Functionality
+    if params[:query].present?
+      @items = Item.search_by_name_and_description(params[:query])
+    else
+      @items = Item.all
+    end
+
+    @menu = @items.where(restaurant_id: @restaurant.id)
+    @appetizer = @menu.where(food_type: "food_app")
+    @food = @menu.where(food_type: "food_main")
+    @drink = @menu.where(food_type: "drink")
+    @dessert = @menu.where(food_type: "food_dessert")
+  end
+
+def menu
+@order = Order.last
+    @restaurant = @order.table.restaurant
     @items = @restaurant.items
     @table = @order.table
 
@@ -12,7 +31,7 @@ class OrdersController < ApplicationController
     @food = @menu.where(food_type: "food_main")
     @drink = @menu.where(food_type: "drink")
     @dessert = @menu.where(food_type: "food_dessert")
-  end
+end
 
   def create
     @table = Table.find(params[:table_id])
@@ -26,9 +45,17 @@ class OrdersController < ApplicationController
 
   def cart
     @order = Order.find(params[:id])
+    #@order_item = OrderItem.find(order_items_params)
     render "pages/cart"
     #@order_items = @order.order_item(items)
   end
+
+ private
+
+  def order_items_params
+    #permitted_params = params.require(:order_item).permit(:quantity, :order_id, :item_id, :item_price)
+  end
+
 
 
 #   def handle_order_json

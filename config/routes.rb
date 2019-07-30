@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  scope 'kitchen' do
+    get 'orders/', to: 'kitchens#kitchen_orders'
+  end
   root to: 'pages#home', as: 'homepage'
 
   # test routes for getting to specific views
@@ -42,7 +45,7 @@ resources :orders, only: [:show, :update, :destroy] do
   resources :items, only: [:show]
   #possibility to update/update/destroy
   # restaurants/1/items/:id/show
-  resources :order_items, only: [:create] do
+  resources :order_items, only: [:create, :destroy] do
   end
 
 

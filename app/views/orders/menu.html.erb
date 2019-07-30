@@ -1,73 +1,72 @@
 <!-- <div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;"> -->
-<div class="restaurant-header">
-    <p>Welcome to<strong>
-            <%= @restaurant.name %></strong></p>
+
+<div class="fixed-header-add2cart">
+     <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, order_path(@order.id)%>
+     <h3>|</h3>
+    <p>View Cart</p>
+
+      <%= link_to ' <i class="fas fa-shopping-cart"></i> '.html_safe, cart_order_path(@order.id) %>
+
+    <div class="quantity-add2cart">
+
+  </div>
 </div>
-</div>
-<div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');   background-size: cover;">
-</div>
-</div>
+
+<div class="content-add2cart">
+
+
 <!-- TAPES  -->
 <div class="navbar-mainpage">
-    <!-- TABS FOR DRINK AND FOOD -->
-    <div class="navbar-left">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Food</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Drinks</a>
-            </li>
-            <% if params[:query].present? %>
+<!-- TABS FOR DRINK AND FOOD -->
+        <div class="navbar-left">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Search Results</a>
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Food</a>
                 </li>
-            <% end %>
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Drinks</a>
+                </li>
+            </ul>
+        </div>
+<!-- SEARCH BUTTON  -->
+        <div class="navbar-right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchbaricon">
+                    <i class="fas fa-search"></i>
+                </button>
+        </div>
     </div>
-
-
-    <!-- SEARCH BUTTON  -->
-    <div class="navbar-right">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchbaricon">
-            <i class="fas fa-search">
-            </i>
-        </button>
-    </div>
-</div>
 <div class="container-wrapper">
 
 
-    <!-- SEARCH BUTTON MODAL CONTENT -->
-    <div class="modal fade" id="searchbaricon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">What are you looking for?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" class="search-form">
-                        <input type="text" default="" value="" name="query">
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END SEARCH BUTTON MODAL CONTENT -->
 
+
+<!-- SEARCH BUTTON MODAL CONTENT -->
+<div class="modal fade" id="searchbaricon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">What are you looking for?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SEARCH BUTTON MODAL CONTENT -->
 
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <!-- Food content Tab -->
-            <h4>Appetizer:</h4>
+            <p>Here you can add more food</p>
+
             <div class="cart-content">
                 <% @appetizer.each do |n| %>
                 <%= link_to order_item_path(@order, n) do %>
@@ -109,8 +108,10 @@
                 <% end %>
                 <% end %>
             </div>
+
+
             <h4>Desserts:</h4>
-            <div class="cart-content">
+               <div class="cart-content">
                 <% @dessert.each do |n| %>
                 <%= link_to order_item_path(@order, n) do %>
                 <div class="card-trip">
@@ -130,7 +131,9 @@
                 <% end %>
                 <% end %>
             </div>
+
         </div>
+
         <!-- END: Food content Tab -->
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <!-- Drinks content Tab -->
@@ -156,4 +159,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
