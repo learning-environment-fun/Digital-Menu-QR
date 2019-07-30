@@ -14,7 +14,7 @@ class Order < ApplicationRecord
 
 #   validates :transaction_type, presence: true
 
-  def total_cost 
+  def total_cost
     return self.order_items.length < 1 ? 0 : self.order_items.to_a.map { |order_item| order_item.item_price * order_item.quantity }.reduce(:+)
   end
 
@@ -26,7 +26,7 @@ class Order < ApplicationRecord
     return total_cost.to_f + self.gratuity_amount.to_f
   end
 
-  def format_amount(amount) 
+  def format_amount(amount)
     return (amount.to_f / 100.to_f).round(2)
   end
 

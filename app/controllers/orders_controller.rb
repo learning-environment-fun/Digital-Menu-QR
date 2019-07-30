@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
     # For Search Functionality
     if params[:query].present?
-      @items = Item.search_by_name_and_description(params[:query]) 
+      @items = Item.search_by_name_and_description(params[:query])
     else
       @items = Item.all
     end
@@ -45,9 +45,17 @@ end
 
   def cart
     @order = Order.find(params[:id])
+    #@order_item = OrderItem.find(order_items_params)
     render "pages/cart"
     #@order_items = @order.order_item(items)
   end
+
+ private
+
+  def order_items_params
+    #permitted_params = params.require(:order_item).permit(:quantity, :order_id, :item_id, :item_price)
+  end
+
 
 
 #   def handle_order_json

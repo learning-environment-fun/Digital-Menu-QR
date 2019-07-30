@@ -42,7 +42,7 @@ resources :orders, only: [:show, :update, :destroy] do
   resources :items, only: [:show]
   #possibility to update/update/destroy
   # restaurants/1/items/:id/show
-  resources :order_items, only: [:create] do
+  resources :order_items, only: [:create, :destroy] do
   end
 
  end
