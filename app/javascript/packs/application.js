@@ -1,6 +1,7 @@
 import "bootstrap";
 require('../bootstrap-material-design.min.js');
-
+require("chartkick")
+require("chart.js")
 // const Rails = require('rails-ujs');
 // Rails.start();
 
