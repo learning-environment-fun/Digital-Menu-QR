@@ -1,6 +1,9 @@
 class Restaurant < ApplicationRecord
-  has_many :tables
-  has_many :items
+  has_many :tables, :dependent => :destroy
+  has_many :items, :dependent => :destroy
+  has_many :order_items
+  has_many :orders, :through => :order_items
+  belongs_to :owner, class_name: "User"
 
   # Presence
   validates :name, presence: true

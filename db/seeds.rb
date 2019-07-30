@@ -1,14 +1,17 @@
 
 p "Cleaning the database."
-Item.delete_all
-Order.delete_all
-Table.delete_all
-Restaurant.delete_all
+Item.destroy_all
+Order.destroy_all
+Restaurant.destroy_all
+
+owner = User.create(is_restaurant_owner: true)
+customer = User.create
 
 p "We are now going to seed"
 
 luigi = Restaurant.create!(
   name: "Luigi",
+  owner: owner,
   address: "Calle Italia, 69, Germany",
   remote_image_url: "https://images.unsplash.com/photo-1526234362653-3b75a0c07438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80"
   )
@@ -173,9 +176,8 @@ cocktail = Item.create!(
   remote_image_url: "https://res.cloudinary.com/shlongmaster/image/upload/v1563979826/Food%20Items/Screenshot_2019-07-24_at_16.50.14_d1jkpp.png",
   restaurant_id: luigi.id
   )
-table = Table.create!(restaurant: Restaurant.last, table_number: "1")
-Order.create(table: Table.last)
-User.create
 
+table = Table.create!(restaurant: luigi, table_number: 1)
+Order.create(table: table, restaurant: luigi, user: customer)
 
 p "Busted my seed...."
