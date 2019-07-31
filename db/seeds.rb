@@ -2,12 +2,32 @@
 p "Cleaning the database."
 Item.destroy_all
 Order.destroy_all
+User.destroy_all
+
 Restaurant.destroy_all
+Table.destroy_all
 
-owner = User.create(is_restaurant_owner: true)
-customer = User.create
 
-p "We are now going to seed"
+
+
+p "Creating universe with my seed"
+owner = User.create(is_restaurant_owner: true, email: "owner@mail.com", password: "12345678")
+customer1 = User.create!(email: "customer1@mail.com", password: "12345678")
+customer3 = User.create!(email: "customer3@mail.com", password: "12345678")
+customer4 = User.create!(email: "customer4@mail.com", password: "12345678")
+customer2 = User.create!(email: "customer2@mail.com", password: "12345678")
+customer5 = User.create!(email: "customer5@mail.com", password: "12345678")
+customer6 = User.create!(email: "customer6@mail.com", password: "12345678")
+customer7 = User.create!(email: "customer7@mail.com", password: "12345678")
+customer8 = User.create!(email: "customer8@mail.com", password: "12345678")
+customer9 = User.create!(email: "customer9@mail.com", password: "12345678")
+customer10 = User.create!(email: "customer10@mail.com", password: "12345678")
+customer11 = User.create!(email: "customer11@mail.com", password: "12345678")
+customer12 = User.create!(email: "customer12@mail.com", password: "12345678")
+
+p "Users and owners have been birthed.. felix is fake news"
+
+p "We are now going to seed the database"
 
 luigi = Restaurant.create!(
   name: "Luigi",
@@ -178,6 +198,23 @@ cocktail = Item.create!(
   )
 
 table = Table.create!(restaurant: luigi, table_number: 1)
-Order.create(table: table, restaurant: luigi, user: customer)
+table2 = Table.create!(restaurant: luigi, table_number: 2)
+table3 = Table.create!(restaurant: luigi, table_number: 3)
+table4 = Table.create!(restaurant: luigi, table_number: 4)
+table5 = Table.create!(restaurant: luigi, table_number: 5)
+
+
+
+Order.create(table: table, restaurant: luigi, user: customer1, end_time: (Time.now + 10.minutes)  )
+Order.create(table: table2, restaurant: luigi, user: customer2, end_time: (Time.now + 10.minutes) )
+Order.create(table: table2, restaurant: luigi, user: customer3, end_time: (Time.now + 10.minutes) )
+Order.create(table: table3, restaurant: luigi, user: customer4, end_time: (Time.now + 10.minutes) )
+Order.create(table: table4, restaurant: luigi, user: customer5, end_time: (Time.now + 10.minutes) )
+Order.create(table: table4, restaurant: luigi, user: customer6, end_time: (Time.now + 10.minutes) )
+Order.create(table: table4, restaurant: luigi, user: customer7, end_time: (Time.now + 10.minutes) )
+Order.create(table: table5, restaurant: luigi, user: customer8, end_time: (Time.now + 10.minutes) )
+Order.create(table: table5, restaurant: luigi, user: customer9, end_time: (Time.now + 10.minutes) )
+Order.create(table: table, restaurant: luigi, user: customer10, end_time: (Time.now + 10.minutes) )
+Order.create(table: table2, restaurant: luigi, user: customer12, end_time: (Time.now + 10.minutes) )
 
 p "Busted my seed...."

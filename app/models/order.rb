@@ -5,6 +5,8 @@ class Order < ApplicationRecord
   has_many :order_items, :dependent => :destroy
   has_many :items, :through => :order_items
 
+  after_create :set_start_time
+
 #   validates :kitchen_status, presence: true
 
 #   validates :transaction_price, presence: true
@@ -40,5 +42,11 @@ class Order < ApplicationRecord
 
   def gratuity_amount_formatted
     format_amount(gratuity_amount)
+  end
+
+  private
+
+  def set_start_time
+    start_time = Time.now
   end
 end
