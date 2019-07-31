@@ -1,8 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :restaurant
   belongs_to :table
-  has_many :order_items
-  has_many :items, through: :order_items
+  has_many :order_items, :dependent => :destroy
+  has_many :items, :through => :order_items
+
+  after_create :set_start_time
 
 #   validates :kitchen_status, presence: true
 
@@ -13,8 +16,8 @@ class Order < ApplicationRecord
 
 #   validates :transaction_type, presence: true
 
-  def total_cost 
-    return self.order_items.to_a.map { |order_item| order_item.item_price * order_item.quantity }.reduce(:+)
+  def total_cost
+    return self.order_items.length < 1 ? 0 : self.order_items.to_a.map { |order_item| order_item.item_price * order_item.quantity }.reduce(:+)
   end
 
   def gratuity_amount
@@ -22,10 +25,10 @@ class Order < ApplicationRecord
   end
 
   def total_cost_with_gratuity
-    return total_cost.to_f + gratuity_amount.to_f
+    return total_cost.to_f + self.gratuity_amount.to_f
   end
 
-  def format_amount(amount) 
+  def format_amount(amount)
     return (amount.to_f / 100.to_f).round(2)
   end
 
@@ -39,5 +42,11 @@ class Order < ApplicationRecord
 
   def gratuity_amount_formatted
     format_amount(gratuity_amount)
+  end
+
+  private
+
+  def set_start_time
+    start_time = Time.now
   end
 end

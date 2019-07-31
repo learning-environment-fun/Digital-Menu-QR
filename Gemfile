@@ -6,6 +6,8 @@ ruby '2.5.3'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'faker', require: true
+gem 'stripe'
+gem 'pg_search'
 
 # precompiler
 gem 'rails_12factor'
@@ -27,6 +29,10 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "chartkick"
+
+
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

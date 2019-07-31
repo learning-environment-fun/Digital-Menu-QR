@@ -9,7 +9,7 @@
     width: 45px;
     height: 45px;
     padding: 30px;
-    background: #D4D4D4;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,8 +37,8 @@
     top: -50px;
     right: -10px;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     color: black;
     font-size: 15px;
     background: #F4F4F4;
@@ -50,11 +50,17 @@
 }
 
 
+.fixedmenu {
+  position: fixed;
+  bottom: 0.5em;
+  width: 80%;
 
+
+}
 //  three buttons with the amount:
 
 .item-amount-buttons {
-    margin: 30px 0px;
+    margin: 0.5em 0em;
     display: flex;
     justify-content: space-between;
     //align-items: flex-end;
@@ -119,7 +125,8 @@
 .item-hr {}
 
 .item-menu {
-    margin: 20px 0px 30px 0px;
     display: flex;
     justify-content: space-around;
 }
+
+

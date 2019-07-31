@@ -1,5 +1,5 @@
 .order-summary .order-container {
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .order-summary {
@@ -87,55 +87,43 @@
 
         /*&.is-visible:before {
             content: '';
-            background-image:     
+            background-image:
         }*/
     }
 
     .order-footer {
-        position: absolute;
-        bottom: 0;
+
+        position: fixed;
+        bottom: 1em;
         // width: calc(100% - 2rem);
         width: 100%;
         box-sizing: border-box;
-        padding-bottom: 2rem;
-
-        .order-summary-divider {
-            margin-bottom: 1rem;
-            display: none;
-
-            &.is-visible {
-                display: block;
-            }
-        }
-
-        .order-total {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-
-            .order-total-text {
-                color: transparentize($gray, 0.6);
-                font-weight: normal;
-            }
-
-            .order-total-amount {
-                font-weight: bold;
-                text-decoration: underline dotted;
-            }
-        }
+        padding-bottom: 1rem;
+        background-color: $light-gray;
 
         .order-buttons {
+            border-top: 1px solid black;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
+            font-size: 12px;
+            padding-top: 1em;
+
+
 
             :first-child {
-                margin-right: 1rem;
 
                 i {
                     margin: 0;
+                    font-size: 30px;
                 }
             }
         }
     }
+}
+
+.btn-group-lg .btn, .btn-group-lg .custom-file-control:before, .btn-group-lg>.btn, .btn-group-lg>.custom-file-control:before, .btn-lg.custom-file-control:before, .btn.btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.3em;
+    line-height: 1.5;
 }

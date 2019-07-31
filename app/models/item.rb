@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
   belongs_to :restaurant
-  has_many :order_items
+  has_many :order_items, :dependent => :destroy
   has_many :orders, through: :order_items
+
+
 
 
   # Presence of Attributes
@@ -21,4 +23,10 @@ class Item < ApplicationRecord
     return (self.price / 100.to_f).round(2)
   end
 
+  include PgSearch
+  pg_search_scope :search_by_name_and_description,
+    against: [:name, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

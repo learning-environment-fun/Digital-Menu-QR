@@ -1,4 +1,7 @@
 // Graphical variables
+
+// Restaurant CSS partials
+
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -19,9 +22,11 @@
 @import "pages/index";
 @import "pages/payment";
 @import "pages/feedback";
+@import "pages/addmore2cart";
 
 @import "items/show";
+@import "orders/index";
 
+//Kitchen
+@import "kitchen/kitchen_order";
 
-// Restaurant CSS partials
-@import "restaurants/index";

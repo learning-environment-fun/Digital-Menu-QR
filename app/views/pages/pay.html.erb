@@ -1,99 +1,131 @@
-<div id="payment-page" class="payment-page app-page">
-
-    <div class="page-header">
-        <h1>Almost there!</h1>
-    </div>
-
-    <div class="container mt-4">
-
-        <h4>Leave an optional gratuity</h4>
-        <div class="gratuity-form mb-4">
-            <span class="gratuity-buttons">
-                <button id="gratuity-decrement" type="button" class="btn btn-secondary bmd-btn-fab">
-                    <i class="material-icons">remove</i>
-                </button>
-                <h3 class="gratuity-percentage">10%</h3>
-                <button id="gratuity-increment" type="button" class="btn btn-primary bmd-btn-fab">
-                    <i class="material-icons">add</i>
-                </button>
-            </span>
-            <h3 class="gratuity-total">$<!--fillin--></h3>
-        </div>
-
-        <h4>Pick a payment method</h4>
-
-        <form class="payment-method-form">
-            <label class="rad" data-payment-method="apple_pay">
-                <input type="radio" name="rad1" value="apple_pay">
-                <i class="fab fa-cc-apple-pay"></i>
-            </label>
-            <label class="rad" data-payment-method="paypal">
-                <input type="radio" name="rad1" value="paypal">
-                <i class="fab fa-cc-paypal"></i>
-            </label>
-            <label class="rad" data-payment-method="credit_card">
-                <input type="radio" name="rad1" value="credit_card">
-                <i class="fas fa-credit-card"></i>
-            </label>
-            <label class="rad" data-payment-method="cash">
-                <input type="radio" name="rad1" value="cash">
-                <i class="fas fa-money-bill-wave"></i>
-            </label>
-        </form>
+<div class="payment-container">
 
 
-        <form class="bmd-form-group payment-split-settings">
-            <!-- bmd-collapse-inline pull-xs-right"> -->
-            <div id="split-bill-form" class="switch">
-                <label>
-                    <input id="split-bill-checkbox" type="checkbox" for="search" data-toggle="collapse" data-target="#collapse-search"
-                        aria-expanded="false" aria-controls="collapse-search">
-                    Split the bill?
-                </label>
-            </div>
-            <span id="collapse-search" class="collapse">
-                <input class="form-control" type="text" id="search" placeholder="Copayer's email">
-            </span>
-        </form>
+<div class="restaurant-header-2">
+    <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, cart_order_path(@order.id)%>
 
-    </div>
-
-    <div class="page-footer container">
-        <hr class="footer-divider">
-
-        <span class="order-total">
-            <h2 class="order-total-text">Total</h2>
-            <h2 class="order-total-amount">$<!--fillin--></h2>
-        </span>
-
-        <span class="order-buttons btn-group-lg">
-            <button type="button" class="btn btn-raised btn-secondary">Back</button>
-            <button type="button" class="payment-confirm-button btn btn-raised btn-success">Make Payment</button>
-        </span>
-    </div>
+            <p>Thanks for visiting: <strong>
+            <%= Restaurant %></strong></p>
+</div>
+<div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;">
 </div>
 
+<div class="totalprice">
+  <p class="order-total-text">Total</p>
+<p class="order-total-amount">$
+    <%= @order.total_cost %>
+</p>
+</div>
+
+<div class="container-wrapper">
+<div class="texttitle">
+  <p>Choose a Payment option:</p>
+</div>
+
+<hr>
+
+
+    <!-- Payment Options -->
+    <div class="pay-options">
+        <!-- Button trigger modal -->
+                          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Teddy"
+    data-email="<%= current_user.email %>"
+    data-amount="<%= @order.total_cost %>"
+    data-currency="eur"></script>
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paypal">
+            <i class="fab fa-cc-paypal"></i>
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mastercart">
+            <i class="fab fa-cc-apple-pay"></i>
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#stripe">
+            <i class="fab fa-bitcoin"></i>
+        </button>
+        <!-- Modal -->
+        <!-- Apple Pay -->
+        <div class="modal fade" id="applepay" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Credit Card</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Teddy"
+    data-email="<%= current_user.email %>"
+    data-amount="<%= @order.total_cost %>"
+    data-currency="eur"></script>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+<div class="texttitle">
+    <form class="payment-split-settings">
+        <!-- bmd-collapse-inline pull-xs-right"> -->
+        <div id="split-bill-form" class="switch">
+            <label>
+                <input id="split-bill-checkbox" type="checkbox" for="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+                Split the bill?
+            </label>
+        </div>
+        <span id="collapse-search" class="collapse">
+            <input class="form-control" type="text" id="search" placeholder="Copayer's email">
+        </span>
+    </form>
+  </div>
+    <!-- DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD -->
+    <!-- <div class="container mt-4">
+            <h4>Leave an optional gratuity</h4>
+            <div class="gratuity-form mb-4">
+                <span class="gratuity-buttons">
+                    <button id="gratuity-decrement" type="button" class="btn btn-secondary bmd-btn-fab">
+                        <i class="material-icons">remove</i>
+                    </button>
+                    <h3 class="gratuity-percentage">10%</h3>
+                    <button id="gratuity-increment" type="button" class="btn btn-primary bmd-btn-fab">
+                        <i class="material-icons">add</i>
+                    </button>
+                </span>
+                <h3 class="gratuity-total">$
+
+                </h3>
+            </div> -->
+
+</div>
 <script>
-    // Determines if the passed element is overflowing its bounds,
-    // either vertically or horizontally.
-    // Will temporarily modify the "overflow" style to detect this
-    // if necessary.
-    // https://stackoverflow.com/questions/143815/determine-if-an-html-elements-content-overflows
-    function checkOverflow(el) {
-        var curOverflow = el.style.overflow;
+// Determines if the passed element is overflowing its bounds,
+// either vertically or horizontally.
+// Will temporarily modify the "overflow" style to detect this
+// if necessary.
+// https://stackoverflow.com/questions/143815/determine-if-an-html-elements-content-overflows
+function checkOverflow(el) {
+    var curOverflow = el.style.overflow;
 
-        if (!curOverflow || curOverflow === "visible")
-            el.style.overflow = "hidden";
+    if (!curOverflow || curOverflow === "visible")
+        el.style.overflow = "hidden";
 
-        var isOverflowing = el.clientWidth < el.scrollWidth ||
-            el.clientHeight < el.scrollHeight;
+    var isOverflowing = el.clientWidth < el.scrollWidth ||
+        el.clientHeight < el.scrollHeight;
 
-        el.style.overflow = curOverflow;
+    el.style.overflow = curOverflow;
 
-        return isOverflowing;
-    }
+    return isOverflowing;
+}
 
-    document.addEventListener('DOMContentLoaded', (_event) => {
-        
-    });
+document.addEventListener('DOMContentLoaded', (_event) => {
+
+});
 </script>

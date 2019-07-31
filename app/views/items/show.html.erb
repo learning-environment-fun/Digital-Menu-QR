@@ -2,50 +2,61 @@
     <!-- Image of the meal -->
     <div class="item-image" style="background-image: url('<%= cl_image_path @item.image %>')">
         <div class="item-backicon">
-            <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, homepage_path %>
-
+            <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, order_path %>
         </div>
     </div>
     <!-- Description of the meal -->
     <div class="container-wrapper">
-        <%= button_to 'sign me out', destroy_user_session_path, method: :delete %>
-        <div class="item-details">
-            <div class="item-shoppingcard">
-                <!-- <p>1</p> -->
-                <i class="fas fa-shopping-cart"></i>
+            <div class="item-details">
+                <div class="item-shoppingcard">
+                    <!-- <p>1</p> -->
+                    <%= link_to ' <i class="fas fa-shopping-cart"></i> '.html_safe, cart_order_path(@order.id) %>
+                </div>
+                <h3>
+                    <%= @item.name %>
+                </h3>
+                <p>
+                    <%= @item.description %>
+                </p>
             </div>
-            <h1>
-                <%= @item.name %>
-            </h1>
-            <p>
-                <%= @item.description %>
-            </p>
-        </div>
-        <!-- Amount of the meal -->
+            <div class="fixedmenu">
 
-        <div class="item-amount-buttons">
-            <div class="item-amount">
-                <div class="item-amount-smaller">
-                    <p>-</p>
+              <div class="item-amount-buttons">
+                <div class="item-amount">
+                    <div class="item-amount-smaller">
+                        <p>-</p>
+                    </div>
+                    <div class="item-amount-display">
+                        <p>1</p>
+                    </div>
+                    <div class="item-amount-greater">
+                        <p>+</p>
+                    </div>
                 </div>
-                <div class="item-amount-display">
-                    <p>1</p>
-                </div>
-                <div class="item-amount-greater">
-                    <p>+</p>
+                <div class="item-price">
+                    <h2>
+                        <span id="price">
+                            <%=@item.price %></span> €</h2>
                 </div>
             </div>
-            <div class="item-price">
-                <h2>
-                    <span id="price"><%=@item.price %></span> €</h2>
+            <!-- order menu -->
+            <hr class="item-hr mt-20">
+            <div class="item-menu">
+                <%= simple_form_for @order_item, url: order_order_items_path do |f| %>
+                <%= f.input :quantity, :as => :hidden, :input_html => { id: :input, :value => "1" } %>
+                <%= f.input :item_price, :as => :hidden, :input_html => { :value => @item.price } %>
+                <%= f.input :item_id, :as => :hidden, :input_html => { :value => @item.id } %>
+                <%= f.input :order_id, :as => :hidden, :input_html => { :value => @order.id } %>
+                <%= f.button :submit, 'Add to cart', name: "add_to_cart", class: "btn btn-primary" %>
+
+                <% end %>
+                <!-- simple form for -->
+                <!-- hide field either with class of display: none -->
+                <!-- f.hidden_field pass in the item id from @item.price -->
+                <!--  -->
             </div>
+
+            </div>
+            <!-- Amount of the meal -->
+
         </div>
-        <!-- order menu -->
-        <hr class="item-hr mt-20">
-        <div class="item-menu" data-item-id="<%= @item.id %>" data-item-name="<%= @item.name %>"
-            data-item-price="<%= @item.price %>">
-            <button class="commit-to-cart-button btn btn-primary">Add to Basket</button>
-            <%= link_to 'Review Order', cart_path, class:"btn btn-primary"%>
-        </div>
-    </div>
-</div>

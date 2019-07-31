@@ -1,0 +1,101 @@
+
+// Here i am (Freddy) overwriting the bootstrap class
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active, .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  border-bottom: 2px solid; }
+
+.nav-pills .nav-link, .nav-tabs .nav-link {
+ padding: 0.4em .8575em;}
+
+p {
+  margin: 10px;
+}
+//until here
+
+.search-form {
+  input {
+    border: 0px;
+    border-bottom: 2px solid;
+    width: 80%;
+  }
+}
+
+.restaurant-header {
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.restaurant-header-2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-image {
+
+  height: 30vh;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+}
+
+.navbar-mainpage {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em 0em 2em;
+  background-color: #ededed;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.cart-content {
+
+
+margin: 30px 0px;
+
+}
+
+.card-trip {
+
+margin: 30px 0px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+

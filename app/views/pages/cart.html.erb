@@ -1,74 +1,92 @@
-<div id="order-summary-page" class="order-summary app-page">
+<div class="payment-container">
 
-    <div class="order-title">
-        <h1>Your order</h1>
-    </div>
+
+<div class="restaurant-header-2">
+    <%= link_to ' <i class="fas fa-long-arrow-alt-left"></i>'.html_safe, order_path(@order.id)%>
+
+            <p>Thanks for visiting: <strong>
+            <%= Restaurant %></strong></p>
+</div>
+
+<div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;">
+</div>
+
+<div class="totalprice">
+  <p class="order-total-text">Total</p>
+<p class="order-total-amount">$
+    <%= @order.total_cost %>
+</p>
+</div>
+
+
+<div id="order-summary-page" class="order-summary app-page">
 
     <div class="order-summary-list order-container">
         <div class="order-grid">
-            <!-- populated by JS -->
-        </div>      
+            <% @order.order_items.each do |item| %>
+            <!--<span class="order-row">-->
+            <span class="order-item">
+                <%= "#{item.item.name} x#{item.quantity}" %></span>
+            <span class="order-price">
+                <%= "$#{item.item_price}" %></span>
+              <%= button_to order_order_item_path(@order, item), method: :delete, class: "order-action btn btn-danger bmd-btn-icon" do %>
+                <i class="material-icons">delete_outline</i>
+              <% end %>
+            <% end %>
+        </div>
     </div>
-
     <span class="scroll-indicator">
         <i class="material-icons">keyboard_arrow_down</i>
     </span>
-
     <div class="order-footer order-container">
-        <hr class="order-summary-divider">
-
-        <span class="order-total">
-            <h2 class="order-total-text">Total</h2>
-            <h2 class="order-total-amount"><!--pop by JS--></h2>
-        </span>
-
         <span class="order-buttons btn-group-lg">
-            <%= link_to 'Back', homepage_path, class: "btn btn-raised btn-secondary" %>
             <!--<button type="button" class="btn btn-raised btn-success">Confirm Order</button>-->
-            <%= link_to 'Confirm Order', pay_path, class: "btn btn-raised btn-success" %>
+            <%= link_to 'Add more to cart', menu_order_path(@order.id), class: "btn btn-primary" %>
+
+            <%= link_to 'Confirm Order', pay_path(@order.id), class: "btn btn-primary" %>
         </span>
     </div>
 </div>
 
 <script>
-    // Determines if the passed element is overflowing its bounds,
-    // either vertically or horizontally.
-    // Will temporarily modify the "overflow" style to detect this
-    // if necessary.
-    // https://stackoverflow.com/questions/143815/determine-if-an-html-elements-content-overflows
-    function checkOverflow(el) {
-        var curOverflow = el.style.overflow;
+// Determines if the passed element is overflowing its bounds,
+// either vertically or horizontally.
+// Will temporarily modify the "overflow" style to detect this
+// if necessary.
+// https://stackoverflow.com/questions/143815/determine-if-an-html-elements-content-overflows
+function checkOverflow(el) {
+    var curOverflow = el.style.overflow;
 
-        if (!curOverflow || curOverflow === "visible")
-            el.style.overflow = "hidden";
+    if (!curOverflow || curOverflow === "visible")
+        el.style.overflow = "hidden";
 
-        var isOverflowing = el.clientWidth < el.scrollWidth ||
-            el.clientHeight < el.scrollHeight;
+    var isOverflowing = el.clientWidth < el.scrollWidth ||
+        el.clientHeight < el.scrollHeight;
 
-        el.style.overflow = curOverflow;
+    el.style.overflow = curOverflow;
 
-        return isOverflowing;
+    return isOverflowing;
+}
+
+document.addEventListener('DOMContentLoaded', (_event) => {
+    const list = document.querySelector('.order-summary-list');
+    if (checkOverflow(list.querySelector('.order-grid'))) {
+        console.log('im visible');
+        document.querySelector('.scroll-indicator').classList.toggle('is-visible');
+        list.classList.toggle('.has-overflow');
+    } else {
+        // hr only visible if no overflow (gradient provides boundary when overflow)
+        document.querySelector('.order-summary-divider').classList.toggle('is-visible');
     }
 
-    document.addEventListener('DOMContentLoaded', (_event) => {
-        const list = document.querySelector('.order-summary-list');
-        if (checkOverflow(list.querySelector('.order-grid'))) {
-            console.log('im visible');
-            document.querySelector('.scroll-indicator').classList.toggle('is-visible');
-            list.classList.toggle('.has-overflow');
-        } else {
-            // hr only visible if no overflow (gradient provides boundary when overflow)
-            document.querySelector('.order-summary-divider').classList.toggle('is-visible');
-        }
+    // size to fit page
+    const header = document.querySelector('.order-title').offsetHeight;
+    const footer = document.querySelector('.order-footer').offsetHeight;
+    const page = document.querySelector('.order-summary').offsetHeight;
 
-        // size to fit page
-        const header = document.querySelector('.order-title').offsetHeight;
-        const footer = document.querySelector('.order-footer').offsetHeight;
-        const page = document.querySelector('.order-summary').offsetHeight;
+    usedHeight = header + footer;
 
-        usedHeight = header + footer; 
-
-        list.style.height = `${(page - usedHeight) * 0.9}px`;
-        // console.log((page - usedHeight) * 0.9); 
-    });
+    list.style.height = `${(page - usedHeight) * 0.9}px`;
+    // console.log((page - usedHeight) * 0.9);
+});
 </script>

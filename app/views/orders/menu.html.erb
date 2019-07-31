@@ -1,14 +1,10 @@
 <!-- <div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;"> -->
-<div class="restaurant-header">
-    <p>Welcome to<strong>
-            <%= @restaurant.name %></strong></p>
-</div>
-</div>
-<div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');   background-size: cover;">
-</div>
-</div>
 <!-- TAPES  -->
 <div class="navbar-mainpage">
+
+    <div class="item-shoppingcard-2">
+        <%= link_to ' <i class="fas fa-shopping-cart"></i> '.html_safe, cart_order_path(@order.id) %>
+    </div>
     <!-- TABS FOR DRINK AND FOOD -->
     <div class="navbar-left">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -18,26 +14,16 @@
             <li class="nav-item">
                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Drinks</a>
             </li>
-            <% if params[:query].present? %>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Search Results</a>
-                </li>
-            <% end %>
         </ul>
     </div>
-
-
     <!-- SEARCH BUTTON  -->
     <div class="navbar-right">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchbaricon">
-            <i class="fas fa-search">
-            </i>
+            <i class="fas fa-search"></i>
         </button>
     </div>
 </div>
 <div class="container-wrapper">
-
-
     <!-- SEARCH BUTTON MODAL CONTENT -->
     <div class="modal fade" id="searchbaricon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -49,25 +35,19 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="search-form">
-                        <input type="text" default="" value="" name="query">
-                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">search</button>
-                    </form>
+                    <button type="button" class="btn btn-primary">search</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- END SEARCH BUTTON MODAL CONTENT -->
-
-
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <!-- Food content Tab -->
-            <h4>Appetizer:</h4>
+            <p>Here you can add more food</p>
             <div class="cart-content">
                 <% @appetizer.each do |n| %>
                 <%= link_to order_item_path(@order, n) do %>
@@ -156,4 +136,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
