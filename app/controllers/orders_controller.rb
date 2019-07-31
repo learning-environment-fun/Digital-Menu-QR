@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   end
 
 def menu
-@order = Order.last
+    @order = Order.last
     @restaurant = @order.table.restaurant
     @items = @restaurant.items
     @table = @order.table
