@@ -70,8 +70,57 @@
   }
 }
 
+
 .kitchen-chart {
   display: flex;
   justify-content: space-between;
   text-align: center;
 }
+
+.kitchen-serve-buttons {
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.red-delete-kitchen {
+  color: #FF1C00;
+  padding: 2px 4px;
+  border: 2px #FF1C00 solid;
+  margin-right: 15px;
+}
+
+.mark-served-kitchen {
+  border: 2px #50C779 solid;
+  color: #50C779;
+  padding: 2px 4px;
+}
+
+.kitchen-order-list {
+  ul {
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> master

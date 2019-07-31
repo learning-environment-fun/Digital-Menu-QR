@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_154522) do
+ActiveRecord::Schema.define(version: 2019_07_31_110156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_07_30_154522) do
     t.bigint "table_id"
     t.time "start_time"
     t.time "end_time"
+    t.money "amount", scale: 2
+    t.jsonb "payment"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["table_id"], name: "index_orders_on_table_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
