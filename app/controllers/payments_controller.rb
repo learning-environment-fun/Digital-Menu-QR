@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
       email:  params[:stripeEmail]
     )
 
+    begin
     charge = Stripe::Charge.create(
       customer:     customer.id,   # You should store this customer id and re-use it.
       amount:       @order.total_cost,
@@ -28,7 +29,7 @@ class PaymentsController < ApplicationController
     redirect_to feedback_path(@order)
   end
 
-private
+  private
 
   def set_order
     @order = current_user.orders.find(params[:order_id])
