@@ -11,6 +11,10 @@ display: flex;
 width: 100%;
 justify-content: space-around;
 
+  .btn.btn-primary {
+    padding: 0px;
+    margin-bottom: 10px;
+  }
   .fab {
     font-size: 30px;
   }
@@ -20,6 +24,7 @@ justify-content: space-around;
         background-color: inherit;
         padding: inherit;
         box-shadow: inherit;
+
   }
 
   .stripe-button-el span {
