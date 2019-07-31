@@ -10,7 +10,7 @@ Table.destroy_all
 
 
 
-p "Creating universe with my seed"
+p "Creating customers uuuhhhh"
 owner = User.create(is_restaurant_owner: true, email: "owner@mail.com", password: "12345678")
 customer1 = User.create!(email: "customer1@mail.com", password: "12345678")
 customer3 = User.create!(email: "customer3@mail.com", password: "12345678")
@@ -25,7 +25,7 @@ customer10 = User.create!(email: "customer10@mail.com", password: "12345678")
 customer11 = User.create!(email: "customer11@mail.com", password: "12345678")
 customer12 = User.create!(email: "customer12@mail.com", password: "12345678")
 
-p "Users and owners have been birthed.. felix is fake news"
+p "Users and owners have been established..."
 
 p "We are now going to seed the database"
 
@@ -217,4 +217,4 @@ Order.create(table: table5, restaurant: luigi, user: customer9, end_time: (Time.
 Order.create(table: table, restaurant: luigi, user: customer10, end_time: (Time.now + 10.minutes) )
 Order.create(table: table2, restaurant: luigi, user: customer12, end_time: (Time.now + 10.minutes) )
 
-p "Busted my seed...."
+p "Seed complete!"
