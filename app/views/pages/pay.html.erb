@@ -28,17 +28,21 @@
     <!-- Payment Options -->
     <div class="pay-options">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#applepay">
-            <i class="fab fa-apple-pay"></i>
+                          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Teddy"
+    data-email="<%= current_user.email %>"
+    data-amount="<%= @order.total_cost %>"
+    data-currency="eur"></script>
         </button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paypal">
             <i class="fab fa-cc-paypal"></i>
         </button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mastercart">
-            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-apple-pay"></i>
         </button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#stripe">
-            <i class="fab fa-cc-stripe"></i>
+            <i class="fab fa-bitcoin"></i>
         </button>
         <!-- Modal -->
         <!-- Apple Pay -->
@@ -46,13 +50,18 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Apple Pay</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Credit Card</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Teddy"
+    data-email="<%= current_user.email %>"
+    data-amount="<%= @order.total_cost %>"
+    data-currency="eur"></script>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

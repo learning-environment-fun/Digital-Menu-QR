@@ -1,4 +1,7 @@
 
+
+
+
 .texttitle {
   margin: 20px 0px;
 }
@@ -11,6 +14,19 @@ justify-content: space-around;
   .fab {
     font-size: 30px;
   }
+
+  .stripe-button-el {
+        background-image: none;
+        background-color: inherit;
+        padding: inherit;
+        box-shadow: inherit;
+  }
+
+  .stripe-button-el span {
+      color: white;
+      background-image: none;
+        background-color: #009688;
+}
 
 }
 

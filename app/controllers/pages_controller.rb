@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  before_action :authenticate_user!, only: [:pay]
   respond_to :json
   protect_from_forgery unless: -> { json_request? }
   skip_before_action :verify_authenticity_token, if: :json_request?
