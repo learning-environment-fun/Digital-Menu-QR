@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def feedback
-    @order = Order.find(params[:id])
+    @order = Order.find(params[:order_id])
   end
 
 end

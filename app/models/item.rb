@@ -3,9 +3,6 @@ class Item < ApplicationRecord
   has_many :order_items, :dependent => :destroy
   has_many :orders, through: :order_items
 
-
-
-
   # Presence of Attributes
   validates :name, presence: true
   validates :description, presence: true
@@ -20,7 +17,7 @@ class Item < ApplicationRecord
   mount_uploader :image, PhotoUploader
 
   def price_formatted
-    return (self.price / 100.to_f).round(2)
+    return (self.price.to_f).round(2)
   end
 
   include PgSearch

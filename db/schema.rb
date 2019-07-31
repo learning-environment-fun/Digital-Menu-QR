@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_154522) do
+ActiveRecord::Schema.define(version: 2019_07_31_110156) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_07_30_154522) do
     t.integer "gratuity_percentage", default: 10
     t.bigint "restaurant_id"
     t.bigint "table_id"
+    t.money "amount", scale: 2
+    t.jsonb "payment"
     t.time "start_time"
     t.time "end_time"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
