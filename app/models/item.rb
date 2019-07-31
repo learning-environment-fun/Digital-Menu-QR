@@ -3,9 +3,6 @@ class Item < ApplicationRecord
   has_many :order_items, :dependent => :destroy
   has_many :orders, through: :order_items
 
-
-
-
   # Presence of Attributes
   validates :name, presence: true
   validates :description, presence: true

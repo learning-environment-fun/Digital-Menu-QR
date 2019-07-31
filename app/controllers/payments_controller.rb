@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+
      customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]
@@ -14,22 +15,20 @@ class PaymentsController < ApplicationController
     customer:     customer.id,   # You should store this customer id and re-use it.
     amount:       @order.total_cost,
     description:  "Payment for for order #{@order.id}",
-    currency:     "eur"
+    currency:     "USD"
   )
 
-  @order.update(payment: charge.to_json, state: 'paid')
-  redirect_to order_path(@order)
+
+ redirect_to feedback_path(@order)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
-    redirect_to new_order_payment_path(@order)
   end
 
-  redirect_to feedback_path(@order)
-
-private
+  private
 
   def set_order
-    @order = current_user.orders.find(params[:order_id])
+    @order = Order.find(params[:order_id])
+    @order.user = current_user
   end
 end
