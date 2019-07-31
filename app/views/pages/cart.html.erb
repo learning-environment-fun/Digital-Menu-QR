@@ -23,6 +23,8 @@
 
     <div class="order-summary-list order-container">
         <div class="order-grid">
+
+
             <% @order.order_items.each do |item| %>
             <!--<span class="order-row">-->
             <span class="order-item">
@@ -33,6 +35,7 @@
                 <i class="material-icons">delete_outline</i>
               <% end %>
             <% end %>
+
         </div>
     </div>
     <span class="scroll-indicator">
