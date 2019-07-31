@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_07_31_110156) do
     t.integer "gratuity_percentage", default: 10
     t.bigint "restaurant_id"
     t.bigint "table_id"
+    t.time "start_time"
+    t.time "end_time"
     t.money "amount", scale: 2
     t.jsonb "payment"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"

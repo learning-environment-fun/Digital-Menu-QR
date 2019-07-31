@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home', as: 'homepage'
 
+  get "/qrcode/:table_id", to: 'orders#create'
+
   # test routes for getting to specific views
   get "/cart", to: 'pages#cart', as: 'cart'
   # get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity'

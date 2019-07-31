@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   has_many :items, :through => :order_items
   after_save :total_cost
 
+  after_create :set_start_time
+
 #   validates :kitchen_status, presence: true
 
 #   validates :transaction_price, presence: true
@@ -31,19 +33,13 @@ class Order < ApplicationRecord
   #   return total_cost.to_f + self.gratuity_amount.to_f
   # end
 
-  # def format_amount(amount)
-  #   return (amount.to_f / 100.to_f).round(2)
-  # end
+  def gratuity_amount_formatted
+    format_amount(gratuity_amount)
+  end
 
-  # def total_cost_formatted
-  #   format_amount(total_cost)
-  # end
+  private
 
-  # def total_cost_with_gratuity_formatted
-  #   format_amount(total_cost_with_gratuity)
-  # end
-
-  # def gratuity_amount_formatted
-  #   format_amount(gratuity_amount)
-  # end
+  def set_start_time
+    start_time = Time.now
+  end
 end
