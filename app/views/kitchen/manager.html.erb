@@ -1,0 +1,63 @@
+<div class="kitchen-navbar">
+    <div class="kitchen-menu">
+        <ul>
+            <a href="#">
+                <li class="Current orders">Current Orders</li>
+            </a>
+            <a href="">
+                <li class="Statistics">Kitchen Statistics</li>
+            </a>
+            <a href="">
+                <li class="Edit menus">Edit menus</li>
+            </a> <a href="">
+                <li class="Edit tables">Edit tables</li>
+            </a>
+            <a href="">
+                <li class="Settings">Settings</li>
+            </a>
+        </ul>
+    </div>
+</div>
+<!-- Kitchen Content -->
+<div class="kitchen-container">
+    <div class="kitchen-order-menu-section">
+        <div class="kitchen-order-list">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <% @tables.each do |table| %>
+                <!--  order Tab -->
+                <li class="nav-item">
+                    <a class="nav-link active" id="order1" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Table
+                        <%= table.table_number %></a>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <div class="kitchen-order-actual-section">
+        <div>
+            <div class="kitchen-chart">
+                <div>
+                    <h1>Number of Orders</h1>
+                    <%#= column_chart Order.group(:table_id).count %>
+                    <%= column_chart Order.joins(:table).group(:table_number).count %>
+                    <%#= bar_chart Order.numbers, library: { vAxis: { ticks: (Order.numbers.map(&:first).min..Order.numbers.map(&:first).max).to_a } }  %>
+                    <p> Table Number </p>
+                </div>
+                <div>
+                    <h1>Serving Time Avg</h1>
+                    <%= bar_chart Table.averages %>
+                    <p> Time (minutes) </p>
+                </div>
+            </div>
+            <div>
+                <h1>Server Shift</h1>
+                <%= timeline [
+                  ["Brown", "1789-04-29", "1797-03-03"],
+                  ["Douglas", "1797-03-03", "1801-03-03"],
+                  ["Jacobs", "1801-03-03", "1815-03-03"]
+                ] %>
+            </div>
+        </div>
+    </div>
+</div>
+<!--   End order Tab content-->
