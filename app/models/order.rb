@@ -44,6 +44,16 @@ class Order < ApplicationRecord
     format_amount(gratuity_amount)
   end
 
+  def avg_time
+    return ((end_time - start_time)/ 60).to_i
+
+  end
+
+  def self.numbers
+    return self.joins(:table).group(:table_number).count
+  end
+
+
   private
 
   def set_start_time

@@ -30,6 +30,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem "chartkick"
+gem 'groupdate'
+
 
 
 gem 'jquery-rails'

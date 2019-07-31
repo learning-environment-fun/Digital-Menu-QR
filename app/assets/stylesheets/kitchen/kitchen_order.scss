@@ -42,7 +42,7 @@
 
 .kitchen-order-menu-section {
   background-color: #e0e0e0;
-  width: 30vw;
+  width: 20vw;
   height: 100%;
 }
 
@@ -54,7 +54,7 @@
 
 .kitchen-order-list {
   ul {
-    width: 30vw;
+    width: 100%;
     margin: 0em;
     padding: 0em;
   }
@@ -68,4 +68,10 @@
      text-align: center;
         padding: 0em 2em;
   }
+}
+
+.kitchen-chart {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
