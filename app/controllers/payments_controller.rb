@@ -11,9 +11,12 @@ class PaymentsController < ApplicationController
       email:  params[:stripeEmail]
     )
 
+
+
+
   charge = Stripe::Charge.create(
     customer:     customer.id,   # You should store this customer id and re-use it.
-    amount:       @order.total_cost,
+    amount:       @order.total_cost * 100,
     description:  "Payment for for order #{@order.id}",
     currency:     "USD"
   )
@@ -25,6 +28,8 @@ class PaymentsController < ApplicationController
     flash[:alert] = e.message
   end
 
+
+
   private
 
   def set_order
@@ -32,3 +37,4 @@ class PaymentsController < ApplicationController
     @order.user = current_user
   end
 end
+

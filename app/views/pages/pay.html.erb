@@ -34,7 +34,7 @@
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-name="My Teddy"
     data-email="<%= current_user.email %>"
-    data-amount="<%= @order.total_cost %>"
+    data-amount="<%= @order.total_cost * 100 %>"
     data-currency="USD"></script>
     <% end %>
 

@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   mount_uploader :image, PhotoUploader
 
   def price_formatted
-    return (self.price / 100.to_f).round(2)
+    return (self.price.to_f).round(2)
   end
 
   include PgSearch
