@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
     redirect_to new_order_payment_path(@order)
   end
 
-  redirect_to feedback_path(@order)
+  redirect_to "/feedback/#{@order.id}"
 
 private
 
