@@ -1,13 +1,12 @@
 
 p "Cleaning the database."
-Item.destroy_all
 Order.destroy_all
+Table.destroy_all
+Restaurant.destroy_all
 User.destroy_all
 
-Restaurant.destroy_all
-Table.destroy_all
 
-
+p "Cleaned the database."
 
 
 p "Creating universe with my seed"
