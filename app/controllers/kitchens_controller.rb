@@ -6,7 +6,7 @@ class KitchensController < ApplicationController
   end
 
   def orders_list
-    @orders = Order.all
+    @orders = Order.all.sort_by { |order| order.id }
     render partial: 'orders_list'
   end
 
