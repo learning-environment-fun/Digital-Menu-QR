@@ -7,8 +7,8 @@ const kitchenOrganizer = () => {
 			card.classList.add("d-none");
 		});
 
+		const links = document.querySelectorAll(".table-list");
   // What do I do if I find links? If they exist add an event listener to them..
-		const links = document.querySelectorAll(".kitchen-table-tab-link");
 		links.forEach((link) => {
 			link.addEventListener("click", (event) => {
 				const tableId = link.dataset.tableId;
