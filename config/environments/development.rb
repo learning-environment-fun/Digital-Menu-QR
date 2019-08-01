@@ -50,6 +50,7 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = false
   config.assets.compile = true
+  config.serve_static_assets = false
 
 
   # Suppress logger output for asset requests.

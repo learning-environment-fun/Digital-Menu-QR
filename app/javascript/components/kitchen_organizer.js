@@ -5,7 +5,7 @@ const kitchenOrganizer = () => {
 			card.classList.add("d-none");
 		});
 
-		const links = document.querySelectorAll(".kitchen-table-tab-link");
+		const links = document.querySelectorAll(".table-list");
 		links.forEach((link) => {
 			link.addEventListener("click", (event) => {
 				const tableId = link.dataset.tableId;

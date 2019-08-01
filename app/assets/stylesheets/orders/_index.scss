@@ -41,7 +41,9 @@ p {
     background-size: cover;
 }
 
-.navbar-mainpage {
+
+.navbar-mainpage
+{
   display: flex;
   justify-content: space-between;
   padding: 1em 2em 0em 2em;
@@ -51,14 +53,10 @@ p {
 }
 
 .cart-content {
-
-
 margin: 30px 0px;
-
 }
 
 .card-trip {
-
 margin: 30px 0px;
   overflow: hidden;
   background: white;

@@ -22,15 +22,14 @@
 <!-- Kitchen Content -->
 <div class="kitchen-container">
     <div class="kitchen-order-menu-section">
-        <br>
         <div class="kitchen-order-list">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <!--  order Tab -->
                 <% @tables.each do |table| %>
                 <!--  End order Tab -->
                 <!--  order Tab -->
-                <li class="nav-item">
-                    <a class="nav-link kitchen-table-tab-link" id="order2" href="#pills-home" role="tab" data-table-id="<%= table.id %>">Table <%= table.table_number %></a>
+                <li class="nav-item table-list" data-table-id="<%= table.id %>">
+                    <a class="nav-link kitchen-table-tab-link" id="order2" href="#pills-home" role="tab">Table <%= table.table_number %></a>
                 </li>
                 <% end %>
                 <!--  End order Tab -->
@@ -55,7 +54,7 @@
 </div>
 <!-- DELETE / MARK AS SERVED BUTTONS -->
 <div class="kitchen-serve-buttons">
-    <a class="btn btn-warning " href="#"> Delete Order</a>
+    <a class="btn btn-warning red-delete-kitchen " href="#"> Delete Order</a>
     <a class="btn btn-success btn-raised" href="">Mark as Served</a>
 </div>
 <!-- END OF DELETE / MARK AS SERVED BUTTONS -->
