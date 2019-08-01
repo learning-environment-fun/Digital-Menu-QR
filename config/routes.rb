@@ -34,7 +34,7 @@ end
   scope 'kitchens' do
     get 'orders/', to: 'kitchens#orders'
     get 'manager/', to: 'kitchens#manager'
-    patch 'orders/', to: 'orders#patch'
+    post 'orders/', to: 'orders#patch'
     get 'orders-list', to: 'kitchens#orders_list'
   end
 
