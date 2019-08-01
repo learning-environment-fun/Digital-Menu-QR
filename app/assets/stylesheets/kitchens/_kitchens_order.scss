@@ -1,0 +1,119 @@
+.kitchen-navbar {
+    height: 10vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.kitchen-menu {
+    height: 10vh;
+
+    li {
+        display: inline;
+        padding: 1em 2em;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        text-align: center;
+        padding: 0em 2em;
+    }
+    a{
+      padding: 2em 0em;
+      color: white;
+       &:active {
+        background-color: white;
+        color: black;
+        }
+    }
+
+}
+
+.kitchen-container {
+  height: 800px;
+  display: flex;
+
+}
+
+.kitchen-order-menu-section {
+  background-color: #e0e0e0;
+  width: 20vw;
+  height: 100%;
+}
+
+.kitchen-order-actual-section {
+   width: 70vw;
+  height: 100%;
+  margin: 3em;
+}
+
+.kitchen-order-list {
+  ul {
+    width: 100%;
+    margin: 0em;
+    padding: 0em;
+  }
+  li {
+    height: 10vh;
+    width: 30vw;
+    background: #bfbfbf;
+    border: 1px solid white;
+    list-style-type: none;
+    color: white;
+     text-align: center;
+        padding: 0em 2em;
+  }
+}
+
+.kitchen-chart {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.kitchen-serve-buttons {
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.red-delete-kitchen {
+  color: #FF1C00;
+  padding: 2px 4px;
+  border: 2px #FF1C00 solid;
+  margin-right: 16px;
+}
+
+.red-delete-kitchen:hover {
+  color: #FF1C00;
+  padding: 2px 4px;
+  border: 2px #FF1C00 solid;
+  margin-right: 16px;
+  background-color: #ffb0a8;
+  text-decoration: none;
+}
+
+.mark-served-kitchen {
+  color: #50c779;
+  padding: 2px 4px;
+  border: 2px #50c779 solid;
+}
+
+.mark-served-kitchen:hover {
+  color: #50c779;
+  padding: 2px 4px;
+  border: 2px #50c779 solid;
+  text-decoration: none;
+  background-color: #89edaa;
+}
+
+.nav-link {
+  text-align: center;
+  vertical-align: middle;
+}
+

@@ -1,4 +1,4 @@
-class KitchenController < ApplicationController
+class KitchensController < ApplicationController
 
   def orders
     @tables = Table.all

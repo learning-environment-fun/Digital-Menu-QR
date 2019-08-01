@@ -2,13 +2,16 @@
     <div class="kitchen-menu">
         <ul>
             <a href="#">
-                <li class="Current orders">Current orders</li>
+                <li class="Current orders">Orders</li>
+            </a>
+            <a href="#">
+                <li class="Current orders">Manager View</li>
             </a>
             <a href="">
-                <li class="Edit menus">Edit menus</li>
+                <li class="Edit menus">Edit Menus</li>
             </a>
             <a href="">
-                <li class="Edit tables">Edit tables</li>
+                <li class="Edit tables">Edit Tables</li>
             </a>
             <a href="">
                 <li class="Settings">Settings</li>
@@ -19,7 +22,6 @@
 <!-- Kitchen Content -->
 <div class="kitchen-container">
     <div class="kitchen-order-menu-section">
-        <!--         <p>Tables:</p> -->
         <br>
         <div class="kitchen-order-list">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -28,7 +30,7 @@
                 <!--  End order Tab -->
                 <!--  order Tab -->
                 <li class="nav-item">
-                    <a class="nav-link" id="order2" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Table <%= table.table_number %></a>
+                    <a class="nav-link kitchen-table-tab-link" id="order2" href="#pills-home" role="tab" data-table-id="<%= table.id %>">Table <%= table.table_number %></a>
                 </li>
                 <% end %>
                 <!--  End order Tab -->
@@ -38,7 +40,7 @@
     <div class="kitchen-order-actual-section">
         <!--   order Tab content-->
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="order1" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="tab-pane active" id="order1">
                 <!--  content  -->
                 <h3>Orders</h3>
                 <% Table.last(5).each do |table| %>
