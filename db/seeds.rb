@@ -1,5 +1,6 @@
 
 p "Cleaning the database."
+OrderItem.destroy_all
 Order.destroy_all
 Table.destroy_all
 Restaurant.destroy_all
@@ -213,5 +214,7 @@ Order.create(table: table5, restaurant: luigi, user: customer8, start_time: Date
 Order.create(table: table5, restaurant: luigi, user: customer9, start_time: DateTime.now, end_time: (DateTime.now + 10.minutes) )
 Order.create(table: table, restaurant: luigi, user: customer10, start_time: DateTime.now, end_time: (DateTime.now + 11.minutes) )
 Order.create(table: table2, restaurant: luigi, user: customer12, start_time: DateTime.now, end_time: (DateTime.now + 10.minutes) )
+
+OrderItem.create(item: Item.last, order: Order.last, quantity: 2, item_price: Item.last.price)
 
 p "Seed complete!"
