@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get "/qrcode/:table_id", to: 'orders#create'
+
 # <<<<<<< HEAD
 # =======
 #   scope 'kitchen' do
