@@ -1,5 +1,5 @@
 import "bootstrap";
-require('../bootstrap-material-design.min.js');
+// require('../bootstrap-material-design.min.js');
 require("chartkick")
 require("chart.js")
 
