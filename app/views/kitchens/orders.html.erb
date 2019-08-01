@@ -41,14 +41,9 @@
             <div class="tab-pane fade show active" id="order1" role="tabpanel" aria-labelledby="pills-home-tab">
                 <!--  content  -->
                 <h3>Orders</h3>
-                <% Table.last(5).each do |table| %>
-                <% table.orders.each do |order| %>
-                <br>
-                <% if order.items.length > 0 %>
-                <%= render "kitchen_order_show", order: order  %>
-                <% end %>
-                <% end %>
-                <% end %>
+                <div class="orders-container">
+                    
+                </div>
             </div>
         </div>
     </div>

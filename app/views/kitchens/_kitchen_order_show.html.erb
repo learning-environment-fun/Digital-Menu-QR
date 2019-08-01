@@ -15,9 +15,9 @@
             </ul>
             <% end %>
 
-            <%= link_to 'Mark as ready', { order_id: order.id, kitchen_status: 'ready' }, { method: :patch, remote: true, class: "btn btn-primary btn-raised" } %>
-            <%= link_to 'Mark as served', { order_id: order.id, kitchen_status: 'served' }, { method: :patch, remote: true, class: "btn btn-primary" } %>
-            <%= link_to 'Cancel', { order_id: order.id, kitchen_status: 'cancelled' }, { method: :patch, remote: true, class: "btn btn-warning" } %>
+            <%= link_to 'Mark as ready', { order_id: order.id, kitchen_status: 'ready' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "ready btn btn-primary btn-raised" } %>
+            <%= link_to 'Mark as served', { order_id: order.id, kitchen_status: 'served' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "server btn btn-primary" } %>
+            <%= link_to 'Cancel', { order_id: order.id, kitchen_status: 'cancelled' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "cancel btn btn-warning" } %>
             </div> 
             <div class="order-data" data-order-id='<%= order.id %>'>
                 <p>Kitchen status: <span class="kitchen-status"><%= order.kitchen_status %></span></p>
@@ -26,3 +26,36 @@
         </div>
     </div>
 </div>
+
+<script>
+    console.log('hello');
+    
+    const patchRequest = (status) => {
+        fetch('/kitchens/orders', {
+        method: 'patch',
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').innerHTML
+        },
+        body: {
+            order_id: document.querySelector('.order-data').dataSet.orderId,
+            kitchen_status: status
+        },
+        credentials: 'same-origin'
+      }).then(function (response) {
+        console.log(response)
+      });
+    };
+
+    const readyButton = querySelector('.ready');
+    const servedButton = querySelector('.served');
+    const cancelledButton = querySelector('.cancelled');
+
+    console.log(readyButton.innerHTML);
+
+    readyButton.addEventListener('click', () => { 
+        console.log("hello i am here");
+        patchRequest('asdf');
+         });
+    //readyButton.addEventListener('click', () => { patchRequest('ready') });
+    //readyButton.addEventListener('click', () => { patchRequest('ready') });
+</script>

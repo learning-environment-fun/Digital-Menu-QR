@@ -35,6 +35,7 @@ end
     get 'orders/', to: 'kitchens#orders'
     get 'manager/', to: 'kitchens#manager'
     patch 'orders/', to: 'orders#patch'
+    get 'orders-list', to: 'kitchens#orders_list'
   end
 
   # test routes for getting to specific views
