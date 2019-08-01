@@ -10,7 +10,7 @@
     <title>FoodStream</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-  
+
     <%= favicon_link_tag %>
     <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
     <%= javascript_include_tag 'application'%>
@@ -21,6 +21,11 @@
 </head>
 
 <body>
+
+  <!-- for anything in kitchens controller; render this specific navbar -->
+  <% if params[:controller]== 'kitchens' %>
+  <%= render 'kitchens_navbar'  %>
+  <% end %>
 
   <%= yield %>
 
