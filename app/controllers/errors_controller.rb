@@ -6,18 +6,11 @@ class ErrorsController < ApplicationController
    end
 
    def unacceptable
-     respond_to do |format|
-       format.html { render status: 422 }
-       format.json { render json: { error: "Params unacceptable" }, status: 422 }
-     end
+     render '/errors_controller/unacceptable'
    end
 
    def internal_error
-     respond_to do |format|
-       format.html { render status: 500 }
-       format.json { render json: { error: "Internal server error" }, status: 500 }
-     end
+     render '/errors_controller/internal_error'
    end
-
 
 end
