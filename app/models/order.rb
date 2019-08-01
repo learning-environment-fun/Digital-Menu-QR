@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :restaurant
   belongs_to :table
-  has_many :order_items, :dependent => :destroy
+  has_many :order_items
   has_many :items, :through => :order_items
   after_save :total_cost
 
@@ -36,6 +36,16 @@ class Order < ApplicationRecord
   def gratuity_amount_formatted
     format_amount(gratuity_amount)
   end
+
+  def avg_time
+    return ((end_time - start_time)/ 60).to_i
+
+  end
+
+  def self.numbers
+    return self.joins(:table).group(:table_number).count
+  end
+
 
   private
 

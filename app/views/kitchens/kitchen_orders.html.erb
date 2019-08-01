@@ -42,48 +42,19 @@
                 <!--  content  -->
                 <h3>Orders</h3>
                 <% Table.last(5).each do |table| %>
-                    <% table.orders.each do |order| %>
-                        <br>
-                        <%= render "kitchen_order_show", order: order  %>
-                    <% end %>
+                <% table.orders.each do |order| %>
+                <br>
+                <%= render "kitchen_order_show", order: order  %>
                 <% end %>
-
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Order 1</strong>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Grilled Sea Bream; Grean Bean Salad</h5>
-                        <!--                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
- -->
-                    </div>
-                </div>
-                <br>
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Order 2</strong>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Pizza Hawaii; Beer</h5>
-                        <!--                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
- -->
-                    </div>
-                </div>
-                <br>
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Order 3</strong>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Red Wine; Mushroom Risotto</h5>
-                        <!--                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
- -->
-                    </div>
-                </div>
-                <!-- DELETE / MARK AS SERVED BUTTONS -->
-                <div class="kitchen-serve-buttons">
-                    <a class="red-delete-kitchen" href="#"> Delete Order</a>
-                    <a class="mark-served-kitchen" href="">Mark as Served</a>
-                </div>
-                <!-- END OF DELETE / MARK AS SERVED BUTTONS -->
-                <!--   End order Tab content-->
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DELETE / MARK AS SERVED BUTTONS -->
+<div class="kitchen-serve-buttons">
+    <a class="btn btn-warning " href="#"> Delete Order</a>
+    <a class="btn btn-success btn-raised" href="">Mark as Served</a>
+</div>
+<!-- END OF DELETE / MARK AS SERVED BUTTONS -->
+<!--   End order Tab content-->
