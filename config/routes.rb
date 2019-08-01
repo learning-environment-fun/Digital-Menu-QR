@@ -53,9 +53,9 @@ resources :orders, only: [:show, :update, :destroy] do
 end
 
   # scope adds a prefix to the url; for customizing your url
-  scope 'kitchen' do
-    get 'orders/', to: 'kitchen#orders'
-    get 'manager/', to: 'kitchen#manager'
+  scope 'kitchens' do
+    get 'orders/', to: 'kitchens#orders'
+    get 'manager/', to: 'kitchens#manager'
   end
 
   # test routes for getting to specific views
