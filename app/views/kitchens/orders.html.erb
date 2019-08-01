@@ -27,7 +27,8 @@
                 <!--  End order Tab -->
                 <!--  order Tab -->
                 <li class="nav-item">
-                    <a class="nav-link" id="order2" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Table <%= table.table_number %></a>
+                    <a class="nav-link" id="order2" data-toggle="pill" href="#pills-home" role="tab"
+                        aria-controls="pills-home" aria-selected="true">Table <%= table.table_number %></a>
                 </li>
                 <% end %>
                 <!--  End order Tab -->
@@ -43,7 +44,9 @@
                 <% Table.last(5).each do |table| %>
                 <% table.orders.each do |order| %>
                 <br>
+                <% if order.items.length > 0 %>
                 <%= render "kitchen_order_show", order: order  %>
+                <% end %>
                 <% end %>
                 <% end %>
             </div>

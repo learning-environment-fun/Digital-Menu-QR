@@ -4,30 +4,6 @@ Rails.application.routes.draw do
 
   get "/qrcode/:table_id", to: 'orders#create'
 
-# <<<<<<< HEAD
-# =======
-#   scope 'kitchen' do
-#     get 'orders/', to: 'kitchens#kitchen_orders'
-#   end
-#   root to: 'pages#home', as: 'homepage'
-
-#   get "/qrcode/:table_id", to: 'orders#create'
-
-#   # test routes for getting to specific views
-#   get "/cart", to: 'pages#cart', as: 'cart'
-#   # get "/cart/:num", to: 'pages#cart', as: 'cart_with_quantity'
-#   get "/pay/:order_id", to: 'pages#pay', as: 'pay'
-#   get "/feedback/:order_id", to: 'pages#feedback', as: 'feedback'
-
-
-
-#   resources :restaurants, only: [:index, :show]
-#   resources :items, only: [:show]
-#   post '/orders', to: 'orders#handle_order_json'
-#   get '/alt-restaurants/:id', to: 'restaurants#alt_show', as: 'alt_restaurant'
-
-#   #1 after scanning a new order will be created, than redicrection to 'show restaurants items'
-# >>>>>>> master
 
 
   root to: 'pages#home', as: 'homepage'
@@ -58,6 +34,7 @@ end
   scope 'kitchens' do
     get 'orders/', to: 'kitchens#orders'
     get 'manager/', to: 'kitchens#manager'
+    patch 'orders/', to: 'orders#patch'
   end
 
   # test routes for getting to specific views

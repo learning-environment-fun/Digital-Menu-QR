@@ -39,6 +39,16 @@ end
     redirect_to order_path(@order)
   end
 
+  def patch 
+    @order = Order.find(params[:order_id])
+    @order.kitchen_status = params[:kitchen_status]
+    @order.save
+    respond_to do |format|
+      format.html { redirect_to 'kitchens/orders' }
+      format.js 
+    end
+  end
+
   def update
     @order = Order.find(params[:id])
   end

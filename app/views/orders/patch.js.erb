@@ -1,0 +1,9 @@
+function refreshOrder(id, kitchen_status, transaction_status) {
+  order = document.querySelector(`.order-data[data-order-id="${id}"]`);
+  order.querySelector('.transaction-status').innerHTML = transaction_status;
+  order.querySelector('.kitchen-status').innerHTML = kitchen_status;
+}
+
+<% if !@order.errors.any? %>
+  refreshOrder(<%= @order.id %>, "<%= @order.kitchen_status %>", "<%= @order.transaction_status %>");
+<% end %>
