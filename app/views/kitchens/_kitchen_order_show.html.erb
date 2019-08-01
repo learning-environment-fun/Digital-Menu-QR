@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">
+        <strong>Order</strong>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+
+        <div class="d-flex">
+            <div data-order-id='<%= order.id %>'>
+                <% order.order_items.each do |orderitem| %>
+                <ul>
+                    <li>
+                        <%= orderitem.item.name%> x <%= orderitem.quantity %></p>
+                    </li>
+                </ul>
+                <% end %>
+
+                <%= link_to 'Mark as ready', { order_id: order.id, kitchen_status: 'ready' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "ready btn btn-primary btn-raised" } %>
+                <%= link_to 'Mark as served', { order_id: order.id, kitchen_status: 'served' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "served btn btn-primary" } %>
+                <%= link_to 'Cancel', { order_id: order.id, kitchen_status: 'cancelled' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "cancelled btn btn-warning" } %>
+            </div>
+            <div class="order-data" data-order-id='<%= order.id %>'>
+                <p>Kitchen status: <span class="kitchen-status"><%= order.kitchen_status %></span></p>
+                <p>Transaction status: <span class="transaction-status"><%= order.transaction_status %></span></p>
+            </div>
+        </div>
+    </div>
+</div>

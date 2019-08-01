@@ -42,7 +42,7 @@
 
 .kitchen-order-menu-section {
   background-color: #e0e0e0;
-  width: 30vw;
+  width: 20vw;
   height: 100%;
 }
 
@@ -54,7 +54,7 @@
 
 .kitchen-order-list {
   ul {
-    width: 30vw;
+    width: 100%;
     margin: 0em;
     padding: 0em;
   }
@@ -70,49 +70,46 @@
   }
 }
 
+.kitchen-chart {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
 .kitchen-serve-buttons {
   padding-top: 16px;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 24px;
 }
 
 .red-delete-kitchen {
   color: #FF1C00;
   padding: 2px 4px;
   border: 2px #FF1C00 solid;
-  margin-right: 15px;
+  margin-right: 16px;
+}
+
+.red-delete-kitchen:hover {
+  color: #FF1C00;
+  padding: 2px 4px;
+  border: 2px #FF1C00 solid;
+  margin-right: 16px;
+  background-color: #ffb0a8;
+  text-decoration: none;
 }
 
 .mark-served-kitchen {
-  border: 2px #50C779 solid;
-  color: #50C779;
+  color: #50c779;
   padding: 2px 4px;
+  border: 2px #50c779 solid;
 }
 
-.kitchen-order-list {
-  ul {
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+.mark-served-kitchen:hover {
+  color: #50c779;
+  padding: 2px 4px;
+  border: 2px #50c779 solid;
+  text-decoration: none;
+  background-color: #89edaa;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

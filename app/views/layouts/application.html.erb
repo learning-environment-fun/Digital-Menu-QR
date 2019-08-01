@@ -7,11 +7,16 @@
     <script src="https://kit.fontawesome.com/36197ad289.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>McDonalds</title>
+    <title>FoodStream</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+  
+    <%= favicon_link_tag %>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_include_tag 'application'%>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
     <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 </head>
 
@@ -19,8 +24,9 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag 'application' %>
+
   <%= javascript_pack_tag 'application' %>
+
 </body>
 
 </html>

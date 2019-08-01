@@ -9,9 +9,9 @@ tmp/*
 
 app/controllers/order_Items_controller.rb
 
-# public/assets
-# public/packs
-# public/packs-test
+public/assets
+public/packs
+public/packs-test
 
 node_modules
 yarn-error.log

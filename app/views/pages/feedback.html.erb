@@ -1,9 +1,10 @@
 <div class="payment-container">
 
 <div class="restaurant-header-2">
-
+<div class="totalprice">
             <p>Thanks for visiting: <strong>
             Luigi</strong></p>
+</div>
 </div>
 
 <div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;">
@@ -14,9 +15,13 @@
 <h4>Order Summary</h4>
         <div class="order-summary-list">
             <div class="order-grid">
+              <ol>
                 <% @order.order_items.each do |order_item| %>
-                <span class="order-item"><%= "#{order_item.item.name} x#{order_item.quantity}" %></span>
+                <li>
+                   <span class="order-item"><%= "#{order_item.item.name} x #{order_item.quantity}" %></span>
+                </li>
                 <% end %>
+                </ol>
             </div>
         </div>
 
@@ -59,7 +64,7 @@
             <div class="text-center mb-5">
                 <p>Did you enjoy your ordering experience?</p>
 
-                <%= link_to 'Place Another Order', homepage_path, class: "text-center btn btn-primary" %>
+                <%= link_to 'Place Another Order', order_path(@order), class: "text-center btn btn-primary" %>
                 <button type="button" class="btn btn-primary btn-raised">Recommend Us</button>
                 <!--<button type="button" id="new-order-button" class="text-center btn btn-primary">Place Another Order</button>-->
             </div>
