@@ -1,8 +1,8 @@
 class KitchensController < ApplicationController
 
   def orders
-    @tables = Table.last(8)
-    #@orders = @tables.orders
+    @tables = Table.all
+    @orders = @tables.orders
   end
 
   def manager
