@@ -42,7 +42,7 @@
 
 .kitchen-order-menu-section {
   background-color: #e0e0e0;
-  width: 30vw;
+  width: 20vw;
   height: 100%;
 }
 
@@ -54,7 +54,7 @@
 
 .kitchen-order-list {
   ul {
-    width: 30vw;
+    width: 100%;
     margin: 0em;
     padding: 0em;
   }
@@ -70,22 +70,17 @@
   }
 }
 
-.kitchen-order-list {
-  ul {
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+.kitchen-chart {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .kitchen-serve-buttons {
   padding-top: 16px;
   display: flex;
   justify-content: flex-end;
-    margin-bottom: 24px;
-
+  margin-bottom: 24px;
 }
 
 .red-delete-kitchen {
@@ -117,23 +112,4 @@
   text-decoration: none;
   background-color: #89edaa;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
