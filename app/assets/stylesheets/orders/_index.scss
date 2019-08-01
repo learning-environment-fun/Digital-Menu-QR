@@ -1,4 +1,27 @@
 
+
+    h1 {
+      font-size: 20px;
+      line-height: 1;
+      color: #252427;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #A299AC;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 1em 0;
+      letter-spacing: 0.4px;
+    }
+
+
 // Here i am (Freddy) overwriting the bootstrap class
 .nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active, .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   border-bottom: 2px solid; }
@@ -71,18 +94,14 @@ margin: 30px 0px;
   object-fit: cover;
 }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.card-trip  {
+  h1 {
+    min-width: 45px;
+  }
+  h1 {
+    max-width: 100px;
+  }
 }
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
