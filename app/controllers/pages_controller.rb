@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
 
   def pay
-    @order = Order.find(params[:order_id])
+    @order = Order.find(params[:id])
   end
 
   def feedback
