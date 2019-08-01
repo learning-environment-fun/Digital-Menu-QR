@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :restaurant
   belongs_to :table
-  has_many :order_items, :dependent => :destroy
+  has_many :order_items
   has_many :items, :through => :order_items
   after_save :total_cost
 
