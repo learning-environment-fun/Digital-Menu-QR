@@ -27,9 +27,9 @@
                 </ul>
                 <% end %>
 
-                <%= link_to 'Mark as ready', { order_id: order.id, kitchen_status: 'ready' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "ready btn btn-primary btn-raised" } %>
-                <%= link_to 'Mark as served', { order_id: order.id, kitchen_status: 'served' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "served btn btn-primary" } %>
-                <%= link_to 'Cancel', { order_id: order.id, kitchen_status: 'cancelled' }, { controller: "orders", action: "patch", method: :patch, remote: true, class: "cancelled btn btn-warning" } %>
+                <button class="ready btn btn-warning">Mark as ready</button>
+                <button class="served btn btn-primary">Mark as served</button>
+                <button class="cancelled btn btn-warning">Cancel</button>
             </div>
             <div class="order-data" data-order-id='<%= order.id %>'>
                 <p>Kitchen status: <span class="kitchen-status"><%= order.kitchen_status %></span></p>
