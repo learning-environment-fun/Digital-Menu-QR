@@ -2,6 +2,8 @@ import "bootstrap";
 require('../bootstrap-material-design.min.js');
 require("chartkick")
 require("chart.js")
+
+// import kitchen organizer
 import kitchenOrganizer from "../components/kitchen_organizer";
 // const Rails = require('rails-ujs');
 // Rails.start();
@@ -15,4 +17,6 @@ $(document).ready(function () {
 
 import { updateAmountItem } from '../components/updatePriceAmount';
 updateAmountItem();
+
+// Run kitchen organizer wheen function executes
 kitchenOrganizer();
