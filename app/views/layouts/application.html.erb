@@ -10,17 +10,24 @@
     <title>FoodStream</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-  
+
     <%= favicon_link_tag %>
-    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <%= javascript_include_tag 'application'%>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <%#= stylesheet_pack_tag 'application', media: 'all' %>
     <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 </head>
 
 <body>
+
+  <!-- for anything in kitchens controller; render this specific navbar -->
+  <% if params[:controller]== 'kitchens' %>
+  <%= render 'kitchens_navbar'  %>
+  <% end %>
 
   <%= yield %>
 
