@@ -43,9 +43,9 @@
     <div class="order-footer order-container">
         <span class="order-buttons btn-group-lg">
             <!--<button type="button" class="btn btn-raised btn-success">Confirm Order</button>-->
-            <%= link_to 'Add more to cart', menu_order_path(@order.id), class: "btn btn-primary" %>
+            <%= link_to 'Add more to cart', menu_order_path(@order.id), class: "cart-button" %>
 
-            <%= link_to 'Confirm Order', pay_order_path(@order.id), class: "btn btn-primary" %>
+            <%= link_to 'Confirm Order', pay_order_path(@order.id), class: "cart-button" %>
         </span>
     </div>
 </div>

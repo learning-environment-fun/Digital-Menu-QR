@@ -25,6 +25,14 @@ h2 {
   }
 }
 
+.cart-button {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  color: #009688 !important;
+  text-transform: uppercase !important;
+}
+
 
 // Here i am (Freddy) overwriting the bootstrap class
 .nav-pills .nav-item.show .nav-link,
