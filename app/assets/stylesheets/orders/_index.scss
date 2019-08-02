@@ -13,6 +13,18 @@ h2 {
   text-transform: uppercase !important;
 }
 
+#tabs-main {
+  color: #009688 !important;
+}
+
+.tabs-main {
+  color: black !important;
+
+  &.active {
+    color: #009688 !important;
+  }
+}
+
 
 // Here i am (Freddy) overwriting the bootstrap class
 .nav-pills .nav-item.show .nav-link,
