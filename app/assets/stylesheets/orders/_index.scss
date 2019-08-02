@@ -1,16 +1,16 @@
 h1 {
-  font-size: 20px;
-  line-height: 1;
-  color: #252427;
-  font-weight: 700;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  color: #252427 !important;
+  font-weight: 700 !important;
 }
 
 h2 {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #A299AC;
-  text-transform: uppercase;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  color: #A299AC !important;
+  text-transform: uppercase !important;
 }
 
 
@@ -47,8 +47,8 @@ h2 {
   background-color: #009688;
 
   h2 {
-    margin: 0px;
-    color: white;
+    margin: 0px !important;
+    color: white !important;
   }
 
 }
