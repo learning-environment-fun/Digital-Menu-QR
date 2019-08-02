@@ -18,10 +18,21 @@
                 <p>
                     <%= @item.description %>
                 </p>
+
+              <% if @item.food_type == "drink" %>
+
                 <ul>
-                  <li><i class="fas fa-fish"></i></li>
+                  <li><i class="fas fa-wine-glass-alt"></i></li>
+                  <li><i class="fas fa-lemon"></i></li>
+                </ul>
+              <% else %>
+                   <ul>
+                 <li><i class="fas fa-fish"></i></li>
                   <li><i class="fas fa-seedling"></i></li>
                 </ul>
+                <% end %>
+
+
             </div>
             <div class="fixedmenu">
 
