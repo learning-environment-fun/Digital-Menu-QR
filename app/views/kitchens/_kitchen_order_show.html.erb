@@ -8,23 +8,33 @@
             <strong>Order</strong>
         </div>
         <div>
-            <div class="kitchen-serve-buttons">
+            <!--<div class="kitchen-serve-buttons">
                 <a class="btn btn-warning " href="#"> Delete Order</a>
                 <a class="btn btn-success btn-raised" href="">Mark as Served</a>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="card-body">
-        <h5 class="card-title">
-            <% order.order_items.each do |orderitem| %>
-            <ul>
-                <li>
-                    <%= orderitem.item.name%> x
-                    <%= orderitem.quantity %>
-                    </p>
-                </li>
-            </ul>
-            <% end %>
-        </h5>
+        <h5 class="card-title"></h5>
+
+        <div class="d-flex">
+            <div data-order-id='<%= order.id %>'>
+                <% order.order_items.each do |orderitem| %>
+                <ul>
+                    <li>
+                        <%= orderitem.item.name%> x <%= orderitem.quantity %></p>
+                    </li>
+                </ul>
+                <% end %>
+
+                <button class="ready btn btn-success btn-raised">Mark as ready</button>
+                <button class="served btn btn-primary">Mark as served</button>
+                <button class="cancelled btn btn-warning">Cancel</button>
+            </div>
+            <div class="order-data" data-order-id='<%= order.id %>'>
+                <p>Kitchen status: <span class="kitchen-status"><%= order.kitchen_status %></span></p>
+                <!--<p>Transaction status: <span class="transaction-status"><%= order.transaction_status %></span></p>-->
+            </div>
+        </div>
     </div>
 </div>

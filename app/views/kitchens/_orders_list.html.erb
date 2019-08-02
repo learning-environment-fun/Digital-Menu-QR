@@ -1,0 +1,6 @@
+<% @orders.each do |order| %>
+    <% if order.items.length > 0 %>
+        <%= render "kitchen_order_show", order: order  %>
+        <br>
+    <% end %>
+<% end %>

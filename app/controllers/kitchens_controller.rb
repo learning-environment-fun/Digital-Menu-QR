@@ -1,8 +1,13 @@
 class KitchensController < ApplicationController
-
+  
   def orders
     @tables = Table.all
     @orders = @tables.orders
+  end
+
+  def orders_list
+    @orders = Order.all.sort_by { |order| order.id }
+    render partial: 'orders_list'
   end
 
   def manager

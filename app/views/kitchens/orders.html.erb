@@ -23,22 +23,20 @@
             <div class="tab-pane active" id="order1">
                 <!--  content  -->
                 <h3>Orders</h3>
-                <% Table.last(5).each do |table| %>
-                <% table.orders.each do |order| %>
-                <br>
-                <%= render "kitchen_order_show", order: order  %>
-                <% end %>
-                <% end %>
+                <p style="&.invisible { display: none; }" class="loading-text text-center invisible my-1"><em>Updating orders...</em></p>
+                <div class="orders-container">
+                    <h2 class="text-center">Hold on...</h2>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <!-- DELETE / MARK AS SERVED BUTTONS -->
 
-<div class="kitchen-serve-buttons">
+<!--<div class="kitchen-serve-buttons">
     <a class="btn btn-warning red-delete-kitchen " href="#"> Delete Order</a>
     <a class="btn btn-success btn-raised" href="">Mark as Served</a>
-</div>
+</div>-->
 
 <!-- END OF DELETE / MARK AS SERVED BUTTONS -->
 <!--   End order Tab content-->

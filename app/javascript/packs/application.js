@@ -11,6 +11,10 @@ import kitchenOrganizer from "../components/kitchen_organizer";
 //import { cartPageSetup } from '../components/cart_logic/cartHandler.js';
 //cartPageSetup();
 
+import { listenForOrders } from "../components/order_fetcher.js";
+
+listenForOrders();
+
 $(document).ready(function () {
   $('body').bootstrapMaterialDesign();
 });
