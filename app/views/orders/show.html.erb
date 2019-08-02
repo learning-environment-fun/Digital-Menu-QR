@@ -1,7 +1,7 @@
 <!-- <div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');   background-size: cover;"> -->
-<div class="restaurant-header">
-    <p>Welcome to<strong>
-            <%= @restaurant.name %></strong></p>
+
+<div class="restaurant-header titles">
+    <h2>Welcome to <%= @restaurant.name %></h2>
 </div>
 </div>
 <div class="header-image" style="background-image: url('<%= cl_image_path @restaurant.image %>');   background-size: cover;">
@@ -67,7 +67,7 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <!-- Food content Tab -->
-            <h4>Appetizers</h4>
+            <h2>Appetizers</h2>
             <div class="cart-content">
                 <% @appetizer.each do |n| %>
                 <%= link_to order_item_path(@order, n) do %>
@@ -79,16 +79,16 @@
                                 <%= n.name %>
                             </h2>
                         </div>
-                        <h2 class="card-trip-pricing">
+                        <h1 class="card-trip-pricing">
                             <%= n.price %> $
-                        </h2>
+                        </h1>
                         <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
                     </div>
                 </div>
                 <% end %>
                 <% end %>
             </div>
-            <h4>Main Dishes</h4>
+            <h2>Main Dishes</h2>
             <div class="cart-content">
                 <% @food.each do |n| %>
                 <%= link_to order_item_path(@order, n) do %>
@@ -100,16 +100,16 @@
                                 <%= n.name %>
                             </h2>
                         </div>
-                        <h2 class="card-trip-pricing">£
-                            <%= n.price %>
-                        </h2>
+                        <h1 class="card-trip-pricing">
+                            <%= n.price %> $
+                        </h1>
                         <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
                     </div>
                 </div>
                 <% end %>
                 <% end %>
             </div>
-            <h4>Desserts</h4>
+            <h2>Desserts</h2>
             <div class="cart-content">
                 <% @dessert.each do |n| %>
                 <%= link_to order_item_path(@order, n) do %>
@@ -121,9 +121,9 @@
                                 <%= n.name %>
                             </h2>
                         </div>
-                        <h2 class="card-trip-pricing">£
-                            <%= n.price %>
-                        </h2>
+                        <h1 class="card-trip-pricing">
+                            <%= n.price %> $
+                        </h1>
                         <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
                     </div>
                 </div>
@@ -145,9 +145,9 @@
                                 <%= n.name %>
                             </h2>
                         </div>
-                        <h2 class="card-trip-pricing">£
-                            <%= n.price %>
-                        </h2>
+                        <h1 class="card-trip-pricing">
+                            <%= n.price %> $
+                        </h1>
                         <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
                     </div>
                 </div>
@@ -157,3 +157,4 @@
         </div>
     </div>
 </div>
+
