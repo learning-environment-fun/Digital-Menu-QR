@@ -26,10 +26,24 @@
     margin: 20px 0px;
 
     p {
-        min-height: 20vh;
-        max-height: 28vh;
+
+        max-height: 22vh;
         overflow: auto;
     }
+
+ul {
+        list-style-type: none;
+        padding: 0px;
+    }
+
+    li {
+        display: inline;
+        padding: 1em 0.5em;
+        font-size: 25px;
+        color: #C4C4C4;
+    }
+
+
 }
 
 .item-shoppingcard {
