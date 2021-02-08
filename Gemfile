@@ -4,7 +4,7 @@ ruby '2.5.3'
 # Gems required for Felix's mega app, which Chalres will hopefully not ruin
 # gem 'dotenv-rails', groups: [:development, :test] --> already listed at bottom of file
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'faker', require: true
 gem 'stripe'
 gem 'money-rails'
